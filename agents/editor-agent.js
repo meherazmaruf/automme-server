@@ -9,7 +9,7 @@ export class EditorAgent {
     this.name = 'Editor Agent';
     this.llm = new ChatGoogleGenerativeAI({
       apiKey: getGeminiKey(),
-      modelName: 'gemini-1.5-pro',
+      modelName: 'gemini-2.0-flash',
       temperature: 0.2,
       maxOutputTokens: 8192,
     });
