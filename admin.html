@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Dashboard — Automme</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--sb-w:250px;--sb-bg:#0a0a0c;--bg:#111113;--accent:#3b82f6;--green:#22c55e;--txt:#f0f0f2;--dim:rgba(255,255,255,0.45);--brd:rgba(255,255,255,0.08)}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);display:flex;min-height:100vh}
+
+    /* SIDEBAR */
+    .sb{width:var(--sb-w);background:var(--sb-bg);border-right:1px solid var(--brd);position:fixed;height:100vh;display:flex;flex-direction:column;padding:1.5rem 1rem;overflow-y:auto}
+    .sb-brand{display:flex;align-items:center;gap:10px;padding:0 .5rem 1.2rem;border-bottom:1px solid var(--brd);margin-bottom:1rem}
+    .sb-brand img{height:28px}
+    .sb-brand span{font-size:1.2rem;font-weight:700;letter-spacing:-0.03em}
+    .sb-section{margin-bottom:1.2rem}
+    .sb-section-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);padding:0 .75rem;margin-bottom:.5rem;font-weight:600}
+    .sb-nav{list-style:none}
+    .sb-nav li{margin-bottom:2px}
+    .sb-nav a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--dim);text-decoration:none;font-size:.88rem;transition:all .2s}
+    .sb-nav a:hover{background:rgba(255,255,255,0.05);color:var(--txt)}
+    .sb-nav a.active{background:var(--accent);color:#fff}
+    .sb-nav a svg{width:17px;height:17px;flex-shrink:0}
+
+    /* MAIN */
+    .main{margin-left:var(--sb-w);flex:1;padding:2.5rem 3rem}
+    .page-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
+    .page-hdr h1{font-size:1.7rem;font-weight:600;letter-spacing:-.5px}
+    .btn-new{background:var(--accent);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-family:inherit;font-size:.88rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;transition:transform .15s}
+    .btn-new:hover{transform:translateY(-1px)}
+
+    /* LIST */
+    .a-list{border:1px solid var(--brd);border-radius:12px;overflow:hidden}
+    .l-hdr{display:grid;grid-template-columns:1fr 130px 110px 80px;padding:10px 18px;background:rgba(255,255,255,0.04);font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+    .l-row{display:grid;grid-template-columns:1fr 130px 110px 80px;padding:12px 18px;border-top:1px solid var(--brd);align-items:center;cursor:pointer;transition:background .15s}
+    .l-row:hover{background:rgba(255,255,255,0.03)}
+    .l-row .t{font-weight:500;font-size:.92rem}
+    .l-row .t:hover{color:var(--accent)}
+    .l-row .m{color:var(--dim);font-size:.82rem}
+    .badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+    .b-draft{background:rgba(255,255,255,0.05);color:var(--dim);border:1px solid rgba(255,255,255,0.05)}
+    .b-pub{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+    .view-link{color:var(--accent);opacity:0.6;transition:opacity 0.2s;display:flex;align-items:center;}
+    .view-link:hover{opacity:1;}
+    .btn-edit{background:transparent;border:1px solid var(--brd);color:var(--dim);padding:4px 10px;border-radius:6px;font-size:0.75rem;cursor:pointer;transition:all 0.2s;}
+    .btn-edit:hover{border-color:var(--accent);color:var(--accent);}
+    .l-row{display:grid;grid-template-columns:1fr 130px 110px 100px 80px;padding:12px 18px;border-top:1px solid var(--brd);align-items:center;transition:background .15s}
+    .l-hdr{display:grid;grid-template-columns:1fr 130px 110px 100px 80px;padding:10px 18px;background:rgba(255,255,255,0.04);font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+
+    /* MODAL */
+    .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:500}
+    .modal-bg.show{display:flex}
+    .modal{background:#1a1a1e;border:1px solid var(--brd);border-radius:14px;padding:1.8rem;width:440px;max-width:90vw}
+    .modal h2{font-size:1.1rem;margin-bottom:.8rem}
+    .m-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:8px;padding:11px 1rem;color:#fff;font-family:inherit;font-size:.95rem}
+    .m-input:focus{outline:none;border-color:var(--accent)}
+    .m-acts{display:flex;gap:8px;justify-content:flex-end;margin-top:1rem}
+    .m-acts button{padding:9px 16px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.88rem}
+    .btn-c{background:transparent;border:1px solid var(--brd);color:var(--dim)}
+    .btn-ok{background:var(--accent);border:none;color:#fff;font-weight:600}
+
+    /* EDITOR */
+    .ed{display:none}
+    .ed.show{display:block}
+    .lv.hide{display:none}
+    .ed-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+    .btn-back{background:transparent;border:1px solid var(--brd);color:var(--dim);padding:7px 14px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.82rem;display:flex;align-items:center;gap:5px}
+    .btn-back:hover{color:var(--txt);border-color:rgba(255,255,255,0.15)}
+    .ed-acts{display:flex;gap:8px;align-items:center}
+    .ed-sel{background:#1a1a1e;border:1px solid var(--brd);border-radius:8px;padding:8px 12px;color:#fff;font-family:inherit;font-size:.85rem;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:14px;padding-right:35px;}
+    .ed-sel option { background: #1a1a1e; color: #fff; }
+    .btn-pub{background:var(--green);border:none;color:#fff;padding:9px 18px;border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.88rem;transition:all 0.2s;}
+    .btn-pub:hover{filter:brightness(1.1);transform:translateY(-1px);}
+    .btn-pub:disabled{opacity:0.6;cursor:not-allowed;}
+    .ed-title{width:100%;background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--txt);font-family:inherit;font-size:2rem;font-weight:600;letter-spacing:-1px;margin-bottom:1rem;padding:0 0 .8rem 0}
+    .ed-title:focus{outline:none;border-color:var(--accent)}
+    .ed-title::placeholder{color:rgba(255,255,255,0.12)}
+
+    /* Excerpt */
+    .ed-excerpt{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--brd);border-radius:8px;padding:10px 1rem;color:rgba(255,255,255,0.8);font-family:inherit;font-size:.9rem;margin-bottom:1rem;resize:none;height:60px}
+    .ed-excerpt:focus{outline:none;border-color:var(--accent)}
+    .ed-excerpt::placeholder{color:rgba(255,255,255,0.12)}
+
+    /* Image URL */
+    .img-row{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
+    .img-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--brd);border-radius:8px;padding:9px 1rem;color:#fff;font-family:inherit;font-size:.88rem}
+    .img-input:focus{outline:none;border-color:var(--accent)}
+    .img-input::placeholder{color:rgba(255,255,255,0.12)}
+    .img-preview{max-width:100%;max-height:200px;border-radius:8px;margin-bottom:1rem;display:none}
+
+    /* Toolbar */
+    .tb{display:flex;gap:3px;padding:7px 10px;background:rgba(255,255,255,0.04);border:1px solid var(--brd);border-radius:9px;margin-bottom:.8rem;flex-wrap:wrap}
+    .tb button{background:transparent;border:none;color:var(--dim);padding:5px 9px;border-radius:5px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:500;transition:all .15s}
+    .tb button:hover{background:rgba(255,255,255,0.08);color:var(--txt)}
+    .tb .sep{width:1px;background:var(--brd);margin:0 3px}
+
+    /* EDITOR GRID & PREVIEW */
+    .editor-grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:10px; height: calc(100vh - 350px); }
+    .editor-main { display:flex; flex-direction:column; min-height:0; }
+    .editor-preview { background: rgba(255,255,255,0.02); border:1px solid var(--brd); border-radius:12px; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+    .preview-label { padding: 10px 15px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); border-bottom: 1px solid var(--brd); background: rgba(255,255,255,0.02); }
+    .preview-content { padding: 0; overflow-y: auto; flex: 1; color: #f0f0f2; background: #0a0a0c; }
+    .mock-post-hero { padding: 40px 30px 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mock-meta { font-size: 0.8rem; color: var(--dim); margin-bottom: 15px; display: flex; gap: 10px; align-items: center; }
+    .mock-category { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .mock-title { font-size: 1.8rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.03em; color: #fff; margin: 0; }
+    .mock-img-wrap { width: 100%; aspect-ratio: 16/9; background: #1a1a1e; overflow: hidden; }
+    .mock-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .mock-body-wrap { padding: 30px; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.7); }
+    .mock-body-wrap h1, .mock-body-wrap h2, .mock-body-wrap h3 { color: #fff; margin: 1.5em 0 0.5em; }
+    .mock-body-wrap p { margin-bottom: 1.2em; }
+    .mock-body-wrap img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+
+    /* Content area */
+    .ed-body{flex:1; background:rgba(255,255,255,0.02); border:1px solid var(--brd); border-radius:0 0 12px 12px; padding:2rem; font-size:1.02rem; line-height:1.75; color:rgba(255,255,255,0.85); outline:none; overflow-y:auto; }
+    .ed-body:empty::before{content:'Start writing your article here...';color:rgba(255,255,255,0.12)}
+    .ed-body h1{font-size:1.8rem;font-weight:600;margin:.4em 0;color:var(--txt)}
+    .ed-body h2{font-size:1.4rem;font-weight:600;margin:.4em 0;color:var(--txt)}
+    .ed-body h3{font-size:1.15rem;font-weight:600;margin:.4em 0;color:var(--txt)}
+    .ed-body img{max-width:100%;border-radius:8px;margin:1rem 0}
+    .ed-body blockquote{border-left:3px solid var(--accent);padding-left:1rem;margin:1rem 0;color:var(--dim);font-style:italic}
+
+
+    /* Label */
+    .field-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);margin-bottom:.4rem;font-weight:600}
+
+    /* Toast */
+    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.88rem;transform:translateY(100px);opacity:0;transition:all .3s;z-index:999}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast.err{background:#ef4444}
+
+    /* AUTH */
+    .auth-overlay{position:fixed;inset:0;background:#0a0a0c;display:flex;align-items:center;justify-content:center;z-index:1000}
+    .auth-box{background:#1a1a1e;border:1px solid var(--brd);border-radius:16px;padding:2.5rem;width:400px;max-width:90vw;text-align:center}
+    .auth-box img{height:36px;margin-bottom:.5rem}
+    .auth-box h1{font-size:1.4rem;font-weight:600;margin-bottom:.3rem;letter-spacing:-.5px}
+    .auth-box p{color:var(--dim);font-size:.88rem;margin-bottom:1.5rem}
+    .auth-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:10px;padding:12px 1rem;color:#fff;font-family:inherit;font-size:.95rem;margin-bottom:.8rem}
+    .auth-input:focus{outline:none;border-color:var(--accent)}
+    .auth-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:12px;border-radius:10px;font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .auth-btn:hover{opacity:.85}
+    .auth-btn:disabled{opacity:.5;cursor:not-allowed}
+    .auth-toggle{font-size:.85rem;color:var(--dim);margin-top:1rem}
+    .auth-toggle a{color:var(--accent);text-decoration:none;cursor:pointer}
+    .auth-toggle a:hover{text-decoration:underline}
+    .auth-error{color:#ef4444;font-size:.82rem;margin-bottom:.8rem;display:none}
+    .auth-success{color:var(--green);font-size:.82rem;margin-bottom:.8rem;display:none}
+
+    /* DELETE */
+    .btn-del{background:transparent;border:1px solid rgba(239,68,68,0.3);color:#ef4444;padding:4px 10px;border-radius:6px;font-size:0.75rem;cursor:pointer;transition:all 0.2s;font-family:inherit}
+    .btn-del:hover{background:rgba(239,68,68,0.1);border-color:#ef4444}
+
+    .main-wrap{display:contents}
+    .main-wrap.hide{display:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .ai-post-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--brd);font-size:.85rem}
+    .ai-post-row:last-child{border-bottom:none}
+    .ai-post-title{font-weight:500;color:var(--txt)}
+    .ai-post-title:hover{color:var(--accent);cursor:pointer}
+    .ai-post-meta{color:var(--dim);font-size:.75rem}
+    .topic-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--brd);font-size:.82rem}
+    .topic-item:last-child{border-bottom:none}
+    .topic-item .del{cursor:pointer;color:#ef4444;font-size:.75rem;opacity:0.5;transition:opacity .2s}
+    .topic-item .del:hover{opacity:1}
+    .badge-used{background:rgba(255,255,255,0.05);color:var(--dim);font-size:.65rem;padding:2px 8px;border-radius:10px}
+    .toggle-on #aiToggleSlider{background:var(--green)}.toggle-on #aiToggleKnob{transform:translateX(20px);background:#fff}
+  </style>
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div class="auth-overlay" id="authScreen">
+    <div class="auth-box">
+      <img src="images/logo.png" alt="AUTOMME">
+      <h1 id="authTitle">Sign in</h1>
+      <p id="authSub">Access the article dashboard</p>
+      <div class="auth-error" id="authError"></div>
+      <div class="auth-success" id="authSuccess"></div>
+      <input type="email" class="auth-input" id="authEmail" placeholder="Email address" autocomplete="email">
+      <input type="password" class="auth-input" id="authPass" placeholder="Password" autocomplete="current-password">
+      <button class="auth-btn" id="authBtn" onclick="handleAuth()">Sign in</button>
+      <div style="font-size:.82rem;color:var(--dim);margin-top:1rem;">Only pre-registered admins can sign in.</div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sb">
+    <div class="sb-brand">
+      <img src="images/logo.png" alt="Logo">
+      <span>Article Dashboard</span>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Automme</div>
+      <ul class="sb-nav">
+        <li><a href="#" class="active" data-section="automme" onclick="switchSection('automme',this)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"/></svg>
+          Articles</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Maruf AI</div>
+      <ul class="sb-nav">
+        <li><a href="#" data-section="marufai" onclick="switchSection('marufai',this)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"/></svg>
+          Articles</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">AI Agents</div>
+      <ul class="sb-nav">
+        <li><a href="#" data-section="aiagents" onclick="switchSection('aiagents',this)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          AI Dashboard</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sb-section" style="margin-top:auto;border-top:1px solid var(--brd);padding-top:1rem">
+      <ul class="sb-nav">
+        <li><a href="blog.html">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          View Blog</a></li>
+        <li><a href="index.html">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Back to Site</a></li>
+        <li><a href="#" onclick="signOut()" style="color:#ef4444;">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
+          Logout</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-wrap" id="mainWrap">
+    <!-- LIST VIEW -->
+    <div class="lv" id="listView">
+      <div class="page-hdr">
+        <h1 id="sectionTitle">Automme — Articles</h1>
+        <button class="btn-new" onclick="openModal()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          Create Post
+        </button>
+      </div>
+      <div class="a-list"><div class="l-hdr"><div>Title</div><div>Category</div><div>Date</div><div>Status</div><div>Actions</div></div><div id="listBody"></div></div>
+    </div>
+
+    <!-- EDITOR VIEW -->
+    <div class="ed" id="editorView">
+      <div class="ed-top">
+        <button class="btn-back" onclick="closeEditor()">← Back</button>
+        <div class="ed-acts">
+          <select id="edCat" class="ed-sel">
+            <option>AI Systems</option><option>Operations AI</option><option>AI News</option><option>Marketing & Content</option><option>Scaling Strategy</option><option>Case Study</option><option>Other</option>
+          </select>
+          <button class="btn-pub" onclick="publishArticle()">✓ Publish</button>
+        </div>
+      </div>
+
+      <div class="field-label">Title</div>
+      <input type="text" class="ed-title" id="edTitle" placeholder="Your article title...">
+
+      <div class="field-label">Featured Image (Cover Photo)</div>
+      <div class="img-row" style="align-items: center; gap:15px; background:rgba(255,255,255,0.03); padding:15px; border-radius:12px; border:1px dashed var(--brd);">
+        <div id="leftThumb" style="width:80px; height:80px; background:rgba(255,255,255,0.05); border:1px solid var(--brd); border-radius:8px; overflow:hidden; flex-shrink:0; display:none;">
+          <img id="thumbImg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div id="uploadPlaceholder" style="width:80px; height:80px; background:rgba(255,255,255,0.02); border:1px dashed var(--brd); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--dim);">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <input type="hidden" id="edImage">
+          <input type="file" id="fileInput" style="display:none;" accept="image/*" onchange="handleFileUpload(event)">
+          <button class="btn-new" onclick="document.getElementById('fileInput').click()" style="padding:8px 15px; font-size:0.8rem;">
+            Choose Image
+          </button>
+          <div style="font-size:0.7rem; color:var(--dim); margin-top:8px;">Upload a high-quality cover photo (16:9).</div>
+        </div>
+      </div>
+
+      <div class="field-label">Author</div>
+      <div style="display:flex;gap:15px;align-items:center;background:rgba(255,255,255,0.03);padding:15px;border-radius:12px;border:1px dashed var(--brd);margin-bottom:1rem;">
+        <div id="authThumb" style="width:48px;height:48px;background:rgba(255,255,255,0.05);border:1px solid var(--brd);border-radius:50%;overflow:hidden;flex-shrink:0;display:none;">
+          <img id="authThumbImg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div id="authPlaceholder" style="width:48px;height:48px;background:rgba(255,255,255,0.02);border:1px dashed var(--brd);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--dim);font-size:1.2rem;">👤</div>
+        <div style="flex:1;display:flex;gap:10px;align-items:center;">
+          <input type="hidden" id="edAuthorImage">
+          <input type="text" class="m-input" id="edAuthorName" placeholder="Author name (default: Maruf)" style="flex:1;">
+          <input type="file" id="authFileInput" style="display:none;" accept="image/*" onchange="handleAuthorUpload(event)">
+          <button class="btn-new" onclick="document.getElementById('authFileInput').click()" style="padding:8px 15px;font-size:0.8rem;white-space:nowrap;">Upload Photo</button>
+        </div>
+      </div>
+
+      <div class="field-label">Content</div>
+      <div class="editor-grid">
+        <div class="editor-main">
+          <div class="tb">
+            <button onclick="fmt('formatBlock','h1')"><b>H1</b></button>
+            <button onclick="fmt('formatBlock','h2')"><b>H2</b></button>
+            <button onclick="fmt('formatBlock','h3')"><b>H3</b></button>
+            <button onclick="fmt('formatBlock','p')">¶</button>
+            <div class="sep"></div>
+            <button onclick="fmt('bold')"><b>B</b></button>
+            <button onclick="fmt('italic')"><i>I</i></button>
+            <button onclick="fmt('underline')"><u>U</u></button>
+            <div class="sep"></div>
+            <button onclick="fmt('insertUnorderedList')">• List</button>
+            <button onclick="fmt('formatBlock','blockquote')">❝ Quote</button>
+            <div class="sep"></div>
+            <button onclick="addLink()">🔗 Link</button>
+            <button onclick="fmt('unlink')">✕ Unlink</button>
+            <div class="sep"></div>
+            <button onclick="addInlineImg()">🖼 Image URL</button>
+            <input type="file" id="inlineFileInput" style="display:none;" accept="image/*" onchange="handleInlineFileUpload(event)">
+            <button onclick="document.getElementById('inlineFileInput').click()">📁 Upload</button>
+          </div>
+          <div class="ed-body" id="edBody" contenteditable="true" oninput="updatePreview()"></div>
+        </div>
+        
+        <div class="editor-preview">
+          <div class="preview-label">Live Preview</div>
+          <div id="livePreview" class="preview-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI DASHBOARD VIEW -->
+    <div class="lv" id="aiDashboardView" style="display:none;">
+      <div class="page-hdr">
+        <h1>AI Agents — Dashboard</h1>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <input type="text" id="aiTopicInput" placeholder="Enter a topic to generate..." style="background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:8px;padding:8px 12px;color:#fff;font-family:inherit;font-size:.85rem;width:260px;" onkeydown="if(event.key==='Enter')aiGenerateNow()">
+          <button class="btn-new" onclick="aiOpenTopicModal()" style="background:transparent;border:1px solid var(--brd);color:var(--txt);">
+            + Add Topic
+          </button>
+          <button class="btn-new" onclick="aiGenerateNow()" style="background:#22c55e;">
+            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Generate Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-time Agent Progress Pipeline -->
+      <div id="aiPipeline" style="display:none;background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:18px;margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <h3 style="font-size:.95rem;font-weight:600;">Generation Pipeline</h3>
+          <span id="aiPipelineStatus" style="font-size:.75rem;color:var(--dim);">Running...</span>
+        </div>
+        <div id="aiPipelineSteps" style="display:flex;flex-direction:column;gap:8px;"></div>
+      </div>
+
+      <!-- Agent Status Cards -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(59,130,246,0.15);display:flex;align-items:center;justify-content:center;">🔍</div>
+            <div><div style="font-weight:600;font-size:.88rem;">Research</div><div style="font-size:.72rem;color:var(--dim);">Web + Content</div></div>
+          </div>
+          <div id="aiAgentStatus_research" style="font-size:.75rem;color:var(--dim);">Idle</div>
+          <div style="margin-top:8px;height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+            <div id="aiAgentBar_research" style="height:100%;width:0%;background:var(--accent);border-radius:4px;transition:width 0.5s;"></div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;">📈</div>
+            <div><div style="font-weight:600;font-size:.88rem;">SEO</div><div style="font-size:.72rem;color:var(--dim);">Keywords & Analysis</div></div>
+          </div>
+          <div id="aiAgentStatus_seo" style="font-size:.75rem;color:var(--dim);">Idle</div>
+          <div style="margin-top:8px;height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+            <div id="aiAgentBar_seo" style="height:100%;width:0%;background:#8b5cf6;border-radius:4px;transition:width 0.5s;"></div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;">✍️</div>
+            <div><div style="font-weight:600;font-size:.88rem;">Writer</div><div style="font-size:.72rem;color:var(--dim);">Content Generation</div></div>
+          </div>
+          <div id="aiAgentStatus_writer" style="font-size:.75rem;color:var(--dim);">Idle</div>
+          <div style="margin-top:8px;height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+            <div id="aiAgentBar_writer" style="height:100%;width:0%;background:#22c55e;border-radius:4px;transition:width 0.5s;"></div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(245,158,11,0.15);display:flex;align-items:center;justify-content:center;">📝</div>
+            <div><div style="font-weight:600;font-size:.88rem;">Editor</div><div style="font-size:.72rem;color:var(--dim);">Polish & Proofread</div></div>
+          </div>
+          <div id="aiAgentStatus_editor" style="font-size:.75rem;color:var(--dim);">Idle</div>
+          <div style="margin-top:8px;height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;">
+            <div id="aiAgentBar_editor" style="height:100%;width:0%;background:#f59e0b;border-radius:4px;transition:width 0.5s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two column: Topics + Schedule -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+        <!-- Topics -->
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h3 style="font-size:.95rem;font-weight:600;">Your Topics</h3>
+            <span id="aiTopicCount" style="font-size:.75rem;color:var(--dim);">0 pending</span>
+          </div>
+          <div id="aiTopicList" style="max-height:200px;overflow-y:auto;">
+            <div style="font-size:.82rem;color:var(--dim);padding:10px 0;text-align:center;">No topics yet. Add one above.</div>
+          </div>
+          <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--brd);font-size:.78rem;color:var(--dim);">
+            <span>Default fallback: 10 business automation topics</span>
+          </div>
+        </div>
+
+        <!-- Schedule + Toggle -->
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:18px;">
+          <h3 style="font-size:.95rem;font-weight:600;margin-bottom:12px;">Schedule</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.82rem;">
+              <span style="color:var(--dim);">Frequency</span>
+              <select id="aiScheduleDays" onchange="aiUpdateSchedule(this.value)" style="background:#1a1a1e;border:1px solid var(--brd);border-radius:6px;padding:4px 8px;color:#fff;font-family:inherit;font-size:.8rem;cursor:pointer;">
+                <option value="3">Every 3 days</option>
+                <option value="7" selected>Every 7 days</option>
+                <option value="14">Every 14 days</option>
+                <option value="30">Every 30 days</option>
+              </select>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+              <span style="color:var(--dim);">Next Generation</span>
+              <span id="aiNextGen">Calculating...</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.82rem;">
+              <span style="color:var(--dim);">AI Agent</span>
+              <label style="position:relative;display:inline-block;width:42px;height:22px;cursor:pointer;">
+                <input type="checkbox" id="aiToggleCheck" onchange="aiToggleAgent(this.checked)" style="opacity:0;width:0;height:0;">
+                <span id="aiToggleSlider" style="position:absolute;inset:0;background:#555;border-radius:22px;transition:.3s;"></span>
+                <span id="aiToggleKnob" style="position:absolute;left:3px;bottom:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:.3s;"></span>
+              </label>
+              <span id="aiToggleLabel" style="font-size:.75rem;font-weight:600;">ON</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+              <span style="color:var(--dim);">Topic Priority</span>
+              <span>Your Topics → Defaults</span>
+            </div>
+            <div style="font-size:.82rem;">
+              <span style="color:var(--dim);">Server URL</span>
+              <input type="url" id="aiServerUrlInput" value="http://localhost:3001" style="width:100%;margin-top:4px;background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:6px;padding:6px 10px;color:#fff;font-family:inherit;font-size:.8rem;" placeholder="https://your-server.onrender.com" onchange="localStorage.setItem('ai_server_url', this.value);">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent AI Posts -->
+      <div style="background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:18px;margin-bottom:24px;">
+        <h3 style="font-size:.95rem;font-weight:600;margin-bottom:12px;">AI-Generated Posts</h3>
+        <div id="aiPostsList">
+          <div style="font-size:.82rem;color:var(--dim);padding:20px 0;text-align:center;">No AI-generated posts yet.</div>
+        </div>
+      </div>
+
+      <!-- Progress Log -->
+      <div id="aiProgressPanel" style="display:none;background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:18px;margin-bottom:24px;">
+        <h3 style="font-size:.95rem;font-weight:600;margin-bottom:12px;">Activity Log</h3>
+        <div id="aiProgressLog" style="font-size:.82rem;font-family:monospace;line-height:1.7;max-height:300px;overflow-y:auto;"></div>
+      </div>
+
+    </div>
+
+    </div>
+  </main>
+
+  <!-- TOPIC MODAL -->
+  <div class="modal-bg" id="topicModal">
+    <div class="modal">
+      <h2>Add Blog Topic</h2>
+      <p style="font-size:.82rem;color:var(--dim);margin-bottom:1rem;">Write a topic for the AI to generate about. It will be used on the next 7-day cycle.</p>
+      <input type="text" class="m-input" id="newTopicInput" placeholder="e.g. AI workflow automation for real estate">
+      <div class="m-acts">
+        <button class="btn-c" onclick="aiCloseTopicModal()">Cancel</button>
+        <button class="btn-ok" onclick="aiAddTopic()">Add Topic</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRM MODAL -->
+  <div class="modal-bg" id="confirmModal">
+    <div class="modal">
+      <h2 id="confirmTitle">Confirm</h2>
+      <p id="confirmMsg" style="font-size:.82rem;color:var(--dim);margin-bottom:1rem;"></p>
+      <div class="m-acts">
+        <button class="btn-c" onclick="document.getElementById('confirmModal').classList.remove('show')">Cancel</button>
+        <button class="btn-ok" id="confirmOkBtn" style="background:#ef4444;">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <h2>New Article</h2>
+      <input type="text" class="m-input" id="newTitle" placeholder="Enter article title...">
+      <div class="m-acts">
+        <button class="btn-c" onclick="closeModal()">Cancel</button>
+        <button class="btn-ok" onclick="createArticle()">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const SUPABASE_URL = 'https://rqjkmitbhfddjzcermud.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxamttaXRiaGZkZGp6Y2VybXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0OTk5MjksImV4cCI6MjA5NzA3NTkyOX0.7Mk1pIL8c3Lloz-s3cgluToiPuzWiG26gBDCowEPtDg';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let currentSection = 'automme';
+
+    async function getStore() {
+      if (!supabaseClient) {
+        return JSON.parse(localStorage.getItem('automme_articles_' + currentSection) || '[]');
+      }
+      const { data, error } = await supabaseClient
+        .from('posts')
+        .select('*')
+        .eq('section', currentSection)
+        .order('created_at', { ascending: false });
+      return data || [];
+    }
+
+    async function saveToSupabase(article) {
+      if (!supabaseClient) return;
+      const { data, error } = await supabaseClient
+        .from('posts')
+        .upsert({
+          id: article.id,
+          title: article.title,
+          category: article.category,
+          excerpt: article.excerpt,
+          content: article.content,
+          image_url: article.image,
+          status: article.status,
+          section: currentSection,
+          created_at: article.created_at || new Date().toISOString(),
+          author: article.author || 'Maruf',
+          author_image: article.author_image || ''
+        });
+      if (error) console.error('Supabase Error:', error);
+    }
+
+    function setLocalStore(data) {
+      localStorage.setItem('automme_articles_' + currentSection, JSON.stringify(data));
+    }
+
+    // Render list
+    async function renderList() {
+      const articles = await getStore();
+      const body = document.getElementById('listBody');
+      if (!articles.length) {
+        body.innerHTML = '<div class="empty"><p>No articles yet. Click <strong>Create Post</strong> to start.</p></div>';
+        return;
+      }
+      body.innerHTML = articles.map(a => `
+        <div class="l-row">
+          <div class="t" onclick="openEditor('${a.id}')">${a.title}</div>
+          <div class="m">${a.category || '—'}</div>
+          <div class="m">${new Date(a.created_at || a.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="badge ${a.status==='published'?'b-pub':'b-draft'}">${a.status==='published'?'● Live':'○ Draft'}</span>
+            ${a.status==='published' ? `<a href="post.html?id=${a.id}" target="_blank" class="view-link" title="View Live Blog">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>` : ''}
+          </div>
+          <div class="row-acts" style="display:flex;gap:5px;">
+            <button class="btn-edit" onclick="openEditor('${a.id}')">Edit</button>
+            <button class="btn-del" onclick="deletePost('${a.id}')">Delete</button>
+          </div>
+        </div>`).join('');
+    }
+
+    // Modal
+    function openModal() {
+      document.getElementById('modal').classList.add('show');
+      const inp = document.getElementById('newTitle');
+      inp.value = '';
+      setTimeout(() => inp.focus(), 100);
+    }
+    function closeModal() { document.getElementById('modal').classList.remove('show'); }
+
+    // Create
+    async function createArticle() {
+      const title = document.getElementById('newTitle').value.trim();
+      if (!title) return;
+      const articles = await getStore();
+      const a = { 
+        id: Date.now().toString(), 
+        title, 
+        category:'AI & Automation', 
+        created_at: new Date().toISOString(),
+        status:'draft',
+        content:'',
+        image:'',
+        author: 'Maruf',
+        author_image: '',
+        section: currentSection
+      };
+      articles.unshift(a);
+      setLocalStore(articles);
+      if (supabaseClient) await saveToSupabase(a);
+      closeModal();
+      openEditor(a.id);
+    }
+
+    // Editor
+    async function openEditor(id) {
+      currentId = id;
+      const articles = await getStore();
+      const a = articles.find(x => x.id == id);
+      if (!a) return;
+      document.getElementById('edTitle').value = a.title;
+      document.getElementById('edBody').innerHTML = a.content;
+      document.getElementById('edCat').value = a.category || 'AI & Automation';
+      document.getElementById('edImage').value = a.image_url || a.image || '';
+      document.getElementById('edAuthorName').value = a.author || 'Maruf';
+      document.getElementById('edAuthorImage').value = a.author_image || '';
+      previewImg();
+      previewAuthImg();
+      document.getElementById('listView').classList.add('hide');
+      document.getElementById('editorView').classList.add('show');
+    }
+
+    function closeEditor() {
+      autoSave();
+      currentId = null;
+      document.getElementById('listView').classList.remove('hide');
+      document.getElementById('editorView').classList.remove('show');
+      renderList();
+    }
+
+    // Add listener to title for real-time preview
+    document.getElementById('edTitle').addEventListener('input', updatePreview);
+    document.getElementById('edCat').addEventListener('change', updatePreview);
+
+    async function autoSave() {
+      if (!currentId) return;
+      const articles = await getStore();
+      const a = articles.find(x => x.id == currentId);
+      if (!a) return;
+      a.title = document.getElementById('edTitle').value;
+      a.content = document.getElementById('edBody').innerHTML;
+      a.category = document.getElementById('edCat').value;
+      a.image = document.getElementById('edImage').value;
+      a.author = document.getElementById('edAuthorName').value || 'Maruf';
+      a.author_image = document.getElementById('edAuthorImage').value;
+      setLocalStore(articles);
+      if (supabaseClient) await saveToSupabase(a);
+    }
+
+    function updatePreview() {
+      const title = document.getElementById('edTitle').value || 'Article Title';
+      const cat = document.getElementById('edCat').value;
+      const img = document.getElementById('edImage').value;
+      const content = document.getElementById('edBody').innerHTML;
+      
+      // Auto Read Time Calculation
+      const text = document.getElementById('edBody').innerText || '';
+      const words = text.trim().split(/\s+/).length || 1;
+      const readTime = Math.ceil(words / 200) || 1;
+      
+      const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      const preview = document.getElementById('livePreview');
+      preview.innerHTML = `
+        <div class="mock-post-hero">
+            <div class="mock-meta">
+              <span class="mock-category">${cat}</span>
+              <span>·</span>
+              <span>${date}</span>
+              <span>·</span>
+              <span>${readTime} min read</span>
+            </div>
+          <h1 class="mock-title">${title}</h1>
+        </div>
+        ${img ? `<div class="mock-img-wrap"><img src="${img}"></div>` : ''}
+        <div class="mock-body-wrap">
+          ${content || '<p style="opacity:0.3; font-style:italic;">Start writing to see the preview...</p>'}
+        </div>
+      `;
+    }
+
+
+    async function publishArticle() {
+      if (!currentId) return;
+      const btn = document.querySelector('.btn-pub');
+      const originalText = btn.innerHTML;
+      
+      btn.innerHTML = "Publishing...";
+      btn.disabled = true;
+      btn.style.opacity = "0.6";
+
+      try {
+        const articles = await getStore();
+        const a = articles.find(x => x.id == currentId);
+        if (!a) throw new Error("Article not found");
+
+        a.title = document.getElementById('edTitle').value;
+        a.content = document.getElementById('edBody').innerHTML;
+        a.category = document.getElementById('edCat').value;
+        a.image = document.getElementById('edImage').value;
+        a.author = document.getElementById('edAuthorName').value || 'Maruf';
+        a.author_image = document.getElementById('edAuthorImage').value;
+        a.status = 'published';
+
+        setLocalStore(articles);
+        if (supabaseClient) {
+          await saveToSupabase(a);
+        }
+        
+        toast('✓ Article published successfully!');
+        setTimeout(() => closeEditor(), 1000);
+      } catch (err) {
+        console.error(err);
+        toast('❌ Error publishing article');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
+    }
+
+    // Toolbar
+    function fmt(cmd, val) {
+      if (cmd === 'formatBlock') document.execCommand('formatBlock', false, '<'+val+'>');
+      else document.execCommand(cmd, false, val || null);
+      document.getElementById('edBody').focus();
+      updatePreview();
+    }
+
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('edImage').value = e.target.result;
+        previewImg();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleInlineFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imgHtml = `<img src="${e.target.result}" style="max-width:100%; border-radius:12px; margin:20px 0; display:block;" alt="article image">`;
+        document.execCommand('insertHTML', false, imgHtml);
+        updatePreview();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function addInlineImg() {
+      const url = prompt('Paste the image URL here:');
+      if (url) {
+        const imgHtml = `<img src="${url}" style="max-width:100%; border-radius:12px; margin:20px 0; display:block;" alt="article image">`;
+        document.execCommand('insertHTML', false, imgHtml);
+        updatePreview();
+      }
+    }
+
+    function addLink() {
+      const url = prompt('Enter the link URL:');
+      if (url) {
+        document.execCommand('createLink', false, url);
+        updatePreview();
+      }
+    }
+
+    function previewImg() {
+      const url = document.getElementById('edImage').value;
+      const thumb = document.getElementById('leftThumb');
+      const thumbImg = document.getElementById('thumbImg');
+      const placeholder = document.getElementById('uploadPlaceholder');
+      if (url) {
+        thumbImg.src = url;
+        thumb.style.display = 'block';
+        placeholder.style.display = 'none';
+      } else {
+        thumb.style.display = 'none';
+        placeholder.style.display = 'flex';
+      }
+      updatePreview();
+    }
+
+    function handleAuthorUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('edAuthorImage').value = e.target.result;
+        previewAuthImg();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function previewAuthImg() {
+      const url = document.getElementById('edAuthorImage').value;
+      const thumb = document.getElementById('authThumb');
+      const thumbImg = document.getElementById('authThumbImg');
+      const placeholder = document.getElementById('authPlaceholder');
+      if (url) {
+        thumbImg.src = url;
+        thumb.style.display = 'block';
+        placeholder.style.display = 'none';
+      } else {
+        thumb.style.display = 'none';
+        placeholder.style.display = 'flex';
+      }
+    }
+
+    // Toast
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // Enter key in modal
+    document.getElementById('newTitle').addEventListener('keydown', e => { if (e.key === 'Enter') createArticle(); });
+
+    // Auto-save interval
+    setInterval(autoSave, 10000);
+
+    // === AUTH ===
+    let authMode = 'login';
+
+    async function handleAuth() {
+      const email = document.getElementById('authEmail').value.trim();
+      const pass = document.getElementById('authPass').value;
+      const btn = document.getElementById('authBtn');
+      const errEl = document.getElementById('authError');
+      const sucEl = document.getElementById('authSuccess');
+
+      errEl.style.display = 'none';
+      sucEl.style.display = 'none';
+
+      if (!email || !pass) {
+        errEl.textContent = 'Please enter email and password.';
+        errEl.style.display = 'block';
+        return;
+      }
+      if (pass.length < 6) {
+        errEl.textContent = 'Password must be at least 6 characters.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Please wait...';
+
+      try {
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+        if (error) throw error;
+        onAuthSuccess();
+      } catch (err) {
+        errEl.textContent = err.message;
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Sign in';
+      }
+    }
+
+    function onAuthSuccess() {
+      document.getElementById('authScreen').style.display = 'none';
+      document.getElementById('mainWrap').classList.remove('hide');
+      renderList();
+    }
+
+    async function signOut() {
+      await supabaseClient.auth.signOut();
+      document.getElementById('authScreen').style.display = 'flex';
+      document.getElementById('mainWrap').classList.add('hide');
+      document.getElementById('authEmail').value = '';
+      document.getElementById('authPass').value = '';
+      authMode = 'login';
+      document.getElementById('authTitle').textContent = 'Sign in';
+      document.getElementById('authSub').textContent = 'Access the article dashboard';
+      document.getElementById('authBtn').textContent = 'Sign in';
+    }
+
+    async function deletePost(id) {
+      if (!confirm('Are you sure you want to delete this post? This cannot be undone.')) return;
+
+      const articles = await getStore();
+      const idx = articles.findIndex(x => x.id == id);
+      if (idx === -1) return;
+      articles.splice(idx, 1);
+      setLocalStore(articles);
+
+      if (supabaseClient) {
+        const { error } = await supabaseClient.from('posts').delete().eq('id', id);
+        if (error) console.error('Delete error:', error);
+      }
+
+      toast('Post deleted.');
+      renderList();
+    }
+
+    // Auth listeners
+    document.getElementById('authEmail').addEventListener('keydown', e => { if (e.key === 'Enter') handleAuth(); });
+    document.getElementById('authPass').addEventListener('keydown', e => { if (e.key === 'Enter') handleAuth(); });
+
+    // Check existing session on load
+    (async function init() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        onAuthSuccess();
+      } else {
+        document.getElementById('mainWrap').classList.add('hide');
+        document.getElementById('authScreen').style.display = 'flex';
+      }
+    })();
+
+    // ──────────────────────────────────────────────
+    //  AI AGENTS DASHBOARD
+    // ──────────────────────────────────────────────
+
+    async function switchSection(sec, el) {
+      currentSection = sec;
+
+      document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+      el.classList.add('active');
+
+      // Hide all views
+      document.getElementById('listView').style.display = 'none';
+      document.getElementById('editorView').style.display = 'none';
+      document.getElementById('aiDashboardView').style.display = 'none';
+
+      if (sec === 'automme' || sec === 'marufai') {
+        document.getElementById('sectionTitle').textContent = (sec === 'automme' ? 'Automme' : 'Maruf AI') + ' — Articles';
+        document.getElementById('listView').style.display = 'block';
+        closeEditor();
+        renderList();
+      } else if (sec === 'aiagents') {
+        document.getElementById('sectionTitle').textContent = 'AI Agents — Dashboard';
+        document.getElementById('aiDashboardView').style.display = 'block';
+        aiLoadDashboard();
+      }
+    }
+
+    // Dashboard
+    async function aiLoadDashboard() {
+      const urlInput = document.getElementById('aiServerUrlInput');
+      if (urlInput) {
+        urlInput.value = getServerUrl();
+      }
+      // Clear any running poll
+      if (aiPollTimer) {
+        clearInterval(aiPollTimer);
+        aiPollTimer = null;
+      }
+      // Reset pipeline UI
+      document.getElementById('aiPipeline').style.display = 'none';
+      const agents = ['research', 'seo', 'writer', 'editor'];
+      agents.forEach(a => { aiUpdateNodeUI(a, 'idle', 'Idle', 0); });
+      aiLoadTopics();
+      aiLoadPosts();
+      aiLoadSchedule();
+      aiLoadToggleStatus();
+    }
+
+    // ─── Server URL ──────────────────────────
+    function getServerUrl() {
+      return localStorage.getItem('ai_server_url') || 'http://localhost:3001';
+    }
+
+    // ─── ON/OFF Toggle ───────────────────────────
+
+    async function aiLoadToggleStatus() {
+      try {
+        const res = await fetch(getServerUrl() + '/api/agent/status', { signal: AbortSignal.timeout(3000) });
+        const data = await res.json();
+        const isOn = data.enabled !== false;
+        document.getElementById('aiToggleCheck').checked = isOn;
+        const parent = document.getElementById('aiToggleCheck').parentElement;
+        if (isOn) {
+          parent.classList.add('toggle-on');
+          document.getElementById('aiToggleLabel').textContent = 'ON';
+          document.getElementById('aiToggleLabel').style.color = 'var(--green)';
+          document.getElementById('aiToggleSlider').style.background = '#22c55e';
+          document.getElementById('aiToggleKnob').style.transform = 'translateX(20px)';
+        } else {
+          parent.classList.remove('toggle-on');
+          document.getElementById('aiToggleLabel').textContent = 'OFF';
+          document.getElementById('aiToggleLabel').style.color = '#ef4444';
+          document.getElementById('aiToggleSlider').style.background = '#555';
+          document.getElementById('aiToggleKnob').style.transform = '';
+        }
+        document.getElementById('aiToggleCheck').disabled = false;
+      } catch {
+        document.getElementById('aiToggleCheck').disabled = true;
+        document.getElementById('aiToggleLabel').textContent = 'Server Offline';
+        document.getElementById('aiToggleLabel').style.color = 'var(--dim)';
+        document.getElementById('aiToggleSlider').style.background = '#555';
+        document.getElementById('aiToggleKnob').style.transform = '';
+      }
+    }
+
+    async function aiToggleAgent(on) {
+      const parent = document.getElementById('aiToggleCheck').parentElement;
+      if (on) parent.classList.add('toggle-on'); else parent.classList.remove('toggle-on');
+      try {
+        await fetch(getServerUrl() + '/api/agent/toggle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ enabled: on })
+        });
+        toast(on ? '✓ AI Agent enabled' : '✓ AI Agent disabled');
+      } catch {
+        toast('❌ Server offline');
+      }
+    }
+
+    // ─── Topics (direct Supabase) ────────────────
+
+    function aiOpenTopicModal() {
+      document.getElementById('topicModal').classList.add('show');
+      const inp = document.getElementById('newTopicInput');
+      inp.value = '';
+      setTimeout(() => inp.focus(), 100);
+    }
+
+    function aiCloseTopicModal() {
+      document.getElementById('topicModal').classList.remove('show');
+    }
+
+    document.getElementById('newTopicInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') aiAddTopic();
+    });
+
+    async function aiAddTopic() {
+      const topic = document.getElementById('newTopicInput').value.trim();
+      if (!topic) return;
+      const { error } = await supabaseClient
+        .from('ai_topics')
+        .insert({ topic, status: 'pending', created_at: new Date().toISOString() });
+      if (error) {
+        if (error.message?.includes('row-level security')) {
+          toast('❌ Supabase SQL Editor e giye run koro: ALTER TABLE ai_topics DISABLE ROW LEVEL SECURITY;');
+        } else {
+          toast('❌ ' + error.message);
+        }
+        return;
+      }
+      aiCloseTopicModal();
+      aiLoadTopics();
+      toast('✓ Topic added!');
+    }
+
+    async function aiDeleteTopic(id) {
+      const { error } = await supabaseClient.from('ai_topics').delete().eq('id', id);
+      if (error) { toast('❌ ' + error.message); return; }
+      aiLoadTopics();
+      toast('✓ Topic deleted');
+    }
+
+    async function aiLoadTopics() {
+      const { data: topics, error } = await supabaseClient
+        .from('ai_topics')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) { console.error(error); return; }
+
+      const pending = (topics || []).filter(t => t.status === 'pending');
+      document.getElementById('aiTopicCount').textContent = pending.length + ' pending';
+
+      const container = document.getElementById('aiTopicList');
+      if (!topics || topics.length === 0) {
+        container.innerHTML = '<div style="font-size:.82rem;color:var(--dim);padding:10px 0;text-align:center;">No topics yet. Add one above.</div>';
+        return;
+      }
+
+      container.innerHTML = topics.map(t => `
+        <div class="topic-item">
+          <span>${t.topic} ${t.status === 'used' ? '<span class="badge-used">used</span>' : ''}</span>
+          <span class="del" onclick="aiDeleteTopic(${t.id})">✕</span>
+        </div>
+      `).join('');
+    }
+
+    // ─── Real-time Progress ─────────────────
+    let aiPollTimer = null;
+
+    function aiUpdateNodeUI(agent, status, detail, progress = 0) {
+      const el = document.getElementById('aiAgentStatus_' + agent);
+      const bar = document.getElementById('aiAgentBar_' + agent);
+      if (el) {
+        const icons = { running: '🔄', completed: '✅', failed: '❌', warning: '⚠️', pending: '⏳', idle: '○' };
+        const colors = { running: 'var(--accent)', completed: 'var(--green)', failed: '#ef4444', warning: '#f59e0b', pending: 'var(--dim)', idle: 'var(--dim)' };
+        el.innerHTML = `<span style="color:${colors[status] || 'var(--dim)'}">${icons[status] || '○'} ${detail || status}</span>`;
+      }
+      if (bar) {
+        bar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+        const statusColors = { running: 'var(--accent)', completed: 'var(--green)', failed: '#ef4444', warning: '#f59e0b', pending: 'rgba(255,255,255,0.15)' };
+        bar.style.background = statusColors[status] || 'rgba(255,255,255,0.15)';
+      }
+    }
+
+    function aiBuildPipelineSteps(nodes) {
+      const container = document.getElementById('aiPipelineSteps');
+      const names = { research_existing: '🔍 Research Existing', research_web: '🌐 Research Web', seo_analyze: '📈 SEO Analysis', write_content: '✍️ Writing', edit_content: '📝 Editing', save_post: '💾 Saving' };
+      const order = ['research_existing', 'research_web', 'seo_analyze', 'write_content', 'edit_content', 'save_post'];
+      container.innerHTML = order.map(key => {
+        const n = nodes[key];
+        if (!n) return '';
+        const icons = { running: '🔄', completed: '✅', failed: '❌', warning: '⚠️', pending: '⏳' };
+        const colors = { running: 'var(--accent)', completed: 'var(--green)', failed: '#ef4444', warning: '#f59e0b', pending: 'var(--dim)' };
+        return `<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:.82rem;">
+          <span style="color:${colors[n.status] || 'var(--dim)'}">${icons[n.status] || '○'}</span>
+          <span style="flex:1;color:${colors[n.status] === 'var(--dim)' ? 'var(--dim)' : 'var(--txt)'}">${names[key] || key}</span>
+          <span style="color:var(--dim);font-size:.75rem;">${n.detail || n.status}</span>
+        </div>`;
+      }).join('');
+    }
+
+    async function aiPollProgress(runId) {
+      return new Promise((resolve) => {
+        const maxDuration = 180000;
+        const startTime = Date.now();
+
+        aiPollTimer = setInterval(async () => {
+          if (Date.now() - startTime > maxDuration) {
+            clearInterval(aiPollTimer);
+            aiPollTimer = null;
+            resolve(null);
+            return;
+          }
+          try {
+            const res = await fetch(getServerUrl() + '/api/progress/' + runId, { signal: AbortSignal.timeout(3000) });
+            const data = await res.json();
+            if (data.nodes) {
+              const pipeline = document.getElementById('aiPipeline');
+              pipeline.style.display = 'block';
+              const statusEl = document.getElementById('aiPipelineStatus');
+
+              aiBuildPipelineSteps(data.nodes);
+
+              for (const [agent, info] of Object.entries(data.nodes)) {
+                aiUpdateNodeUI(agent.replace('research_existing', 'research').replace('research_web', 'research'), info.status, info.detail, info.progress);
+              }
+
+              if (data.overall === 'completed') {
+                clearInterval(aiPollTimer);
+                aiPollTimer = null;
+                statusEl.innerHTML = '✅ Completed';
+                resolve('completed');
+              } else if (data.overall === 'failed') {
+                clearInterval(aiPollTimer);
+                aiPollTimer = null;
+                statusEl.innerHTML = '❌ Failed';
+                resolve('failed');
+              } else {
+                statusEl.innerHTML = `🔄 Running (${Math.round((Date.now() - data.startedAt) / 1000)}s)`;
+              }
+            }
+          } catch {
+            // poll failed, keep trying
+          }
+        }, 1500);
+      });
+    }
+
+    // ─── Generate ─────────────────────────────────
+
+    async function aiGenerateNow() {
+      const btn = document.querySelector('#aiDashboardView .btn-new:last-child');
+      btn.disabled = true;
+      btn.textContent = 'Generating...';
+
+      const panel = document.getElementById('aiProgressPanel');
+      const log = document.getElementById('aiProgressLog');
+      panel.style.display = 'block';
+      log.innerHTML = '<div style="color:var(--dim);">⏳ Starting generation pipeline...</div>';
+
+      const pipeline = document.getElementById('aiPipeline');
+      pipeline.style.display = 'block';
+      document.getElementById('aiPipelineStatus').textContent = '🔄 Starting...';
+
+      // Reset agent UI
+      const agents = ['research', 'seo', 'writer', 'editor'];
+      agents.forEach(a => {
+        aiUpdateNodeUI(a, 'pending', 'Waiting...', 0);
+      });
+
+      const topicInput = document.getElementById('aiTopicInput').value.trim();
+      try {
+        const res = await fetch(getServerUrl() + '/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            section: currentSection === 'marufai' ? 'marufai' : 'automme',
+            topic: topicInput || undefined
+          }),
+          signal: AbortSignal.timeout(180000)
+        });
+
+        const result = await res.json();
+
+        // Start polling for real-time progress
+        if (result.runId) {
+          const pollResult = await aiPollProgress(result.runId);
+          if (pollResult === 'completed') {
+            log.innerHTML += '<div style="color:var(--green);">✅ All agents completed!</div>';
+          } else if (pollResult === 'failed') {
+            log.innerHTML += '<div style="color:#ef4444;">❌ Generation failed during pipeline</div>';
+          } else {
+            log.innerHTML += '<div style="color:#f59e0b;">⚠️ Progress tracking timed out, checking result...</div>';
+          }
+        }
+
+        if (result.success) {
+          log.innerHTML += `<div style="color:var(--green);margin-top:8px;padding:10px;background:rgba(34,197,94,0.1);border-radius:8px;border:1px solid rgba(34,197,94,0.2);">
+            ✅ <strong>Blog post generated successfully!</strong></div>`;
+          log.innerHTML += `<div style="margin-top:6px;">📄 <strong>"${result.post?.title || topicInput || 'Untitled'}"</strong></div>`;
+          toast('✓ Blog post generated!');
+          aiLoadPosts();
+        } else if (result) {
+          log.innerHTML += `<div style="color:#ef4444;margin-top:6px;">❌ ${result.error || 'Generation failed'}</div>`;
+          toast('❌ Generation failed');
+        }
+      } catch (err) {
+        log.innerHTML += `<div style="color:#ef4444;margin-top:8px;padding:10px;background:rgba(239,68,68,0.1);border-radius:8px;border:1px solid rgba(239,68,68,0.2);">
+          ❌ <strong>Server offline or request timed out</strong><br>
+          <span style="font-size:.75rem;">Check that your server URL is correct and the server is running.</span></div>`;
+        document.getElementById('aiPipelineStatus').textContent = '❌ Server Offline';
+        toast('❌ Server offline');
+      }
+
+      agents.forEach(a => {
+        aiUpdateNodeUI(a, 'completed', 'Done', 100);
+      });
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Generate Now';
+    }
+
+    // ─── AI Posts ─────────────────────────────────
+
+    async function aiLoadPosts() {
+      try {
+        const { data: posts, error } = await supabaseClient
+          .from('posts')
+          .select('*')
+          .eq('author', 'Maruf AI')
+          .order('created_at', { ascending: false });
+        if (error) throw error;
+
+        const container = document.getElementById('aiPostsList');
+        if (!posts || posts.length === 0) {
+          container.innerHTML = '<div style="font-size:.82rem;color:var(--dim);padding:20px 0;text-align:center;">No AI-generated posts yet.</div>';
+          return;
+        }
+
+        container.innerHTML = posts.slice(0, 5).map(p => `
+          <div class="ai-post-row">
+            <div>
+              <div class="ai-post-title" onclick="window.open('post.html?id=${p.id}','_blank')">${p.title}</div>
+              <div style="font-size:.72rem;color:var(--dim);margin-top:3px;">
+                ${p.category || '—'} · ${new Date(p.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
+                · <span class="badge ${p.status==='published'?'b-pub':'b-draft'}">${p.status||'draft'}</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <button class="btn-edit" onclick="window.open('admin.html?id=${p.id}','_self')">Edit</button>
+              <a href="post.html?id=${p.id}" target="_blank" class="view-link" style="display:flex;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Load AI posts error:', err);
+      }
+    }
+
+    // ─── Schedule ─────────────────────────────────
+
+    async function aiLoadSchedule() {
+      try {
+        const res = await fetch(getServerUrl() + '/api/schedule', { signal: AbortSignal.timeout(3000) });
+        const data = await res.json();
+        const sel = document.getElementById('aiScheduleDays');
+        if (sel && data.days) sel.value = String(data.days);
+      } catch {}
+      aiCalcNextGen();
+    }
+
+    function aiCalcNextGen() {
+      const sel = document.getElementById('aiScheduleDays');
+      const days = parseInt(sel?.value) || 7;
+      const now = new Date();
+      const lastGen = new Date(now);
+      lastGen.setHours(9, 0, 0, 0);
+
+      let next = new Date(lastGen);
+      while (next <= now) {
+        next.setDate(next.getDate() + days);
+      }
+      document.getElementById('aiNextGen').textContent = next.toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+    }
+
+    async function aiUpdateSchedule(days) {
+      try {
+        await fetch(getServerUrl() + '/api/schedule', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ days: parseInt(days) })
+        });
+        aiCalcNextGen();
+        toast('✓ Schedule updated to every ' + days + ' days');
+      } catch {
+        toast('❌ Server offline, saved locally only');
+      }
+    }
+
+  </script>
+</body>
+</html>

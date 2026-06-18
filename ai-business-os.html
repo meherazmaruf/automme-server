@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business OS & Personal AI Assistants | Autonomous Operations — Automme</title>
+  <meta name="description" content="AI Business OS, Hermes personal AI assistant, and agentic orchestrator for autonomous business operations. Book a free demo.">
+  <meta name="keywords" content="AI Business OS, personal AI assistant, agentic orchestrator, AI employee training, workflow automation, decision support AI, autonomous execution, business automation platform, AI operating system">
+  <link rel="canonical" href="https://automme.ai/ai-business-os">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .bos-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .bos-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .bos-hero-inner h1 { line-height: 105%; }
+    .bos-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .bos-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .bos-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .bos-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .bos-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .bos-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .bos-solutions-section { padding: 5em 0; background: #111113; }
+    .bos-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .bos-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .bos-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .bos-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .bos-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .bos-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .bos-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .bos-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .bos-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .bos-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .bos-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .bos-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .bos-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .bos-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .bos-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .bos-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .bos-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .bos-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .bos-problem-grid { grid-template-columns: 1fr; }
+      .bos-solutions-grid { grid-template-columns: 1fr; }
+      .bos-process-steps { grid-template-columns: 1fr; }
+      .bos-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section bos-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="bos-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI Business OS & personal assistants.</span></span></h1>
+        <p class="bos-hero-sub text-generate">The operating system for autonomous business operations — Hermes personal AI, agentic orchestrator, and cross-department automation that runs your business while you focus on what matters.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free AI Business OS demo</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section bos-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why businesses need an AI operating system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most businesses run on a patchwork of disconnected tools, manual processes, and reactive decision-making. Here are the most common breakdowns an AI Business OS solves.</p>
+      </div>
+      <div class="bos-problem-grid">
+        <div class="bos-problem-card">
+          <h3>Business fragmentation</h3>
+          <p>Your marketing, sales, operations, finance, and HR run on separate systems with no unified data or automation layer. Decisions are made in silos, data is duplicated (or conflicting), and nothing talks to each other. The AI Business OS connects everything into one intelligent operating system.</p>
+        </div>
+        <div class="bos-problem-card">
+          <h3>Manual oversight drains leadership</h3>
+          <p>Founders and executives spend 60%+ of their time on operational oversight — checking dashboards, approving workflows, resolving escalations, and chasing status updates. This leaves minimal time for strategic thinking, innovation, and growth.</p>
+        </div>
+        <div class="bos-problem-card">
+          <h3>Missed opportunities hide in data</h3>
+          <p>Your business generates massive amounts of data — customer behavior, financial signals, operational metrics — but without AI-driven analysis, opportunities hide in plain sight. Market shifts go unnoticed, customer churn signals are missed, and optimization opportunities are never identified.</p>
+        </div>
+        <div class="bos-problem-card">
+          <h3>Execution gaps slow growth</h3>
+          <p>Strategy is set, but execution falters. Tasks fall through the cracks, follow-ups go dark, and initiatives stall. Without an autonomous execution layer, your business moves at the speed of your slowest process — not the speed of your best decision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section bos-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">The AI Business OS stack.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI operating system for your business. From autonomous agents to decision support, every layer works together to run your business intelligently and autonomously.</p>
+      </div>
+      <div class="bos-solutions-grid">
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="bos-solution-name">AI Business OS</div>
+          <div class="bos-solution-desc">The centralized operating system that connects every department, tool, and data source in your business. Unified dashboard, cross-functional automation, and intelligent orchestration. One platform to run your entire business.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="bos-solution-name">Hermes personal AI</div>
+          <div class="bos-solution-desc">Your personal AI executive assistant — Hermes. Manages your calendar, email, tasks, and communications across every platform. Schedules meetings, drafts responses, prioritizes inbox, and handles follow-ups. Available 24/7, always context-aware, endlessly scalable.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="bos-solution-name">Agentic orchestrator</div>
+          <div class="bos-solution-desc">The intelligent orchestration layer that coordinates multiple AI agents across your business. Marketing agent, sales agent, operations agent, finance agent — each specialized, all working together. The orchestrator assigns tasks, monitors progress, and ensures alignment with business goals.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="bos-solution-name">AI employee training</div>
+          <div class="bos-solution-desc">Train AI agents on your business — your products, processes, voice, and decision-making frameworks. AI employees that understand your business as well as your best team member. Onboard new AI agents in hours, not weeks.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="bos-solution-name">Workflow automation</div>
+          <div class="bos-solution-desc">End-to-end workflow automation across every department. Marketing campaigns, sales sequences, order processing, invoice management, employee onboarding — any process, automated. AI designs, deploys, and optimizes workflows based on your business rules.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="bos-solution-name">Reporting AI</div>
+          <div class="bos-solution-desc">AI-powered business intelligence that automatically generates reports, identifies trends, and surfaces insights. Real-time dashboards across every department. Natural language querying — ask "What happened to sales last week?" and get an instant answer with analysis.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="bos-solution-name">Decision support</div>
+          <div class="bos-solution-desc">AI-powered decision support that analyzes options, predicts outcomes, and recommends actions. Pricing decisions, hiring decisions, budget allocation, strategic trade-offs — AI provides data-driven recommendations with confidence scores and scenario analysis.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="bos-solution-name">Task delegation</div>
+          <div class="bos-solution-desc">Intelligent task delegation across your human and AI team members. The OS understands each resource's capabilities, workload, and expertise — then assigns tasks optimally. Tracks execution, sends status updates, and escalates issues automatically.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="bos-solution-name">Cross-dept automation</div>
+          <div class="bos-solution-desc">Automation that spans departments — marketing hands qualified leads to sales, sales triggers fulfillment, fulfillment notifies support. No more "that's not my job" gaps. The OS ensures seamless handoffs and end-to-end process completion across your entire organization.</div>
+        </div>
+        <div class="bos-solution-card">
+          <div class="bos-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="bos-solution-name">Autonomous execution</div>
+          <div class="bos-solution-desc">The pinnacle of the AI Business OS — autonomous execution of routine business operations. The OS identifies what needs to be done, assigns resources, executes tasks, monitors progress, and reports results. You set the strategy, the OS handles the execution.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section bos-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we deploy your AI Business OS.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to autonomous operation in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="bos-process-steps">
+        <div class="bos-process-step">
+          <div class="bos-process-step-num">Step 01</div>
+          <h3>Business audit</h3>
+          <p>Free 30-minute session where we audit your current tech stack, operational workflows, and decision-making processes. We identify every automation opportunity and design your AI Business OS architecture.</p>
+        </div>
+        <div class="bos-process-step">
+          <div class="bos-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for operational efficiency and time saved.</p>
+        </div>
+        <div class="bos-process-step">
+          <div class="bos-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI Business OS. We connect all your tools, train AI agents on your business, and deploy autonomous workflows. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="bos-process-step">
+          <div class="bos-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Agent training, workflow refinement, and system maintenance. Most businesses see compounding improvements as the OS learns and adapts over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section bos-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="bos-faq-grid">
+        <div class="bos-faq-item">
+          <h3>What exactly is an AI Business OS?</h3>
+          <p>Think of it as the operating system for your entire business — like iOS for your phone. It connects every department, tool, and data source into one unified system. AI agents handle specific functions (marketing, sales, ops), while the orchestrator coordinates them all toward your business goals.</p>
+        </div>
+        <div class="bos-faq-item">
+          <h3>Does this replace my existing tools?</h3>
+          <p>No. The AI Business OS sits on top of your existing stack — Salesforce, HubSpot, Slack, Asana, QuickBooks, etc. It connects and orchestrates them, adding an intelligence and automation layer. Nothing gets replaced, everything gets upgraded and unified.</p>
+        </div>
+        <div class="bos-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most businesses see measurable improvements within 30 days — typically in reduced manual work, faster decision-making, and improved cross-department coordination. Full autonomous operation compounds over 3-6 months as AI agents learn your business patterns.</p>
+        </div>
+        <div class="bos-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical AI Business OS deployments range from $10K to $50K depending on business complexity and number of integrations. We also offer ongoing management and agent training retainers starting at $3K/mo.</p>
+        </div>
+        <div class="bos-faq-item">
+          <h3>Is this suitable for my size of business?</h3>
+          <p>We work with startups, scaling companies, and enterprises. The AI Business OS is modular — you can start with Hermes personal AI and a few workflow automations, then expand to full autonomous execution as your needs grow. Every implementation is tailored to your specific business.</p>
+        </div>
+        <div class="bos-faq-item">
+          <h3>What kind of results have you seen?</h3>
+          <p>Businesses using our AI OS have reduced operational overhead by 60%+, automated 80%+ of routine decisions, improved cross-department execution speed by 5x, and freed up leadership to focus on strategy instead of oversight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to run your business with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute AI Business OS demo. We'll show you how autonomous operations work, audit your current stack, and design your custom AI operating system.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">AI Business OS deployments typically start at $10K. Most projects range $10K-$50K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free AI Business OS demo</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

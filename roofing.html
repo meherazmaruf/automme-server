@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Roofing Contractors | Roofing Lead Generation — Automme</title>
+  <meta name="description" content="AI-driven automation for roofing contractors: storm lead capture, instant quote automation, insurance claim follow-up, and review generation. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for roofing contractors, roofing lead generation, roofing automation, storm lead capture, roofing CRM, roofing estimates, insurance claim automation, roofing marketing, roofing business growth">
+  <link rel="canonical" href="https://automme.ai/roofing">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== ROOFING PAGE STYLES ===== */
+    .roofing-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .roofing-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .roofing-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .roofing-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .roofing-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .roofing-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .roofing-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+
+    .roofing-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+
+    .roofing-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .roofing-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+
+    .roofing-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+
+    .roofing-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .roofing-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .roofing-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .roofing-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .roofing-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .roofing-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .roofing-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+
+    .roofing-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .roofing-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .roofing-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    .roofing-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+
+    .roofing-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .roofing-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .roofing-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+
+    .roofing-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .roofing-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+
+    .roofing-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 991px) {
+      .roofing-problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roofing-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roofing-process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .roofing-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section roofing-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="roofing-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for roofing contractors.</span></span></h1>
+        <p class="roofing-hero-sub text-generate">Storm lead capture, instant quote automation, insurance claim follow-up, and review generation built for roofing companies and contractors.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free roofing growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS WE SOLVE -->
+  <section class="automme-section roofing-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why roofing contractors leave money on the table.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most roofing companies lose revenue because their lead capture and operations run on manual, reactive systems. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="roofing-problem-grid">
+        <div class="roofing-problem-card">
+          <h3>Storm leads slip away</h3>
+          <p>After a hailstorm, every roofing contractor in town competes for the same leads. Without automated storm detection and instant outreach, you're days behind your competitors. Our AI monitors weather data and triggers lead capture campaigns within hours of a storm event.</p>
+        </div>
+        <div class="roofing-problem-card">
+          <h3>Insurance claim delays</h3>
+          <p>Homeowners delay filing insurance claims, and without a system to guide them through the process, jobs stall or die. Our automated claim follow-up sequences keep homeowners moving through the adjuster process and into your production pipeline.</p>
+        </div>
+        <div class="roofing-problem-card">
+          <h3>Seasonal revenue gaps</h3>
+          <p>Roofing is seasonal. Storm season brings a flood of work, then dry spells follow. Without intelligent marketing automation, you either scramble to handle the surge or struggle to find work in the off-season. Our AI smooths revenue year-round.</p>
+        </div>
+        <div class="roofing-problem-card">
+          <h3>Inconsistent estimates</h3>
+          <p>Every estimator prices jobs differently, leading to inconsistent margins and lost bids. Without standardized estimate automation, you're leaving money on the table or pricing yourself out of jobs. Our AI generates consistent, accurate quotes in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section roofing-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your roofing company needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth stack for roofing. From storm detection to final review request, every system works together to fill your pipeline and maximize profit per job.</p>
+      </div>
+      <div class="roofing-solutions-grid">
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="roofing-solution-name">Storm lead capture</div>
+          <div class="roofing-solution-desc">AI-powered storm detection that monitors NOAA weather data, hail reports, and wind events in real-time. Within hours of a storm, automated campaigns target affected homeowners via SMS, email, and social media with hyper-local offers.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="roofing-solution-name">Instant quote automation</div>
+          <div class="roofing-solution-desc">AI-powered estimate generation from customer photos, property data, and roof measurements. Generate professional quotes in seconds and send automatically. Reduce estimate-to-proposal time by 80% and close more jobs faster.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="roofing-solution-name">Insurance claim follow-up</div>
+          <div class="roofing-solution-desc">Automated sequences that guide homeowners through the insurance claim process. Step-by-step SMS and email campaigns with adjuster appointment reminders, document requests, and status updates. Keep claims moving and jobs on track.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="roofing-solution-name">Review generation</div>
+          <div class="roofing-solution-desc">Automated review request campaigns that generate a steady stream of Google and Facebook reviews. Smart routing sends happy homeowners to review platforms while routing complaints to a private channel. Boost your local ranking and win more bids.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg>
+          </div>
+          <div class="roofing-solution-name">Google Maps lead gen</div>
+          <div class="roofing-solution-desc">AI-powered local lead extraction from Google Maps, property records, and insurance databases. Identify homeowners with aging roofs, recent storm activity, or expired insurance claims. Automated outreach turns data into booked inspections.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="roofing-solution-name">CRM automation</div>
+          <div class="roofing-solution-desc">Every lead — call, form fill, storm alert, social DM — automatically enters your CRM, gets scored by value and urgency, assigned to the right salesperson, and triggered into a personalized follow-up sequence. No manual data entry.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="roofing-solution-name">Drone report integration</div>
+          <div class="roofing-solution-desc">Automated drone inspection report processing. AI analyzes aerial imagery to identify roof damage, measure square footage, and generate professional inspection reports. Integrates directly with your estimating and CRM systems.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="roofing-solution-name">Referral systems</div>
+          <div class="roofing-solution-desc">Automated referral campaigns that identify your happiest customers and trigger referral requests at the perfect moment. Reward-based referral tracking with SMS sharing links. Turn every completed roof into 2-3 new leads.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="roofing-solution-name">Re-roofing campaigns</div>
+          <div class="roofing-solution-desc">Targeted marketing campaigns for re-roofing opportunities. AI identifies homes with roofs aged 15+ years using property data and triggers personalized offers. Automated direct mail, SMS, and email sequences drive inspections.</div>
+        </div>
+        <div class="roofing-solution-card">
+          <div class="roofing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="roofing-solution-name">Warranty follow-ups</div>
+          <div class="roofing-solution-desc">Automated warranty reminder and follow-up system. Track workmanship and manufacturer warranty expirations, send proactive reminders to homeowners, and generate service upgrade offers before warranties lapse.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section roofing-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your roofing growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="roofing-process-steps">
+        <div class="roofing-process-step">
+          <div class="roofing-process-step-num">Step 01</div>
+          <h3>Roofing business audit</h3>
+          <p>Free 30-minute session where we audit your current lead generation, estimating process, CRM setup, and sales follow-up. We identify every revenue leak and map out exactly where AI can move the needle for your roofing company.</p>
+        </div>
+        <div class="roofing-process-step">
+          <div class="roofing-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for lead capture, inspection booking rate, and ROI.</p>
+        </div>
+        <div class="roofing-process-step">
+          <div class="roofing-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing CRM, estimating software, phone system, and ad accounts. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="roofing-process-step">
+          <div class="roofing-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, funnel performance tuning, and system maintenance. Most roofing companies see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section roofing-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="roofing-faq-grid">
+        <div class="roofing-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire roofing lead capture and sales workflows. A marketing agency gives you reports. We give you working systems that detect storms, capture leads, generate quotes, and follow up automatically.</p>
+        </div>
+        <div class="roofing-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — AccuLynx, JobNimbus, RoofSnap, or whatever you use. Our systems integrate with your current CRM, estimating software, and phone system. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="roofing-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most roofing contractors see measurable improvements within 30 days of launch — typically in lead response time, inspection booking rate, and estimate-to-close ratio. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="roofing-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical roofing contractor projects range from $5K to $20K depending on complexity and service area size. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="roofing-faq-item">
+          <h3>Do you work with small roofing companies?</h3>
+          <p>Yes. We work with solo operators, family-owned roofing companies, and large multi-state contractors. Our systems are modular — you can start with storm lead capture and expand from there. Every system is designed to scale with your business.</p>
+        </div>
+        <div class="roofing-faq-item">
+          <h3>What kind of results have you generated for roofing clients?</h3>
+          <p>We've helped roofing contractors capture leads within hours of storm events, reduce estimate generation time by 80%, increase inspection-to-bid conversion by 35%+, and build automated insurance claim follow-up sequences that keep jobs moving through the pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to grow your roofing business with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute roofing business growth mapping call. We'll audit your current lead generation and sales process, find the bottlenecks, and show you exactly where AI moves the needle for your company.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Roofing engagements typically start at $5K. Most projects range $5K-$20K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free roofing growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

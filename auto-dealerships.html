@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Auto Dealerships | Car Dealer Marketing & Sales — Automme</title>
+  <meta name="description" content="AI-driven lead response, test drive booking, and inventory management for auto dealerships and car dealers. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for auto dealerships, car dealer automation, automotive lead generation, dealership CRM AI, test drive booking automation, inventory management AI, car dealer marketing, auto dealership growth">
+  <link rel="canonical" href="https://automme.ai/auto-dealerships">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .auto-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .auto-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .auto-hero-inner h1 { line-height: 105%; }
+    .auto-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .auto-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .auto-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .auto-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .auto-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .auto-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .auto-solutions-section { padding: 5em 0; background: #111113; }
+    .auto-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .auto-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .auto-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .auto-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .auto-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .auto-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .auto-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .auto-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .auto-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .auto-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .auto-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .auto-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .auto-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .auto-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .auto-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .auto-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .auto-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .auto-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .auto-problem-grid { grid-template-columns: 1fr; }
+      .auto-solutions-grid { grid-template-columns: 1fr; }
+      .auto-process-steps { grid-template-columns: 1fr; }
+      .auto-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section auto-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="auto-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for auto dealerships.</span></span></h1>
+        <p class="auto-hero-sub text-generate">Lead response automation, test drive booking, and inventory management built for auto dealerships and automotive retailers.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free dealership growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section auto-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why auto dealerships struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most dealerships leave sales on the table because their lead management and operations run on fragmented, slow systems. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="auto-problem-grid">
+        <div class="auto-problem-card">
+          <h3>Lead response speed</h3>
+          <p>Studies show that dealers who respond to leads within 5 minutes are 100x more likely to convert. Yet most dealerships take hours or days to follow up on web inquiries, chat messages, and phone calls. Every minute of delay is a lost sale to a faster competitor.</p>
+        </div>
+        <div class="auto-problem-card">
+          <h3>Test drive scheduling friction</h3>
+          <p>Customers want to book test drives instantly — but most dealerships require phone tag, back-and-forth emails, or in-person visits to schedule. This friction causes 30%+ of interested buyers to move on to a dealer with seamless online booking.</p>
+        </div>
+        <div class="auto-problem-card">
+          <h3>Inventory management blind spots</h3>
+          <p>Without real-time inventory visibility across lots and locations, dealers overstock slow movers while running out of high-demand models. AI-powered demand forecasting can optimize inventory turns and reduce carrying costs significantly.</p>
+        </div>
+        <div class="auto-problem-card">
+          <h3>Follow-up fatigue</h3>
+          <p>Sales teams start strong but fade fast. Leads that don't buy in the first week get forgotten — even though 80% of car buyers purchase within 30 days of their first inquiry. Without automated follow-up, your team leaves thousands in commissions on the table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section auto-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your dealership needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered sales and marketing stack built for auto dealerships. From the first lead to the final sale, every system works together to move metal faster and maximize gross profit.</p>
+      </div>
+      <div class="auto-solutions-grid">
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="auto-solution-name">Lead response AI</div>
+          <div class="auto-solution-desc">Instant lead response system that replies to web inquiries, chat messages, and phone calls within seconds. AI qualifies buyers, answers vehicle questions, captures contact details, and schedules test drives — all before your sales team picks up the phone.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="auto-solution-name">Test drive booking</div>
+          <div class="auto-solution-desc">Online test drive scheduling that integrates with your inventory and sales calendar. Customers book specific vehicles for specific time slots — with automatic confirmation, reminders, and rescheduling. Reduces no-show rates and maximizes demo slot utilization.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="auto-solution-name">Inventory alerts</div>
+          <div class="auto-solution-desc">Real-time inventory monitoring with AI-driven demand forecasting. Automatic alerts when stock runs low on high-demand models, plus recommendations for pricing adjustments and trade-in acquisitions based on market trends and local demand patterns.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="auto-solution-name">Re-engagement campaigns</div>
+          <div class="auto-solution-desc">Automated re-engagement sequences for leads that went cold, past customers due for trade-in, and service customers ready to upgrade. AI identifies the optimal timing and offer for each contact, then triggers personalized multi-channel campaigns.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="auto-solution-name">CRM automation</div>
+          <div class="auto-solution-desc">Every lead and customer interaction automatically logged and scored. AI assigns leads to the right salesperson based on buyer type, vehicle interest, and proximity. Automated workflows for test drive follow-up, proposal delivery, and post-sale handoff to service.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="auto-solution-name">Review generation</div>
+          <div class="auto-solution-desc">Automated review request campaigns that route happy buyers to Google, Cars.com, and DealerRater. Smart timing ensures requests go out at peak satisfaction moments. Steady review velocity builds social proof and improves local search rankings.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="auto-solution-name">Trade-in valuation</div>
+          <div class="auto-solution-desc">AI-powered trade-in valuation tool on your website. Customers enter their vehicle details and receive an instant, accurate estimate. Captures lead information and triggers immediate follow-up from the sales team with a firm offer and appointment link.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="auto-solution-name">Service appointment AI</div>
+          <div class="auto-solution-desc">AI-powered service scheduling that integrates with your shop capacity and parts inventory. Automated service reminders, recall notifications, and multi-point inspection follow-ups. Keeps the service bay full and drives dealership loyalty.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="auto-solution-name">Financing automation</div>
+          <div class="auto-solution-desc">Automated credit application processing and financing workflow. Customers submit applications online, AI pre-qualifies based on credit criteria, and routes to the appropriate lender. Reduces F&I processing time and speeds up the sales cycle.</div>
+        </div>
+        <div class="auto-solution-card">
+          <div class="auto-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="auto-solution-name">Social media ads</div>
+          <div class="auto-solution-desc">AI-driven social media advertising for Facebook, Instagram, and TikTok. Dynamic vehicle listing ads, retargeting campaigns, and lookalike audience targeting. Real-time performance optimization based on cost-per-lead and cost-per-sale by model and segment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section auto-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your dealership growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="auto-process-steps">
+        <div class="auto-process-step">
+          <div class="auto-process-step-num">Step 01</div>
+          <h3>Dealership audit</h3>
+          <p>Free 30-minute session where we audit your current lead response, sales process, inventory management, and marketing spend. We identify every revenue leak and map out exactly where AI can move the needle for your dealership.</p>
+        </div>
+        <div class="auto-process-step">
+          <div class="auto-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for lead response time and cost per sale.</p>
+        </div>
+        <div class="auto-process-step">
+          <div class="auto-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing DMS, CRM, and ad accounts. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="auto-process-step">
+          <div class="auto-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, sales process tuning, and system maintenance. Most dealerships see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section auto-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="auto-faq-grid">
+        <div class="auto-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire sales and marketing workflows. A marketing agency gives you reports. We give you working systems that respond to leads instantly, book test drives, manage inventory, and follow up automatically — connected directly to your DMS.</p>
+        </div>
+        <div class="auto-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — CDK, Reynolds, Dealertrack, or whatever you use. Our systems integrate with your current DMS, CRM, and ad accounts. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="auto-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most dealerships see measurable improvements within 30 days — typically in lead response time, test drive booking rate, and cost per sale. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="auto-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical dealership projects range from $5K to $25K depending on complexity and inventory size. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="auto-faq-item">
+          <h3>Do you work with independent dealerships?</h3>
+          <p>Yes. We work with independent dealers, franchise groups, and large auto groups. Our systems are modular — you can start with lead response and expand to full-stack automation. Every system scales with your dealership.</p>
+        </div>
+        <div class="auto-faq-item">
+          <h3>What kind of results have you generated for dealership clients?</h3>
+          <p>We've helped dealerships reduce lead response time from hours to seconds, increase test drive bookings by 50%+, improve sales conversion rates by 30%+, and build automated marketing systems that drive consistent showroom traffic without manual management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to move more metal with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute dealership growth mapping call. We'll audit your current sales and marketing systems, find the bottlenecks, and show you exactly where AI moves the needle for your dealership.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Dealership engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free dealership growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

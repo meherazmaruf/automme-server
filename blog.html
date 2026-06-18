@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — AUTOMME</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .blog-hero {
+      justify-content: center;
+      min-height: calc(35vh);
+      padding-top: 100px;
+      padding-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .blog-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .blog-hero-inner h1 {
+      font-size: clamp(2rem, 4vw, 3em);
+      letter-spacing: -2px;
+    }
+
+    .blog-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .blog-section {
+      padding: 40px 24px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+
+    /* Filter Bar - Nick Saraev exact style (text links with underline) */
+    .filter-section {
+      margin-bottom: 0;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      align-items: center;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-item {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      position: relative;
+    }
+
+    .filter-item::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 2px;
+      border-radius: 2px 2px 0 0;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .filter-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .filter-item.active {
+      color: #fff;
+    }
+
+    .filter-item.active::after {
+      background: var(--accent, #3b82f6);
+    }
+
+    /* SLIM SEARCH */
+    .search-wrap-slim {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .search-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0 16px;
+      transition: all 0.3s ease;
+    }
+
+    .search-inner:focus-within {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-icon-slim {
+      width: 18px;
+      height: 18px;
+      color: rgba(255, 255, 255, 0.3);
+      flex-shrink: 0;
+    }
+
+    .search-inner input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 12px 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .search-inner input:focus {
+      outline: none;
+    }
+
+    .search-inner input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Blog List - Nick Saraev style */
+    .blog-grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+      transition: background 0.2s ease;
+      position: relative;
+    }
+
+    .blog-list-item:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .blog-list-item:hover .blog-list-title {
+      color: #fff;
+    }
+
+    .blog-list-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .blog-list-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.2s ease;
+    }
+
+    .blog-list-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .blog-list-category {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .blog-list-date {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .blog-list-logo {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .no-blogs {
+      text-align: center;
+      padding: 60px 0;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 1.1em;
+    }
+
+    /* Latest Articles Cards */
+    .latest-section {
+      padding: 0 24px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .latest-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .latest-section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #f0f0f2;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .latest-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .latest-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .latest-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .latest-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .latest-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .latest-card-category {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .latest-card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f0f0f2;
+      line-height: 140%;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .latest-card:hover .latest-card-title {
+      color: #fff;
+    }
+
+    .latest-card-excerpt {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 155%;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .latest-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .latest-card-date,
+    .latest-card-read {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .latest-card-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 32px 0 8px;
+    }
+
+    .pagination-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: inherit;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .latest-cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .latest-cards-grid .latest-card:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .latest-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .latest-cards-grid .latest-card:nth-child(3) {
+        display: flex;
+      }
+
+      .blog-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .blog-list-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .blog-hero {
+        padding-top: 60px;
+        padding-bottom: 30px;
+      }
+
+      .filter-item {
+        flex-shrink: 0;
+        font-size: 0.85em;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html" style="opacity:1;">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section blog-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="blog-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">Insights & Ideas</span></span></h1>
+        <p class="blog-hero-sub text-generate">Practical strategies on AI automation, growth systems, and building profitable
+          agencies.</p>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <!-- LATEST ARTICLES -->
+  <section class="latest-section" id="latest-articles">
+    <div class="latest-section-header">
+      <h2 class="latest-section-title">Latest Articles</h2>
+    </div>
+    <div class="latest-cards-grid" id="latest-cards-container">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- BLOG SECTION -->
+  <section class="blog-section">
+    <div class="common-wrap">
+
+      <!-- Slim Search Bar -->
+      <div class="search-wrap-slim">
+        <div class="search-inner">
+          <svg class="search-icon-slim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input type="text" id="blog-search" placeholder="Search for industry, automation idea, or keyword..."
+            oninput="handleSearch()">
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-section">
+        <div class="filter-bar" id="category-filters">
+          <button class="filter-item active" data-category="All">All Posts</button>
+          <button class="filter-item" data-category="AI Systems">AI Systems</button>
+          <button class="filter-item" data-category="Operations AI">Operations AI</button>
+          <button class="filter-item" data-category="AI News">AI News</button>
+          <button class="filter-item" data-category="Marketing & Content">Marketing & Content</button>
+          <button class="filter-item" data-category="Scaling Strategy">Scaling Strategy</button>
+          <button class="filter-item" data-category="Case Studies">Case Studies</button>
+          <button class="filter-item" data-category="Other">Other</button>
+        </div>
+      </div>
+
+      <!-- Blog List -->
+      <div id="blog-posts-container">
+        <div class="no-blogs">Loading posts...</div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="pagination-btn" id="prev-btn" onclick="changePage(-1)">Prev</button>
+        <span class="pagination-info" id="page-info">Page 1 of 1</span>
+        <button class="pagination-btn" id="next-btn" onclick="changePage(1)">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://rqjkmitbhfddjzcermud.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxamttaXRiaGZkZGp6Y2VybXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0OTk5MjksImV4cCI6MjA5NzA3NTkyOX0.7Mk1pIL8c3Lloz-s3cgluToiPuzWiG26gBDCowEPtDg';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let currentCategory = 'All';
+    let latestRendered = false;
+    let currentPage = 1;
+    const postsPerPage = 10;
+    let filteredPosts = [];
+    let allPosts = [];
+    let searchQuery = '';
+
+    function renderLatestCards(posts) {
+      if (latestRendered) return;
+      latestRendered = true;
+      const container = document.getElementById('latest-cards-container');
+      const latest = posts.filter(p => p.status === 'published').slice(0, 3);
+      if (latest.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.35);">No published articles yet.</p>';
+        return;
+      }
+      container.innerHTML = latest.map(post => {
+        const text = (post.content || '').replace(/<[^>]*>/g, '');
+        const excerpt = post.excerpt || text.substring(0, 120) + '...';
+        return `
+        <a href="post.html?id=${post.id}" class="latest-card">
+          <img src="${post.image_url || 'images/meheraz.png'}" alt="${post.title}" class="latest-card-img" loading="lazy">
+          <div class="latest-card-body">
+            <span class="latest-card-category">${post.category || 'General'}</span>
+            <h3 class="latest-card-title">${post.title}</h3>
+            <p class="latest-card-excerpt">${excerpt}</p>
+            <div class="latest-card-meta">
+              <span class="latest-card-date">${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+              <span class="latest-card-dot"></span>
+              <span class="latest-card-read">${post.read_time || Math.ceil((post.content || '').replace(/<[^>]*>/g, '').split(/\s+/).length / 200) + ' min read'}</span>
+            </div>
+          </div>
+        </a>`;
+      }).join('');
+    }
+
+    function displayPage(page) {
+      const container = document.getElementById('blog-posts-container');
+      const published = filteredPosts.filter(p => p.status === 'published');
+      const totalPages = Math.ceil(published.length / postsPerPage);
+      currentPage = page;
+
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const pagePosts = published.slice(start, end);
+
+      if (pagePosts.length === 0) {
+        container.innerHTML = '<div class="no-blogs">No published posts found.</div>';
+        document.getElementById('pagination').style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = pagePosts.map(post => `
+        <a href="post.html?id=${post.id}" class="blog-list-item">
+          <span class="blog-list-title">${post.title}</span>
+          <div class="blog-list-right">
+            <span class="blog-list-category">${post.category || 'General'}</span>
+            <span class="blog-list-date">${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            <img src="images/logo.png" alt="AUTOMME" class="blog-list-logo">
+          </div>
+        </a>
+      `).join('');
+
+      document.getElementById('pagination').style.display = totalPages > 1 ? 'flex' : 'none';
+      document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages || 1}`;
+      document.getElementById('prev-btn').disabled = currentPage === 1;
+      document.getElementById('next-btn').disabled = currentPage === totalPages || totalPages === 0;
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('blog-search').value.toLowerCase();
+      applyFilters();
+    }
+
+    function applyFilters() {
+      filteredPosts = allPosts.filter(post => {
+        const matchesCategory = currentCategory === 'All' || post.category === currentCategory;
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery) ||
+          (post.content || '').toLowerCase().includes(searchQuery);
+        return matchesCategory && matchesSearch;
+      });
+      currentPage = 1;
+      displayPage(1);
+    }
+
+    function changePage(delta) {
+      const published = filteredPosts.filter(p => p.status === 'published');
+      const totalPages = Math.ceil(published.length / postsPerPage);
+      const newPage = currentPage + delta;
+      if (newPage >= 1 && newPage <= totalPages) {
+        displayPage(newPage);
+        window.scrollTo({ top: document.querySelector('.blog-section').offsetTop - 100, behavior: 'smooth' });
+      }
+    }
+
+    async function loadBlogs() {
+      const { data, error } = await supabaseClient
+        .from('posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) {
+        console.error('Error loading posts:', error);
+        document.getElementById('blog-posts-container').innerHTML = '<div class="no-blogs">Error loading posts. Please try again later.</div>';
+        return;
+      }
+      allPosts = data || [];
+      renderLatestCards(allPosts);
+      applyFilters();
+    }
+
+    document.getElementById('category-filters').addEventListener('click', (e) => {
+      const btn = e.target;
+      if (!btn.classList.contains('filter-item')) return;
+      document.querySelectorAll('.filter-item').forEach(i => i.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-category');
+      applyFilters();
+    });
+
+    loadBlogs();
+
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    // Typewriter Intersection Observer
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    // Text Generate Effect Initialization
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40); // Fast but smooth word revelation
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    
+    initTextGenerate();
+  </script>
+</body>
+
+</html>

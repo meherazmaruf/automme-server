@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Dermatology & Skincare | Automation — Automme</title>
+  <meta name="description" content="AI-driven automation for dermatology and skincare practices: patient lead gen AI, consultation booking, treatment follow-up sequences, product recommendation AI, and review generation. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for dermatology, skincare automation, dermatology marketing, skincare lead generation, med spa AI, dermatology patient retention, skincare consultation booking, dermatology CRM, aesthetic practice automation">
+  <link rel="canonical" href="https://automme.ai/dermatology-skincare">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .de-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .de-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .de-hero-inner h1 { line-height: 105%; }
+    .de-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .de-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .de-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .de-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .de-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .de-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .de-solutions-section { padding: 5em 0; background: #111113; }
+    .de-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .de-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .de-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .de-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .de-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .de-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .de-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .de-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .de-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .de-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .de-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .de-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .de-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .de-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .de-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .de-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .de-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .de-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) { .de-problem-grid { grid-template-columns: 1fr; } .de-solutions-grid { grid-template-columns: 1fr; } .de-process-steps { grid-template-columns: 1fr; } .de-faq-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section de-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="de-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for dermatology & skincare.</span></span></h1>
+        <p class="de-hero-sub text-generate">Patient lead gen AI, consultation booking, treatment follow-up sequences, product recommendation AI, and review generation — built for dermatologists, aestheticians, and skincare clinics.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free dermatology growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section de-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why dermatology & skincare practices struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most dermatology and skincare practices lose patients to slow lead response, poor follow-up, and inconsistent patient communication. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="de-problem-grid">
+        <div class="de-problem-card">
+          <h3>Lead response delay</h3>
+          <p>Patients researching skin concerns book the practice that responds first. Without AI that answers website chats, calls, and forms instantly, you lose potential patients to competitors who respond in seconds instead of hours or days.</p>
+        </div>
+        <div class="de-problem-card">
+          <h3>Consultation no-shows</h3>
+          <p>New patient consultations for aesthetic treatments have high no-show rates — people book impulsively and forget or change their minds. Without automated confirmation, reminder, and re-engagement sequences, every empty consultation slot is lost revenue.</p>
+        </div>
+        <div class="de-problem-card">
+          <h3>Treatment follow-up gaps</h3>
+          <p>Patients need follow-up after treatments — check results, schedule next sessions, maintain skincare routines. Without automated post-treatment sequences, patients don't return for recommended follow-ups and results suffer, along with your reputation.</p>
+        </div>
+        <div class="de-problem-card">
+          <h3>Product & service upsell leakage</h3>
+          <p>Every patient visit is an opportunity to recommend medical-grade skincare products or additional treatments. Without AI-driven product recommendations and upsell sequences, you leave thousands in revenue on the table per patient per year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section de-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your dermatology & skincare practice needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and operations stack for dermatology and skincare. From first inquiry to ongoing care, every system works together to maximize patient lifetime value.</p>
+      </div>
+      <div class="de-solutions-grid">
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="de-solution-name">Patient lead gen AI</div>
+          <div class="de-solution-desc">Conversational AI that handles every patient inquiry 24/7 — website chat, Instagram DMs, Google Business messages, phone calls. Instantly answers questions about treatments, pricing, and availability. Books consultations automatically. Never miss a lead.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="de-solution-name">Consultation booking & confirmation</div>
+          <div class="de-solution-desc">AI-powered booking that matches patients with the right provider based on concern type, availability, and treatment preferences. Multi-channel confirmations, reminders, and pre-appointment instructions. Reduce consultation no-shows by 70%.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="de-solution-name">Treatment follow-up sequences</div>
+          <div class="de-solution-desc">Automated post-treatment campaigns — next-day check-in, week 1 progress assessment, month 1 results survey, and next treatment reminder. AI personalizes timing and messaging based on treatment type. Keep patients on their care schedule automatically.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <div class="de-solution-name">Product recommendation AI</div>
+          <div class="de-solution-desc">AI that recommends medical-grade skincare products based on patient skin type, concerns, treatments received, and seasonal factors. Automated upsell sequences with personalized product regimens. Increase retail revenue by 30-50% per patient.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="de-solution-name">Review generation & reputation</div>
+          <div class="de-solution-desc">Automated review requests after treatments — happy patients go to Google, RealSelf, and Yelp. AI monitors all platforms, flags negative reviews immediately, and drafts response suggestions. Before/after photo collection with consent automation.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="de-solution-name">Patient reactivation campaigns</div>
+          <div class="de-solution-desc">AI identifies patients who haven't visited in 3, 6, or 12 months and triggers personalized re-engagement sequences. Seasonal promotions, new treatment announcements, and expiring treatment plan reminders. Recover lost patients and fill your schedule.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="de-solution-name">Referral program automation</div>
+          <div class="de-solution-desc">Automated referral campaigns — happy patients get referral links, rewards, and reminders. AI identifies your biggest promoters and turns them into an automated referral engine. Track referral performance per patient and reward consistently.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="de-solution-name">Social media & content AI</div>
+          <div class="de-solution-desc">AI generates social media content — before/after showcases with consent, treatment education, seasonal skincare tips, and provider spotlights. Automated posting schedule across Instagram, TikTok, and Facebook. Build your brand while you treat patients.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="de-solution-name">Practice analytics & KPIs</div>
+          <div class="de-solution-desc">Real-time practice metrics — new patient volume, consultation conversion rate, average treatment value, patient retention rate, and revenue per patient. AI identifies trends and recommends staffing, marketing, and scheduling adjustments.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="de-solution-name">Membership & subscription AI</div>
+          <div class="de-solution-desc">Automated membership management — monthly skincare subscription boxes, treatment membership plans, and loyalty programs. AI tracks redemption, identifies members at risk of cancellation, and triggers retention offers. Build predictable recurring revenue.</div>
+        </div>
+        <div class="de-solution-card">
+          <div class="de-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="de-solution-name">Inventory & supply AI</div>
+          <div class="de-solution-desc">AI tracks injectable supplies, skincare product inventory, and clinical consumables. Automated reorder points, expiration date monitoring, and vendor performance tracking. Never run out of Botox, fillers, or your best-selling retail products.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section de-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your dermatology practice growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="de-process-steps">
+        <div class="de-process-step">
+          <div class="de-process-step-num">Step 01</div>
+          <h3>Practice audit</h3>
+          <p>Free 30-minute session where we audit your current lead response, consultation booking, treatment follow-up, product sales, and patient retention processes. We identify every revenue leak and map out exactly where AI can move the needle for your practice.</p>
+        </div>
+        <div class="de-process-step">
+          <div class="de-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for new patient volume, consultation conversion, patient retention, and ROI.</p>
+        </div>
+        <div class="de-process-step">
+          <div class="de-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing EHR, practice management software, and e-commerce platform. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="de-process-step">
+          <div class="de-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign performance tuning, product recommendation refinement, and system maintenance. Most practices see compounding improvements in patient volume and revenue over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section de-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="de-faq-grid">
+        <div class="de-faq-item">
+          <h3>How is this different from Nextech or ModMed?</h3>
+          <p>Those are EHR and practice management platforms. We build AI that automates workflows they don't touch — lead response, consultation follow-up, product recommendations, and patient reactivation. We enhance your existing systems, not replace them.</p>
+        </div>
+        <div class="de-faq-item">
+          <h3>Do I need to change my current EHR?</h3>
+          <p>No. We integrate with Nextech, ModMed, DrChrono, Kareo, AdvancedMD, and dozens of others. Our AI connects to your existing stack and adds automation layers your current EHR never had. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="de-faq-item">
+          <h3>How long until we see results?</h3>
+          <p>Most practices see measurable improvements within 30 days — typically in lead response time, consultation booking rate, and follow-up compliance. Full system optimization compounds over 3-6 months with measurable revenue growth.</p>
+        </div>
+        <div class="de-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical dermatology & skincare projects range from $5K to $20K depending on practice size and service lines. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="de-faq-item">
+          <h3>Do you work with solo providers?</h3>
+          <p>Yes. We work with solo dermatologists, single-location med spas, and multi-provider dermatology groups. Our systems are modular — you can start with lead gen AI or consultation booking and expand from there. Every system scales with your patient volume.</p>
+        </div>
+        <div class="de-faq-item">
+          <h3>What results have you generated for dermatology clients?</h3>
+          <p>We've helped practices increase new patient volume by 50%, reduce consultation no-shows by 70%, grow product retail revenue by 40%, and improve patient retention by 35%. Typical clients see 20-40% revenue growth within 6 months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to grow your dermatology or skincare practice with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute practice growth mapping call. We'll audit your lead response, consultation booking, follow-up, and patient retention — find the leaks — and show you exactly where AI drives the biggest ROI.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Dermatology & skincare engagements typically start at $5K. Most projects range $5K-$20K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free practice growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+                <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </a></div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

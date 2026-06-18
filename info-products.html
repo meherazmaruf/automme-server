@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Info Products | Digital Course Marketing & Sales — Automme</title>
+  <meta name="description" content="AI-driven student engagement, cart recovery, and community management for info products and digital courses. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for info products, digital course automation, student engagement AI, cart abandonment recovery, membership automation, course platform AI, affiliate marketing automation, online course growth">
+  <link rel="canonical" href="https://automme.ai/info-products">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .info-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .info-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .info-hero-inner h1 { line-height: 105%; }
+    .info-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .info-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .info-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .info-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .info-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .info-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .info-solutions-section { padding: 5em 0; background: #111113; }
+    .info-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .info-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .info-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .info-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .info-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .info-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .info-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .info-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .info-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .info-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .info-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .info-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .info-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .info-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .info-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .info-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .info-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .info-problem-grid { grid-template-columns: 1fr; }
+      .info-solutions-grid { grid-template-columns: 1fr; }
+      .info-process-steps { grid-template-columns: 1fr; }
+      .info-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section info-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="info-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for info products.</span></span></h1>
+        <p class="info-hero-sub text-generate">Student engagement, cart recovery, and community management systems built for digital courses, memberships, and info product creators.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free info product growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section info-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why info product creators struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most creators leave revenue on the table because their student engagement and sales systems run on manual, fragmented processes. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="info-problem-grid">
+        <div class="info-problem-card">
+          <h3>Student engagement drops</h3>
+          <p>Course completion rates average below 20% across most platforms. Students buy, start strong, then fade. Without automated engagement sequences, you're leaving future upsells, referrals, and reviews on the table — along with your students' outcomes.</p>
+        </div>
+        <div class="info-problem-card">
+          <h3>Cart abandonment</h3>
+          <p>70% of info product carts are abandoned before purchase. Most creators have no automated recovery system — no follow-up emails, no retargeting, no abandoned checkout SMS. Every abandoned cart is a direct revenue loss that could be recovered with AI.</p>
+        </div>
+        <div class="info-problem-card">
+          <h3>Community management overload</h3>
+          <p>Running a thriving student community requires 24/7 moderation, engagement, and support. Without AI assistance, you're either neglecting your community or burning out trying to keep up. Both scenarios lead to churn and bad word-of-mouth.</p>
+        </div>
+        <div class="info-problem-card">
+          <h3>Upsell timing is off</h3>
+          <p>Most creators leave money on the table because they have no systematic way to identify the right moment to offer a upsell, bundle, or higher-tier product. Without AI-driven behavioral triggers, upsells feel pushy or get sent too late — or never at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section info-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your info product business needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and retention stack built for digital creators. From the first site visit to the advanced certification, every system works together to maximize student success and revenue.</p>
+      </div>
+      <div class="info-solutions-grid">
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="info-solution-name">Course platform integration</div>
+          <div class="info-solution-desc">Seamless integration with major course platforms — Teachable, Kajabi, Thinkific, Podia, and more. AI automates enrollment, progress tracking, and certificate generation while pulling student data into your unified marketing system.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="info-solution-name">Membership automation</div>
+          <div class="info-solution-desc">Automated membership site management — billing, access control, tier upgrades, and churn prevention. AI identifies at-risk members based on engagement drops and triggers personalized retention offers before they cancel.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="info-solution-name">Student engagement AI</div>
+          <div class="info-solution-desc">Automated engagement sequences that keep students progressing through your content. AI detects when a student stalls on a module, then triggers personalized nudges, study tips, or live Q&A invitations to get them back on track.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="info-solution-name">Affiliate systems</div>
+          <div class="info-solution-desc">Automated affiliate program management — recruitment, tracking, payouts, and communications. AI identifies your most effective affiliates, optimizes commission structures, and provides them with personalized creatives and campaign suggestions.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="info-solution-name">Email sequences</div>
+          <div class="info-solution-desc">AI-powered email marketing sequences for launches, nurture, onboarding, and reactivation. Behavioral triggers send the right message at the right time — whether it's a abandoned cart recovery, a post-purchase upsell, or a re-engagement campaign.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="info-solution-name">Webinar automation</div>
+          <div class="info-solution-desc">End-to-end webinar automation — registration, reminder sequences, live chat moderation, and replay delivery. AI handles Q&A during live sessions, segments attendees by engagement level, and triggers tailored follow-up sequences post-webinar.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="info-solution-name">Content delivery AI</div>
+          <div class="info-solution-desc">Smart content delivery that adapts to student preferences and learning pace. AI recommends the next lesson, module, or course based on progress, quiz scores, and stated goals. Delivers content via email, in-app, or SMS based on user preference.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="info-solution-name">Community management</div>
+          <div class="info-solution-desc">AI-powered community moderation and engagement for Facebook groups, Discord, Circle, or your own platform. Automated welcome messages, content moderation, FAQs, and engagement prompts — keeping your community active without burning out your team.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="info-solution-name">Upsell automation</div>
+          <div class="info-solution-desc">AI identifies the perfect moment to present a upsell, cross-sell, or bundle offer based on student behavior — course completion percentage, quiz scores, time spent in platform, and engagement patterns. Automatically triggers personalized offers.</div>
+        </div>
+        <div class="info-solution-card">
+          <div class="info-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="info-solution-name">Analytics dashboard</div>
+          <div class="info-solution-desc">Unified analytics showing every metric that matters: enrollment by source, course completion rates, revenue per student, average revenue per email, and churn prediction. Real-time dashboards for data-driven decisions across your entire info product ecosystem.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section info-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your info product growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="info-process-steps">
+        <div class="info-process-step">
+          <div class="info-process-step-num">Step 01</div>
+          <h3>Creator audit</h3>
+          <p>Free 30-minute session where we audit your current course platform, marketing funnels, community engagement, and revenue streams. We identify every growth opportunity and map out exactly where AI can move the needle for your business.</p>
+        </div>
+        <div class="info-process-step">
+          <div class="info-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for enrollment and student retention.</p>
+        </div>
+        <div class="info-process-step">
+          <div class="info-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing course platform, email provider, and community tools. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="info-process-step">
+          <div class="info-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, engagement tuning, and system maintenance. Most creators see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section info-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="info-faq-grid">
+        <div class="info-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire student engagement and sales workflows. A marketing agency gives you reports. We give you working systems that onboard students, recover abandoned carts, manage communities, and trigger upsells — connected directly to your course platform.</p>
+        </div>
+        <div class="info-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Teachable, Kajabi, Thinkific, Podia, or whatever you use. Our systems integrate with your current course platform, email provider, and community tools. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="info-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most creators see measurable improvements within 30 days — typically in cart recovery rate, student engagement, and email conversion. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="info-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical info product projects range from $5K to $25K depending on complexity and number of products. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="info-faq-item">
+          <h3>Do you work with solo creators?</h3>
+          <p>Yes. We work with solo creators, small course businesses, and large education companies. Our systems are modular — you can start with cart recovery and expand to full-stack automation. Every system scales with your business.</p>
+        </div>
+        <div class="info-faq-item">
+          <h3>What kind of results have you generated for creator clients?</h3>
+          <p>We've helped creators recover 20%+ of abandoned carts, increase course completion rates by 40%+, double average revenue per student through automated upsells, and build automated marketing systems that drive consistent enrollment without manual management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to grow your info product empire with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute creator growth mapping call. We'll audit your current systems, find the bottlenecks, and show you exactly where AI moves the needle for your business.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Info product engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free creator growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

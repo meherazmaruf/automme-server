@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Med Spas | Med Spa Marketing & Operations — Automme</title>
+  <meta name="description" content="AI-driven consultation booking, follow-up automation, and marketing for med spas and aesthetics clinics. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for med spas, med spa marketing automation, med spa lead generation, aesthetics AI automation, med spa CRM, consultation booking AI, med spa membership retention, aesthetics marketing">
+  <link rel="canonical" href="https://automme.ai/med-spa">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .medspa-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .medspa-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .medspa-hero-inner h1 { line-height: 105%; }
+    .medspa-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .medspa-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .medspa-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .medspa-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .medspa-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .medspa-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .medspa-solutions-section { padding: 5em 0; background: #111113; }
+    .medspa-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .medspa-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .medspa-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .medspa-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .medspa-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .medspa-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .medspa-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .medspa-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .medspa-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .medspa-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .medspa-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .medspa-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .medspa-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .medspa-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .medspa-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .medspa-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .medspa-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .medspa-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .medspa-problem-grid { grid-template-columns: 1fr; }
+      .medspa-solutions-grid { grid-template-columns: 1fr; }
+      .medspa-process-steps { grid-template-columns: 1fr; }
+      .medspa-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section medspa-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="medspa-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for med spas.</span></span></h1>
+        <p class="medspa-hero-sub text-generate">Consultation booking, follow-up automation, and marketing systems built for med spas, aesthetics clinics, and wellness practices.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free med spa growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section medspa-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why med spas struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most med spas leave revenue on the table because their client acquisition and retention run on manual, fragmented systems. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="medspa-problem-grid">
+        <div class="medspa-problem-card">
+          <h3>Consultation booking friction</h3>
+          <p>Potential clients fill out web forms, send DMs, and call — but without automated booking, consultations get delayed or lost entirely. Every hour of delay means a higher chance they book with a competitor. Our AI captures and schedules instantly.</p>
+        </div>
+        <div class="medspa-problem-card">
+          <h3>Follow-up leakage</h3>
+          <p>Clients who don't purchase on the first visit, don't rebook within the optimal window, or haven't been seen in months — these are your biggest revenue leaks. Without automated follow-up sequences, you're leaving 40%+ of potential revenue on the table.</p>
+        </div>
+        <div class="medspa-problem-card">
+          <h3>Membership retention</h3>
+          <p>Monthly membership programs are the backbone of med spa recurring revenue, but manual tracking and renewal reminders lead to churn. Most med spas lose 25-30% of members annually simply because they forget to re-engage before cancellation.</p>
+        </div>
+        <div class="medspa-problem-card">
+          <h3>Competitive ad costs</h3>
+          <p>Med spa advertising costs have skyrocketed as more clinics compete for the same Botox, filler, and laser clients. Without AI-driven campaign optimization and audience targeting, you're overpaying for every click while competitors capture your ideal clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section medspa-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your med spa needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and retention stack built for med spas. From the first consultation to the recurring membership, every system works together to maximize client lifetime value.</p>
+      </div>
+      <div class="medspa-solutions-grid">
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="medspa-solution-name">Consult booking AI</div>
+          <div class="medspa-solution-desc">Multi-channel consultation booking that captures leads from phone, web, Instagram, and TikTok. AI qualifies prospects, matches them with the right provider, and schedules appointments instantly — with automated reminders that cut no-shows to under 5%.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="medspa-solution-name">Follow-up sequences</div>
+          <div class="medspa-solution-desc">Automated multi-touch follow-up sequences for every client journey stage. Post-consultation, post-treatment, rebooking reminders, and reactivation campaigns. Personalized SMS, email, and social messaging that feels human at scale.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="medspa-solution-name">Membership retention AI</div>
+          <div class="medspa-solution-desc">AI-driven membership retention system that predicts churn risk, triggers personalized re-engagement offers, and automates renewal reminders. Identifies under-utilizing members and targets them with reactivation campaigns before they cancel.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="medspa-solution-name">Re-engagement AI</div>
+          <div class="medspa-solution-desc">Automatically identifies dormant clients — those who haven't booked in 60, 90, or 180 days — and triggers personalized re-engagement campaigns. AI selects the right offer, channel, and messaging based on their treatment history and preferences.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="medspa-solution-name">Lead generation</div>
+          <div class="medspa-solution-desc">AI-powered multi-channel lead generation across Google, Instagram, TikTok, and local search. Smart bidding, audience targeting, and creative optimization that delivers a measurable cost-per-consultation, not just cost-per-click.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="medspa-solution-name">Review generation</div>
+          <div class="medspa-solution-desc">Automated review request campaigns that route happy clients to Google, Yelp, and RealSelf. Smart timing ensures requests go out at peak satisfaction moments. Steady review velocity builds social proof and improves local search rankings.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="medspa-solution-name">Before/after automation</div>
+          <div class="medspa-solution-desc">Automated before-and-after photo collection and consent management. AI catalogs client photos, tracks progress over time, and generates shareable transformation galleries — with client permission — for social media marketing and review amplification.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="medspa-solution-name">Referral campaigns</div>
+          <div class="medspa-solution-desc">Automated referral program management that turns your best clients into your best sales team. Track, reward, and amplify word-of-mouth with AI-optimized referral offers, shareable links, and personalized follow-up for every referral lead.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="medspa-solution-name">Inventory management</div>
+          <div class="medspa-solution-desc">AI-driven inventory tracking for injectables, skincare products, and consumables. Predicts usage based on appointment volume, auto-generates purchase orders, and alerts when popular products are running low — ensuring you never miss a sale.</div>
+        </div>
+        <div class="medspa-solution-card">
+          <div class="medspa-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="medspa-solution-name">CRM automation</div>
+          <div class="medspa-solution-desc">Every client interaction automatically logged and scored in your CRM. Treatment history, preferences, purchase patterns, and communication preferences — all unified in one system. Automated workflows for every stage of the client journey.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section medspa-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your med spa growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="medspa-process-steps">
+        <div class="medspa-process-step">
+          <div class="medspa-process-step-num">Step 01</div>
+          <h3>Med spa audit</h3>
+          <p>Free 30-minute session where we audit your current booking process, follow-up systems, membership retention, and ad spend. We identify every revenue leak and map out exactly where AI can move the needle for your med spa.</p>
+        </div>
+        <div class="medspa-process-step">
+          <div class="medspa-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for cost per consultation and membership retention.</p>
+        </div>
+        <div class="medspa-process-step">
+          <div class="medspa-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing booking software, CRM, and ad accounts. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="medspa-process-step">
+          <div class="medspa-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, retention performance tuning, and system maintenance. Most med spas see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section medspa-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="medspa-faq-grid">
+        <div class="medspa-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire client acquisition and retention workflows. A marketing agency gives you reports. We give you working systems that book consultations, follow up automatically, retain members, and generate reviews — connected directly to your practice software.</p>
+        </div>
+        <div class="medspa-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Booker, Boulevard, Vagaro, or whatever you use. Our systems integrate with your current booking platform, CRM, and ad accounts. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="medspa-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most med spas see measurable improvements within 30 days — typically in consultation booking rate, follow-up response, and ad cost per acquisition. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="medspa-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical med spa projects range from $5K to $25K depending on complexity and number of locations. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="medspa-faq-item">
+          <h3>Do you work with single-location med spas?</h3>
+          <p>Yes. We work with independent med spas, multi-location groups, and franchise operators. Our systems are modular — you can start with consultation booking and expand to full-stack automation. Every system scales with your business.</p>
+        </div>
+        <div class="medspa-faq-item">
+          <h3>What kind of results have you generated for med spa clients?</h3>
+          <p>We've helped med spas increase consultation booking rates by 60%+, improve membership retention by 35%+, reduce cost-per-acquisition by 40%+, and build automated marketing systems that drive consistent client flow without manual management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to grow your med spa with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute med spa growth mapping call. We'll audit your current booking and retention systems, find the bottlenecks, and show you exactly where AI moves the needle for your practice.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Med spa engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free med spa growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>
