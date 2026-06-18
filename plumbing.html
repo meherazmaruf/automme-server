@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Plumbing Businesses | Lead Generation & PPC — Automme</title>
+  <meta name="description" content="AI-driven outbound systems, service lead funnels, and ad optimization for plumbing businesses and HVAC contractors. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for plumbing businesses, plumbing lead generation, plumbing PPC automation, HVAC AI marketing, plumbing CRM automation, emergency triage AI, service business automation, plumbing contractor growth">
+  <link rel="canonical" href="https://automme.ai/plumbing">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .plumbing-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .plumbing-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .plumbing-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .plumbing-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .plumbing-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .plumbing-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .plumbing-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+
+    .plumbing-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+
+    .plumbing-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plumbing-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+
+    .plumbing-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+
+    .plumbing-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .plumbing-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .plumbing-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .plumbing-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .plumbing-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .plumbing-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plumbing-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+
+    .plumbing-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .plumbing-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .plumbing-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    .plumbing-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+
+    .plumbing-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plumbing-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .plumbing-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+
+    .plumbing-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .plumbing-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+
+    .plumbing-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 991px) {
+      .plumbing-problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plumbing-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plumbing-process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .plumbing-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section plumbing-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="plumbing-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for plumbing businesses.</span></span></h1>
+        <p class="plumbing-hero-sub text-generate">Service lead funnels, dispatch optimization, and CRM automation built for plumbing contractors, HVAC companies, and home service businesses.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free plumbing growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS WE SOLVE -->
+  <section class="automme-section plumbing-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why plumbing businesses struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most plumbing contractors leave revenue on the table because their operations and marketing run on fragmented, manual systems. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="plumbing-problem-grid">
+        <div class="plumbing-problem-card">
+          <h3>Emergency calls go unanswered</h3>
+          <p>Plumbing emergencies don't follow business hours. When phones ring after hours or during peak seasons, missed calls mean lost jobs — often to competitors who answer first. Our AI phone agent captures every emergency call 24/7 and dispatches immediately.</p>
+        </div>
+        <div class="plumbing-problem-card">
+          <h3>Service contract leakage</h3>
+          <p>Annual maintenance contracts, tune-up reminders, and warranty renewals slip through the cracks without automated tracking. Most plumbers lose 30%+ of recurring revenue simply because they forget to follow up on expiring agreements.</p>
+        </div>
+        <div class="plumbing-problem-card">
+          <h3>Parts & inventory chaos</h3>
+          <p>Running out of common parts mid-job destroys margins and customer trust. Without real-time inventory tracking across trucks and warehouses, plumbers waste hours on extra trips and emergency supply runs that eat into job profitability.</p>
+        </div>
+        <div class="plumbing-problem-card">
+          <h3>Inconsistent review velocity</h3>
+          <p>Online reputation drives 70% of homeowner purchase decisions, but most plumber have no systematic way to generate reviews. A handful of old reviews — or worse, a streak of unreviewed jobs — lets competitors dominate local search results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section plumbing-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your plumbing business needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and operations stack built for plumbing. From the first emergency call to the annual maintenance renewal, every system works together to fill your schedule and maximize recurring revenue.</p>
+      </div>
+      <div class="plumbing-solutions-grid">
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Emergency triage AI</div>
+          <div class="plumbing-solution-desc">Conversational AI phone agent that answers every emergency call 24/7. Qualifies the issue, captures location and details, and dispatches the nearest available plumber — all without human intervention. Cuts response time from hours to minutes.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Service renewals automation</div>
+          <div class="plumbing-solution-desc">Automated tracking and follow-up for annual maintenance contracts, warranty periods, and tune-up schedules. Smart reminders via SMS, email, and voice ensure no recurring revenue agreement expires without a renewal attempt.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Inventory AI</div>
+          <div class="plumbing-solution-desc">Real-time inventory tracking across service trucks and warehouse stock. AI predicts demand based on job history and seasonality, auto-generates purchase orders, and alerts when stock runs low on high-usage items like fittings, valves, and water heaters.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Review amplification</div>
+          <div class="plumbing-solution-desc">Automated review request campaigns that route happy customers to Google and Yelp while complaints go to a private feedback channel. Steady review velocity improves local SEO rankings and builds social proof that drives homeowner decisions.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Booking automation</div>
+          <div class="plumbing-solution-desc">Online scheduling that integrates with your dispatch system. Customers book service appointments through your website, Google Business Profile, or SMS — automatically checked against technician availability, route optimization, and parts inventory.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Dispatch optimization</div>
+          <div class="plumbing-solution-desc">AI-powered route optimization and technician assignment based on location, skillset, parts availability, and job priority. Reduces drive time, fuel costs, and overtime while maximizing the number of jobs completed per truck per day.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Flat rate estimate generator</div>
+          <div class="plumbing-solution-desc">AI generates accurate flat-rate estimates for common plumbing jobs based on your local pricing, parts costs, and labor rates. Customers receive transparent, professional estimates instantly — reducing call-back haggling and increasing close rates.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Seasonal campaign automation</div>
+          <div class="plumbing-solution-desc">Automated marketing campaigns triggered by season, weather, and calendar events. Winterization reminders, spring tune-up offers, holiday drain cleaning specials — all sent automatically via SMS, email, and direct mail to the right customer segments.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="plumbing-solution-name">Referral systems</div>
+          <div class="plumbing-solution-desc">Automated referral program management — track, reward, and amplify word-of-mouth. Happy customers receive referral links via SMS after completed jobs. AI identifies high-net-worth neighborhoods and targets lookalike audiences with referral offers.</div>
+        </div>
+        <div class="plumbing-solution-card">
+          <div class="plumbing-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="plumbing-solution-name">CRM automation</div>
+          <div class="plumbing-solution-desc">Every lead — call, form fill, SMS, website visit — enters your CRM, gets scored by job value and urgency, and routes to the right team. Automated follow-up sequences nurture leads over weeks and months until they're ready to book.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section plumbing-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your plumbing growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="plumbing-process-steps">
+        <div class="plumbing-process-step">
+          <div class="plumbing-process-step-num">Step 01</div>
+          <h3>Plumbing business audit</h3>
+          <p>Free 30-minute session where we audit your current lead generation, dispatch operations, CRM setup, and marketing spend. We identify every revenue leak and map out exactly where AI can move the needle for your plumbing business.</p>
+        </div>
+        <div class="plumbing-process-step">
+          <div class="plumbing-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for cost per lead and ROI.</p>
+        </div>
+        <div class="plumbing-process-step">
+          <div class="plumbing-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing dispatch software, CRM, phone system, and ad accounts. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="plumbing-process-step">
+          <div class="plumbing-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, dispatch performance tuning, and system maintenance. Most plumbing businesses see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section plumbing-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="plumbing-faq-grid">
+        <div class="plumbing-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire lead generation and operations workflows. A marketing agency gives you reports. We give you working systems that handle emergency calls, book jobs, dispatch technicians, and follow up automatically — connected directly to your business software.</p>
+        </div>
+        <div class="plumbing-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — ServiceTitan, Housecall Pro, Jobber, or whatever you use. Our systems integrate with your current dispatch software, phone system, and ad accounts. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="plumbing-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most plumbing businesses see measurable improvements within 30 days of launch — typically in emergency call response time, booking rates, and ad cost per job. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="plumbing-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical plumbing business projects range from $5K to $25K depending on complexity and fleet size. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="plumbing-faq-item">
+          <h3>Do you work with single-truck operators?</h3>
+          <p>Yes. We work with independent plumbers, multi-truck operations, and large commercial service providers. Our systems are modular — you can start with one truck and expand. Every system is designed to scale with your business.</p>
+        </div>
+        <div class="plumbing-faq-item">
+          <h3>What kind of results have you generated for plumbing clients?</h3>
+          <p>We've helped plumbing businesses reduce emergency call response time by 80%+, increase service contract renewal rates by 40%+, cut no-show rates to under 5%, and build automated lead funnels that generate consistent job flow without manual management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to fill your plumbing schedule with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute plumbing business growth mapping call. We'll audit your current lead generation and operations, find the bottlenecks, and show you exactly where AI moves the needle for your business.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Plumbing engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free plumbing growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

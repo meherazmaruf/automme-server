@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Digital Marketing Agencies | Agency Growth & Delivery — Automme</title>
+  <meta name="description" content="AI-driven delivery scaling, client reporting, and onboarding automation for digital marketing agencies. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for digital marketing agencies, agency automation, marketing agency AI, client reporting AI, agency onboarding automation, white-label dashboards, campaign automation, agency growth">
+  <link rel="canonical" href="https://automme.ai/digital-marketing-agencies">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .agency-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .agency-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .agency-hero-inner h1 { line-height: 105%; }
+    .agency-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .agency-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .agency-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .agency-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .agency-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .agency-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .agency-solutions-section { padding: 5em 0; background: #111113; }
+    .agency-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .agency-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .agency-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .agency-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .agency-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .agency-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .agency-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .agency-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .agency-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .agency-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .agency-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .agency-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .agency-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .agency-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .agency-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .agency-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .agency-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .agency-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .agency-problem-grid { grid-template-columns: 1fr; }
+      .agency-solutions-grid { grid-template-columns: 1fr; }
+      .agency-process-steps { grid-template-columns: 1fr; }
+      .agency-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section agency-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="agency-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for digital marketing agencies.</span></span></h1>
+        <p class="agency-hero-sub text-generate">Delivery scaling, client reporting, and operational automation built for digital marketing agencies and media buying teams.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free agency growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section agency-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why agencies struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most agencies hit a growth ceiling because their delivery and operations rely on manual processes that don't scale. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="agency-problem-grid">
+        <div class="agency-problem-card">
+          <h3>Delivery doesn't scale</h3>
+          <p>Adding a new client means adding headcount. Most agencies are built on service arbitrage — trading hours for dollars. Without AI-powered delivery automation, your margins compress as you grow and you're stuck in the feast-or-famine cycle of client work.</p>
+        </div>
+        <div class="agency-problem-card">
+          <h3>Client reporting is a black hole</h3>
+          <p>Pulling data from multiple platforms, building decks, and explaining results eats 20+ hours per client per month. Manual reporting delays insights, frustrates clients, and keeps your team from doing high-value strategic work that drives retention.</p>
+        </div>
+        <div class="agency-problem-card">
+          <h3>Onboarding inefficiency</h3>
+          <p>Every new client requires the same manual onboarding dance — gathering access, setting up accounts, configuring tracking, and briefing the team. Without automated onboarding workflows, you lose the first 2-4 weeks of every engagement to setup overhead.</p>
+        </div>
+        <div class="agency-problem-card">
+          <h3>Margin compression</h3>
+          <p>Ad costs rise, client budgets shrink, and competitors undercut on price. Without AI to automate campaign management, creative testing, and reporting, your margins get squeezed from both sides — higher costs to deliver and downward pressure on pricing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section agency-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your agency needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered agency operations stack. From the first prospect call to the monthly report, every system works together to help you deliver more, charge more, and work less.</p>
+      </div>
+      <div class="agency-solutions-grid">
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="agency-solution-name">Cold email outbound</div>
+          <div class="agency-solution-desc">AI-powered cold email outreach that fills your pipeline with qualified prospects. Smart sequencing, personalization at scale, A/B testing, and deliverability optimization. Automatically rotate copy, test subject lines, and suppress unengaged contacts.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="agency-solution-name">Client onboarding automation</div>
+          <div class="agency-solution-desc">Automated client onboarding workflows that collect access credentials, set up accounts, configure tracking, and brief your team — all without manual coordination. New clients go from signed contract to active campaign in days, not weeks.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="agency-solution-name">AI reporting</div>
+          <div class="agency-solution-desc">Automated client reporting that pulls data from Google Ads, Meta, TikTok, LinkedIn, GA4, and more — all into a single, beautiful dashboard. AI generates narrative insights, flags anomalies, and recommends optimizations. No more manual deck building.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="agency-solution-name">Performance analytics</div>
+          <div class="agency-solution-desc">Real-time cross-channel performance analytics with AI-driven attribution. Understand which channels, creatives, and audiences drive actual conversions — not just last-click metrics. Make data-driven decisions across your entire client portfolio.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="agency-solution-name">Ad copy AI</div>
+          <div class="agency-solution-desc">AI-powered ad copy generation for Google, Facebook, Instagram, LinkedIn, and TikTok. Generate hundreds of ad variations, headlines, and calls-to-action in minutes. Test and optimize automatically based on real-time performance data.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="agency-solution-name">Creative testing</div>
+          <div class="agency-solution-desc">Automated creative testing framework that systematically tests headlines, images, videos, and offers across channels. AI identifies winning combinations, kills underperformers, and scales budget toward creatives that drive the best ROAS.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="agency-solution-name">White-label dashboards</div>
+          <div class="agency-solution-desc">White-label client dashboards that showcase your agency's brand. Real-time performance data, automated reports, and client-facing insights — all under your logo. Impress clients without the overhead of building your own reporting infrastructure.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="agency-solution-name">Proposal generation</div>
+          <div class="agency-solution-desc">AI-powered proposal generation that creates tailored, professional proposals in minutes. Pulls from your service catalog, case studies, and pricing. Personalizes each proposal based on prospect industry, pain points, and budget range.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="agency-solution-name">Campaign automation</div>
+          <div class="agency-solution-desc">AI-driven campaign management that handles bid adjustments, budget allocation, audience targeting, and ad rotation across all major platforms. Rules-based and machine learning optimization that runs 24/7 without human intervention.</div>
+        </div>
+        <div class="agency-solution-card">
+          <div class="agency-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="agency-solution-name">Cross-client optimization</div>
+          <div class="agency-solution-desc">AI that identifies optimization opportunities across your entire client portfolio. Surface winning audience segments, creative angles, and channel strategies from one client that can be applied to others. Institutional knowledge that scales across your agency.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section agency-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your agency growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="agency-process-steps">
+        <div class="agency-process-step">
+          <div class="agency-process-step-num">Step 01</div>
+          <h3>Agency audit</h3>
+          <p>Free 30-minute session where we audit your current delivery process, client reporting, onboarding, and margin structure. We identify every operational bottleneck and map out exactly where AI can move the needle for your agency.</p>
+        </div>
+        <div class="agency-process-step">
+          <div class="agency-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for delivery efficiency and margin improvement.</p>
+        </div>
+        <div class="agency-process-step">
+          <div class="agency-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing ad platforms, reporting tools, and project management software. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="agency-process-step">
+          <div class="agency-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, reporting refinement, and system maintenance. Most agencies see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section agency-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="agency-faq-grid">
+        <div class="agency-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire agency delivery and operations workflows. We're an AI automation partner for agencies — helping you scale delivery without scaling headcount.</p>
+        </div>
+        <div class="agency-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Google Ads, Meta, TikTok, GA4, and your preferred reporting tools. Our systems integrate with your current ad platforms and software. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="agency-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most agencies see measurable improvements within 30 days — typically in reporting time reduction, onboarding speed, and campaign performance. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="agency-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical agency projects range from $5K to $25K depending on complexity and number of clients. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="agency-faq-item">
+          <h3>Do you work with boutique agencies?</h3>
+          <p>Yes. We work with boutique agencies, mid-size firms, and large media buying teams. Our systems are modular — you can start with AI reporting and expand to full-stack automation. Every system scales with your agency.</p>
+        </div>
+        <div class="agency-faq-item">
+          <h3>What kind of results have you generated for agency clients?</h3>
+          <p>We've helped agencies cut reporting time by 80%+, reduce onboarding time from weeks to days, improve campaign ROAS by 25%+ through AI-driven optimization, and scale delivery without adding headcount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale your agency with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute agency growth mapping call. We'll audit your current delivery and operations, find the bottlenecks, and show you exactly where AI moves the needle for your agency.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Agency engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free agency growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

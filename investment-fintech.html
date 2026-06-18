@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Investment & Finance | Fintech Automation — Automme</title>
+  <meta name="description" content="AI-driven data pipelines, automated reporting, investor CRM, and compliance automation for investment firms and fintech companies. Scale your finance operations with AI.">
+  <meta name="keywords" content="AI for investment firms, fintech automation, AI finance automation, investor CRM, portfolio analysis AI, compliance automation, KYC automation, AI data pipelines, automated financial reporting, fintech AI solutions">
+  <link rel="canonical" href="https://automme.ai/investment-fintech">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== FINTECH PAGE STYLES ===== */
+    .fintech-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .fintech-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .fintech-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .fintech-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .fintech-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .fintech-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .fintech-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+
+    .fintech-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+
+    .fintech-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .fintech-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+
+    .fintech-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+
+    .fintech-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .fintech-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .fintech-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .fintech-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .fintech-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .fintech-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .fintech-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+
+    .fintech-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .fintech-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .fintech-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    .fintech-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+
+    .fintech-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .fintech-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .fintech-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+
+    .fintech-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .fintech-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+
+    .fintech-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 991px) {
+      .fintech-problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fintech-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fintech-process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .fintech-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section fintech-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="fintech-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for investment & finance.</span></span></h1>
+        <p class="fintech-hero-sub text-generate">Data pipelines, automated reporting, investor CRM, and compliance automation built for investment firms and fintech companies.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free fintech growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS WE SOLVE -->
+  <section class="automme-section fintech-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why investment firms struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most finance teams drown in manual processes that slow down decision-making and increase risk. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="fintech-problem-grid">
+        <div class="fintech-problem-card">
+          <h3>Data overload</h3>
+          <p>Investment firms process massive amounts of data daily — market feeds, portfolio statements, economic indicators — but most of it lives in silos. Teams spend hours exporting, cleaning, and reformatting instead of analyzing. Our AI pipelines ingest, normalize, and deliver clean data on demand.</p>
+        </div>
+        <div class="fintech-problem-card">
+          <h3>Manual reporting</h3>
+          <p>Monthly and quarterly investor reporting consumes days of manual work across spreadsheets, slide decks, and email. One misplaced formula can trigger a compliance issue. Our automated reporting generates investor-ready documents from live data, on schedule, every time.</p>
+        </div>
+        <div class="fintech-problem-card">
+          <h3>Investor communication gaps</h3>
+          <p>Fielding ad-hoc investor requests, capital calls, and updates across email, phone, and portals creates administrative chaos. Responses are delayed, inconsistent, and hard to track. Our AI-powered investor CRM centralizes every interaction and automates personalized follow-ups.</p>
+        </div>
+        <div class="fintech-problem-card">
+          <h3>Portfolio tracking complexity</h3>
+          <p>Multi-asset, multi-currency portfolios are nearly impossible to track in real time with traditional tools. Performance attribution, risk metrics, and rebalancing signals get buried in outdated spreadsheets. Our portfolio analysis AI provides live, interactive dashboards with drill-down granularity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section fintech-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your finance team needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered automation stack for investment and fintech. From data ingestion to investor communication, every system is built to eliminate manual work and reduce operational risk.</p>
+      </div>
+      <div class="fintech-solutions-grid">
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="fintech-solution-name">Data pipeline automation</div>
+          <div class="fintech-solution-desc">Automated ingestion, normalization, and delivery of financial data from market feeds, custodians, and internal systems. Our AI pipelines process millions of records daily and make clean, structured data available to your models and dashboards in real time.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="fintech-solution-name">Automated investor reporting</div>
+          <div class="fintech-solution-desc">Generate quarterly letters, performance summaries, capital account statements, and regulatory filings automatically from live portfolio data. Customizable templates, brand-compliant output, and scheduled distribution via secure investor portals.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="fintech-solution-name">Investor CRM & communication</div>
+          <div class="fintech-solution-desc">Centralized investor relationship management with automated capital call workflows, distribution notices, meeting scheduling, and personalized updates. Every investor interaction is logged, tracked, and followed up — no manual effort required.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="fintech-solution-name">Portfolio analysis & attribution</div>
+          <div class="fintech-solution-desc">Live portfolio dashboards with performance attribution, risk decomposition, scenario analysis, and rebalancing signals. AI-driven anomaly detection flags outliers and recommends actions before they become issues. Multi-asset, multi-currency support built in.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="fintech-solution-name">Compliance automation</div>
+          <div class="fintech-solution-desc">Automated regulatory reporting, trade surveillance, and compliance monitoring. Our AI systems track regulatory changes, flag potential violations, and generate audit-ready documentation. Reduce compliance overhead by up to 70% while improving accuracy.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="fintech-solution-name">Document processing & extraction</div>
+          <div class="fintech-solution-desc">AI-powered document processing for trade confirmations, subscription documents, KYC forms, and financial statements. Extract, validate, and route data from any document format — PDF, scanned image, email attachment — directly into your systems.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="fintech-solution-name">Market analysis & research AI</div>
+          <div class="fintech-solution-desc">AI agents that monitor market news, earnings transcripts, economic data releases, and social sentiment in real time. Generate summarized research briefs, identify macro trends, and surface actionable investment signals — delivered daily to your inbox or Slack.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="fintech-solution-name">Risk assessment & monitoring</div>
+          <div class="fintech-solution-desc">Automated risk monitoring across portfolio, counterparty, and operational dimensions. Real-time VaR calculations, stress testing, concentration alerts, and limit breach notifications. Custom risk frameworks configured to your investment mandate.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="fintech-solution-name">Client communication AI</div>
+          <div class="fintech-solution-desc">AI-powered client communication that drafts personalized emails, quarterly letters, and market commentary. Maintains your firm's voice and compliance guidelines. Review, approve, and send — or fully automate for routine client touchpoints.</div>
+        </div>
+        <div class="fintech-solution-card">
+          <div class="fintech-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="fintech-solution-name">KYC & onboarding automation</div>
+          <div class="fintech-solution-desc">Automated KYC/AML workflows with identity verification, document collection, sanction screening, and risk scoring. Reduce investor onboarding from weeks to hours. Full audit trail with regulator-ready documentation for every new investor.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section fintech-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your fintech automation system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="fintech-process-steps">
+        <div class="fintech-process-step">
+          <div class="fintech-process-step-num">Step 01</div>
+          <h3>Finance operations audit</h3>
+          <p>Free 30-minute session where we audit your current data workflows, reporting processes, investor communication systems, and compliance procedures. We identify every bottleneck and map out exactly where AI can eliminate manual work and reduce risk.</p>
+        </div>
+        <div class="fintech-process-step">
+          <div class="fintech-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected efficiency gains and operational risk reductions.</p>
+        </div>
+        <div class="fintech-process-step">
+          <div class="fintech-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing data infrastructure, CRM, reporting tools, and compliance systems. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="fintech-process-step">
+          <div class="fintech-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Pipeline performance tuning, report template updates, and system maintenance. Most firms see compounding efficiency gains over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section fintech-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="fintech-faq-grid">
+        <div class="fintech-faq-item">
+          <h3>How is this different from off-the-shelf finance software?</h3>
+          <p>Off-the-shelf tools solve one problem — reporting, CRM, or analytics. We build integrated AI systems that connect your entire operation: data flows from market feeds to portfolio systems to investor reports, all automated and connected. A single unified system instead of five disjointed tools.</p>
+        </div>
+        <div class="fintech-faq-item">
+          <h3>Do I need to replace my existing systems?</h3>
+          <p>No. We integrate with your current data providers, portfolio management systems, CRM, and reporting tools. Our AI layers on top of your existing stack and connects everything. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="fintech-faq-item">
+          <h3>How do you handle data security and compliance?</h3>
+          <p>Our systems are built with enterprise-grade security: SOC 2-aligned processes, encryption at rest and in transit, role-based access control, and full audit logging. We work within your existing compliance framework and can deploy on your infrastructure if required.</p>
+        </div>
+        <div class="fintech-faq-item">
+          <h3>How long does it take to deploy?</h3>
+          <p>Most finance automation projects go live within 4-8 weeks. Data pipeline implementations are typically faster (2-4 weeks), while full-stack reporting and CRM systems take longer. We deliver measurable improvements at every milestone.</p>
+        </div>
+        <div class="fintech-faq-item">
+          <h3>What size firms do you work with?</h3>
+          <p>We work with firms of all sizes — from emerging fund managers and family offices to established investment firms and fintech companies. Our systems are modular, so you can start small and expand as you grow.</p>
+        </div>
+        <div class="fintech-faq-item">
+          <h3>What results have you delivered for finance clients?</h3>
+          <p>We've helped investment firms reduce manual reporting effort by 80%, cut investor onboarding time from weeks to hours, automate compliance monitoring across multiple jurisdictions, and build real-time portfolio dashboards that eliminated end-of-month data scrambles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to automate your finance operations with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute finance operations audit call. We'll review your current workflows, find the bottlenecks, and show you exactly where AI can eliminate manual work and reduce operational risk.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Finance engagements typically start at $10K. Most projects range $10K-$50K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free fintech growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

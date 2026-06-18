@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Automme</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Services page specific styles */
+    .industries-hero {
+      justify-content: center;
+      min-height: calc(60vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .industries-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .industries-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .industries-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .stats-bar {
+      background-color: #0a0a0c;
+      padding: 3em 0;
+    }
+
+    .stats-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2em;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.35em;
+    }
+
+    .stat-num {
+      font-size: 3em;
+      font-weight: 500;
+      letter-spacing: -2px;
+      color: #f0f0f2;
+      line-height: 110%;
+    }
+
+    .stat-label {
+      font-size: 0.85em;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 155%;
+    }
+
+    .industries-grid-section {
+      padding-top: 5em;
+      padding-bottom: 5em;
+      background: #111113;
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3.5em;
+    }
+
+    .industry-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .industry-card::after {
+      content: '→';
+      position: absolute;
+      top: 0.75em;
+      right: 0.75em;
+      font-size: 1em;
+      color: rgba(255, 255, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      line-height: 1;
+    }
+
+    .industry-card:hover::after {
+      color: var(--text-primary);
+      transform: translateX(4px) scale(1.2);
+      opacity: 1;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .industry-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .industry-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .industry-name {
+      font-size: 1.25em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .industry-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .industry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4em;
+      margin-top: auto;
+      padding-top: 0.5em;
+    }
+
+    .industry-tag {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 6.5em;
+      font-size: 0.7em;
+      padding: 0.35em 0.75em;
+      color: #f0f0f2;
+      white-space: nowrap;
+    }
+
+    .maker-callout-section {
+      padding-top: 0;
+      padding-bottom: 5em;
+    }
+
+    .marketing-section {
+      background: #111113;
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .marketing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3.5em;
+    }
+
+    .marketing-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .marketing-card::after {
+      content: '→';
+      position: absolute;
+      top: 0.75em;
+      right: 0.75em;
+      font-size: 1em;
+      color: rgba(255, 255, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      line-height: 1;
+    }
+
+    .marketing-card:hover::after {
+      color: var(--text-primary);
+      transform: translateX(4px) scale(1.2);
+      opacity: 1;
+    }
+
+    .marketing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .marketing-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .marketing-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+    }
+
+    .marketing-card-name {
+      font-size: 1.25em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .marketing-card-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .marketing-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4em;
+      margin-top: auto;
+      padding-top: 0.5em;
+    }
+
+    .marketing-tag {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 6.5em;
+      font-size: 0.7em;
+      padding: 0.35em 0.75em;
+      color: #f0f0f2;
+      white-space: nowrap;
+    }
+
+    .maker-callout {
+      background: linear-gradient(135deg, #111113, #1a1a2e 50%, #111113);
+      border-radius: 1em;
+      padding: 4em;
+      display: flex;
+      gap: 4em;
+      align-items: center;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .maker-callout::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0, transparent 50%);
+      pointer-events: none;
+    }
+
+    .maker-callout-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .maker-callout-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65em;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2em;
+      padding: 0.3em 1em 0.3em 0.3em;
+      font-size: 0.8em;
+      color: rgba(255, 255, 255, 0.7);
+      width: max-content;
+    }
+
+    .maker-callout-label-dot {
+      width: 1.6em;
+      height: 1.6em;
+      background: #f0f0f2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75em;
+      color: #111113;
+      font-weight: 500;
+    }
+
+    .maker-callout-title {
+      font-size: 2.5em;
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 110%;
+      color: #f0f0f2;
+    }
+
+    .maker-callout-desc {
+      font-size: 1.1em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 32em;
+    }
+
+    .maker-callout-stats {
+      display: flex;
+      gap: 2.5em;
+      margin-top: 0.5em;
+    }
+
+    .maker-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15em;
+    }
+
+    .maker-stat-num {
+      font-size: 1.75em;
+      font-weight: 500;
+      letter-spacing: -1px;
+      color: #f0f0f2;
+      line-height: 110%;
+    }
+
+    .maker-stat-label {
+      font-size: 0.75em;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .maker-callout-cta {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .maker-callout-cta .btn {
+      background-color: #f0f0f2;
+      color: #111113;
+    }
+
+    .maker-callout-cta .btn-icon-box {
+      background-color: #111113;
+    }
+
+    @media (max-width: 991px) {
+      .stats-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .stat-num {
+        font-size: 36px;
+      }
+
+      .industries-grid,
+      .marketing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+      }
+
+      .maker-callout {
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 32px;
+      }
+
+      .maker-callout-title {
+        font-size: 28px;
+      }
+
+      .maker-callout-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section industries-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="industries-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI systems across every
+              vertical.</span></span></h1>
+        <p class="industries-hero-sub text-generate">From dental to SaaS, PPC agencies to real estate development. Every
+          system we deploy has been battle-tested on our own businesses first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE / SOCIAL PROOF -->
+  <section class="automme-section marquee-section">
+    <div class="marquee-label-wrap">
+      <div class="marquee-label">Maruf &amp; his team have worked with</div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item">Anthropic</span>
+        <span class="marquee-item">N8N</span>
+        <span class="marquee-item">Notion</span>
+        <span class="marquee-item">Superbase</span>
+        <span class="marquee-item">GitHub</span>
+        <span class="marquee-item">Vapi</span>
+        <span class="marquee-item">Vercel</span>
+        <span class="marquee-item">HeyGen</span>
+        <span class="marquee-item">ClickUp</span>
+        <span class="marquee-item">Airtable</span>
+        <span class="marquee-item">Apify</span>
+        <span class="marquee-item">Instantly</span>
+        <span class="marquee-item">Loom</span>
+        <span class="marquee-item">Cal.com</span>
+        <span class="marquee-item">Twillo</span>
+        <span class="marquee-item">Skool</span>
+        <span class="marquee-item">Anthropic</span>
+        <span class="marquee-item">N8N</span>
+        <span class="marquee-item">Notion</span>
+        <span class="marquee-item">Superbase</span>
+        <span class="marquee-item">GitHub</span>
+        <span class="marquee-item">Vapi</span>
+        <span class="marquee-item">Vercel</span>
+        <span class="marquee-item">HeyGen</span>
+        <span class="marquee-item">ClickUp</span>
+        <span class="marquee-item">Airtable</span>
+        <span class="marquee-item">Apify</span>
+        <span class="marquee-item">Instantly</span>
+        <span class="marquee-item">Loom</span>
+        <span class="marquee-item">Cal.com</span>
+        <span class="marquee-item">Twillo</span>
+        <span class="marquee-item">Skool</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES GRID -->
+  <section class="automme-section industries-grid-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Proven across verticals.</span></span>
+        </h2>
+      </div>
+      <div class="industries-grid">
+
+        <a class="industry-card" href="dental.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C9.5 2 7 4 7 7c0 2 .5 4 1 6 .5 2 1 4 1.5 6 .3 1.2.8 2 1.5 2s1-.5 1-1.5S12 17 12 17s0 2.5.5 3.5 .8 1.5 1.5 1.5c.7 0 1.2-.8 1.5-2C16 18 16.5 16 17 14c.5-2 1-4 1-6 0-3-2.5-5-5-5h-1z" />
+            </svg></div>
+          <div class="industry-name">Dental &amp; healthcare</div>
+          <div class="industry-desc">AI-driven outbound systems, patient acquisition funnels, and ad optimization for
+            dental practices and healthcare providers. Scaled a dental PPC agency to $2M/yr.</div>
+          <div class="industry-tags"><span class="industry-tag">Patient Lead Gen</span><span class="industry-tag">PPC
+              Optimization</span><span class="industry-tag">CRM Automation</span><span class="industry-tag">Appointment
+              Reminders</span></div>
+        </a>
+
+        <a class="industry-card" href="ecommerce.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg></div>
+          <div class="industry-name">E-commerce</div>
+          <div class="industry-desc">Product recommendation engines, automated email flows, inventory forecasting, and
+            AI-powered customer support. Built systems handling thousands of SKUs.</div>
+          <div class="industry-tags"><span class="industry-tag">Email Automation</span><span
+              class="industry-tag">Product AI</span><span class="industry-tag">Customer Support Bots</span><span
+              class="industry-tag">Inventory Forecasting</span></div>
+        </a>
+
+        <a class="industry-card" href="investment-fintech.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M23 6l-9.5 9.5-5-5L1 18" />
+              <polyline points="17 6 23 6 23 12" />
+            </svg></div>
+          <div class="industry-name">Investment &amp; finance</div>
+          <div class="industry-desc">Portfolio analysis dashboards, automated reporting pipelines, and investor
+            communication systems.</div>
+          <div class="industry-tags"><span class="industry-tag">Data Pipelines</span><span
+              class="industry-tag">Automated Reporting</span><span class="industry-tag">Investor CRM</span><span
+              class="industry-tag">Portfolio Analysis</span></div>
+        </a>
+
+        <a class="industry-card" href="local-services.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg></div>
+          <div class="industry-name">Local services</div>
+          <div class="industry-desc">Lead generation and booking automation for home services, cleaning companies,
+            landscapers, and contractors.</div>
+          <div class="industry-tags"><span class="industry-tag">Google Maps Scraping</span><span
+              class="industry-tag">Booking Automation</span><span class="industry-tag">Review Management</span><span
+              class="industry-tag">Lead Routing</span></div>
+        </a>
+
+        <a class="industry-card" href="digital-marketing-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg></div>
+          <div class="industry-name">Digital marketing agencies</div>
+          <div class="industry-desc">End-to-end agency growth stacks: cold email outbound, client onboarding automation,
+            AI reporting dashboards.</div>
+          <div class="industry-tags"><span class="industry-tag">Cold Email</span><span class="industry-tag">Client
+              Onboarding</span><span class="industry-tag">AI Reporting</span><span
+              class="industry-tag">Performance Analytics</span></div>
+        </a>
+
+        <a class="industry-card" href="photography-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg></div>
+          <div class="industry-name">Photography agencies</div>
+          <div class="industry-desc">Automated shoot scheduling, client delivery portals, and AI-powered gallery
+            curation.</div>
+          <div class="industry-tags"><span class="industry-tag">Scheduling Systems</span><span
+              class="industry-tag">Client Portals</span><span class="industry-tag">Outbound Lead Gen</span><span
+              class="industry-tag">Payment Collection</span></div>
+        </a>
+
+        <a class="industry-card" href="content-writing-media.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg></div>
+          <div class="industry-name">Content writing &amp; media</div>
+          <div class="industry-desc">AI content generation platforms, editorial workflow automation, and writer
+            management systems.</div>
+          <div class="industry-tags"><span class="industry-tag">AI Content Generation</span><span
+              class="industry-tag">Editorial Workflows</span><span class="industry-tag">Writer Management</span><span
+              class="industry-tag">Publishing Automation</span></div>
+        </a>
+
+        <a class="industry-card" href="ai-automation-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+              <rect x="9" y="9" width="6" height="6" />
+              <line x1="9" y1="1" x2="9" y2="4" />
+              <line x1="15" y1="1" x2="15" y2="4" />
+              <line x1="9" y1="20" x2="9" y2="23" />
+              <line x1="15" y1="20" x2="15" y2="23" />
+              <line x1="20" y1="9" x2="23" y2="9" />
+              <line x1="20" y1="14" x2="23" y2="14" />
+              <line x1="1" y1="9" x2="4" y2="9" />
+              <line x1="1" y1="14" x2="4" y2="14" />
+            </svg></div>
+          <div class="industry-name">AI &amp; automation agencies</div>
+          <div class="industry-desc">White-label AI systems, partner delivery infrastructure, and resellable automation
+            stacks.</div>
+          <div class="industry-tags"><span class="industry-tag">White-Label AI</span><span class="industry-tag">Partner
+              Delivery</span><span class="industry-tag">Resellable Automations</span><span class="industry-tag">Client
+              Onboarding</span></div>
+        </a>
+
+        <a class="industry-card" href="ppc-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              <line x1="11" y1="8" x2="11" y2="14" />
+              <line x1="8" y1="11" x2="14" y2="11" />
+            </svg></div>
+          <div class="industry-name">PPC agencies</div>
+          <div class="industry-desc">Automated bid management, AI ad copy testing, cross-platform campaign reporting,
+            and lead routing.</div>
+          <div class="industry-tags"><span class="industry-tag">Bid Automation</span><span class="industry-tag">Ad Copy
+              AI</span><span class="industry-tag">Cross-Platform Reporting</span><span
+              class="industry-tag">ROI Tracking</span></div>
+        </a>
+
+        <a class="industry-card" href="creative-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></div>
+          <div class="industry-name">Creative agencies</div>
+          <div class="industry-desc">AI-powered ad creation workflows, copywriting automation, and creative brief
+            generation.</div>
+          <div class="industry-tags"><span class="industry-tag">Ad Creation AI</span><span
+              class="industry-tag">Copywriting Automation</span><span class="industry-tag">Creative Briefs</span><span
+              class="industry-tag">Asset Library</span></div>
+        </a>
+
+        <a class="industry-card" href="linkedin-social-media-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg></div>
+          <div class="industry-name">LinkedIn &amp; social media agencies</div>
+          <div class="industry-desc">Automated outreach sequences, AI ghostwriting for executive LinkedIn, and social
+            proof scraping.</div>
+          <div class="industry-tags"><span class="industry-tag">Outreach Automation</span><span class="industry-tag">AI
+              Ghostwriting</span><span class="industry-tag">Audience Growth</span><span
+              class="industry-tag">Profile Optimization</span></div>
+        </a>
+
+        <a class="industry-card" href="managed-service-providers.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg></div>
+          <div class="industry-name">Managed service providers</div>
+          <div class="industry-desc">AI ticketing triage, client health scoring, automated SLA reporting, and outbound
+            for net-new MSP clients.</div>
+          <div class="industry-tags"><span class="industry-tag">Ticket Triage AI</span><span class="industry-tag">Client
+              Health Scoring</span><span class="industry-tag">SLA Automation</span><span
+              class="industry-tag">Knowledge Base</span></div>
+        </a>
+
+        <a class="industry-card" href="real-estate-development.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></div>
+          <div class="industry-name">Real estate development</div>
+          <div class="industry-desc">Investor CRM automation, deal flow tracking, and AI-powered market analysis.</div>
+          <div class="industry-tags"><span class="industry-tag">Investor CRM</span><span class="industry-tag">Deal Flow
+              Tracking</span><span class="industry-tag">Market Analysis AI</span><span
+              class="industry-tag">Listing Automation</span></div>
+        </a>
+
+        <a class="industry-card" href="brokers-financial-services.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg></div>
+          <div class="industry-name">Brokers &amp; financial services</div>
+          <div class="industry-desc">Compliance-aware outbound, client onboarding automation, and AI document
+            processing.</div>
+          <div class="industry-tags"><span class="industry-tag">KYC Automation</span><span class="industry-tag">Document
+              Processing</span><span class="industry-tag">Outbound Compliance</span><span
+              class="industry-tag">Risk Assessment</span></div>
+        </a>
+
+        <a class="industry-card" href="software-saas.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg></div>
+          <div class="industry-name">Software &amp; SaaS companies</div>
+          <div class="industry-desc">Product-led growth automation, AI onboarding flows, churn prediction models, and
+            automated support.</div>
+          <div class="industry-tags"><span class="industry-tag">PLG Automation</span><span class="industry-tag">Churn
+              Prediction</span><span class="industry-tag">AI Onboarding</span><span
+              class="industry-tag">Feature Adoption</span></div>
+        </a>
+
+        <a class="industry-card" href="education.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg></div>
+          <div class="industry-name">Education</div>
+          <div class="industry-desc">Maruf and his team build high-performance communities and engagement systems for
+            education and beyond.</div>
+          <div class="industry-tags"><span class="industry-tag">Community Automation</span><span class="industry-tag">AI
+              Engagement</span><span class="industry-tag">Student Success</span><span
+              class="industry-tag">Course Delivery</span></div>
+        </a>
+
+        <a class="industry-card" href="enterprise-corporate.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <rect x="1" y="3" width="15" height="13" />
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg></div>
+          <div class="industry-name">Enterprise &amp; corporate</div>
+          <div class="industry-desc">Large-scale AI deployments for Fortune-level sponsors and enterprise partners.
+          </div>
+          <div class="industry-tags"><span class="industry-tag">Enterprise Integrations</span><span
+              class="industry-tag">AI Strategy</span><span class="industry-tag">Data Infrastructure</span><span
+              class="industry-tag">Custom AI Models</span></div>
+        </a>
+
+        <a class="industry-card" href="hospitality-luxury.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg></div>
+          <div class="industry-name">Hospitality &amp; luxury</div>
+          <div class="industry-desc">Concierge automation, VIP client management, and AI-powered booking systems for
+            luxury experiences.</div>
+          <div class="industry-tags"><span class="industry-tag">Concierge AI</span><span class="industry-tag">VIP
+              Management</span><span class="industry-tag">Booking Automation</span><span class="industry-tag">Guest
+              Experience</span></div>
+        </a>
+
+        <a class="industry-card" href="hr-recruiting.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg></div>
+          <div class="industry-name">HR &amp; recruiting</div>
+          <div class="industry-desc">AI resume screening, automated candidate outreach, interview scheduling pipelines,
+            and talent scoring systems.</div>
+          <div class="industry-tags"><span class="industry-tag">Resume Screening AI</span><span
+              class="industry-tag">Candidate Outreach</span><span class="industry-tag">Hiring Funnels</span><span
+              class="industry-tag">Onboarding Automation</span></div>
+        </a>
+
+        <a class="industry-card" href="roofing.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <path d="M9 22V12h6v10" />
+              <path d="M3 9h18" />
+            </svg></div>
+          <div class="industry-name">Roofing</div>
+          <div class="industry-desc">Storm-response lead capture, instant quote automation, insurance claim follow-up
+            sequences, and review generation systems for roofing contractors.</div>
+          <div class="industry-tags"><span class="industry-tag">Storm Lead Capture</span><span class="industry-tag">Quote
+              Automation</span><span class="industry-tag">Insurance Claim AI</span><span class="industry-tag">Review
+              Generation</span></div>
+        </a>
+
+        <a class="industry-card" href="construction.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="1" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+              <path d="M14 13l3 3" />
+              <path d="M17 10l-3 3" />
+            </svg></div>
+          <div class="industry-name">Construction</div>
+          <div class="industry-desc">Project pipeline automation, subcontractor coordination bots, bid response
+            acceleration, and client progress reporting dashboards.</div>
+          <div class="industry-tags"><span class="industry-tag">Bid Automation</span><span class="industry-tag">Subcontractor
+              CRM</span><span class="industry-tag">Progress Reporting</span><span class="industry-tag">Project
+              Tracking</span></div>
+        </a>
+
+        <a class="industry-card" href="hvac.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 2v6" />
+              <path d="M5.6 5.6l4.2 4.2" />
+              <path d="M2 12h6" />
+              <path d="M5.6 18.4l4.2-4.2" />
+              <path d="M12 22v-6" />
+              <path d="M18.4 18.4l-4.2-4.2" />
+              <path d="M22 12h-6" />
+              <path d="M18.4 5.6l-4.2 4.2" />
+              <circle cx="12" cy="12" r="2" />
+            </svg></div>
+          <div class="industry-name">HVAC</div>
+          <div class="industry-desc">24/7 emergency dispatch AI, seasonal maintenance reminder campaigns, equipment
+            replacement funnels, and technician route optimization.</div>
+          <div class="industry-tags"><span class="industry-tag">Emergency Dispatch</span><span class="industry-tag">Maintenance
+              Reminders</span><span class="industry-tag">Replacement Funnels</span><span class="industry-tag">Route
+              Optimization</span></div>
+        </a>
+
+        <a class="industry-card" href="plumbing.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M5 12V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6" />
+              <path d="M3 12h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <path d="M9 16h6" />
+            </svg></div>
+          <div class="industry-name">Plumbing</div>
+          <div class="industry-desc">Emergency triage call handling, recurring service contract renewals, parts
+            inventory tracking, and customer review amplification.</div>
+          <div class="industry-tags"><span class="industry-tag">Emergency Triage</span><span class="industry-tag">Service
+              Renewals</span><span class="industry-tag">Inventory AI</span><span class="industry-tag">Review
+              Amplification</span></div>
+        </a>
+
+        <a class="industry-card" href="law-firms.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 3l9 4-1 5a9 9 0 0 1-8 8 9 9 0 0 1-8-8l-1-5z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg></div>
+          <div class="industry-name">Law firms</div>
+          <div class="industry-desc">Client intake automation, case qualification chatbots, document processing
+            pipelines, and appointment booking for legal consultations.</div>
+          <div class="industry-tags"><span class="industry-tag">Client Intake AI</span><span class="industry-tag">Case
+              Qualification</span><span class="industry-tag">Document Automation</span><span class="industry-tag">Consult
+              Booking</span></div>
+        </a>
+
+        <a class="industry-card" href="restaurants.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M3 11h18l-2 9H5z" />
+              <path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" />
+              <line x1="9" y1="6" x2="9" y2="4" />
+              <line x1="15" y1="6" x2="15" y2="4" />
+            </svg></div>
+          <div class="industry-name">Restaurants</div>
+          <div class="industry-desc">Reservation automation, online ordering integration, review response AI, and
+            loyalty campaign engines for full-service and quick-service venues.</div>
+          <div class="industry-tags"><span class="industry-tag">Reservation AI</span><span class="industry-tag">Ordering
+              Integration</span><span class="industry-tag">Review Response</span><span class="industry-tag">Loyalty
+              Campaigns</span></div>
+        </a>
+
+        <a class="industry-card" href="fitness-gyms.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <circle cx="6" cy="17" r="3" />
+              <circle cx="18" cy="17" r="3" />
+              <path d="M6 14V6h6l6 8" />
+              <path d="M6 6h2" />
+              <path d="M10 6v4" />
+            </svg></div>
+          <div class="industry-name">Fitness &amp; gyms</div>
+          <div class="industry-desc">Membership funnel automation, class booking systems, lead-to-trial conversion
+            sequences, and member retention AI for studios and gyms.</div>
+          <div class="industry-tags"><span class="industry-tag">Membership Funnels</span><span class="industry-tag">Class
+              Booking</span><span class="industry-tag">Lead-to-Trial</span><span class="industry-tag">Retention
+              AI</span></div>
+        </a>
+
+        <a class="industry-card" href="landscaping.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 2v8" />
+              <path d="M12 22a8 8 0 0 0 8-8c0-3-2-5-4-6-1 2-3 3-4 3s-3-1-4-3c-2 1-4 3-4 6a8 8 0 0 0 8 8z" />
+            </svg></div>
+          <div class="industry-name">Landscaping</div>
+          <div class="industry-desc">Seasonal campaign automation, instant quote generation, recurring maintenance
+            scheduling, and crew dispatch optimization for lawn care businesses.</div>
+          <div class="industry-tags"><span class="industry-tag">Seasonal Campaigns</span><span class="industry-tag">Quote
+              Generation</span><span class="industry-tag">Recurring Schedules</span><span class="industry-tag">Crew
+              Dispatch</span></div>
+        </a>
+
+        <a class="industry-card" href="med-spa.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
+              <circle cx="12" cy="14" r="2" />
+              <path d="M9 6h6" />
+            </svg></div>
+          <div class="industry-name">Med spa</div>
+          <div class="industry-desc">Treatment consultation booking, before/after follow-up sequences, membership
+            retention AI, and re-engagement campaigns for aesthetic practices.</div>
+          <div class="industry-tags"><span class="industry-tag">Consult Booking</span><span class="industry-tag">Follow-up
+              Sequences</span><span class="industry-tag">Membership Retention</span><span class="industry-tag">Re-engagement
+              AI</span></div>
+        </a>
+
+        <a class="industry-card" href="solar.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="6" r="3" />
+              <path d="M12 9v4" />
+              <path d="M5 13h14" />
+              <path d="M5 13l2 8h10l2-8" />
+              <path d="M9 21v-4h6v4" />
+            </svg></div>
+          <div class="industry-name">Solar company</div>
+          <div class="industry-desc">Lead qualification funnels, design proposal automation, incentive &amp; rebate
+            follow-up, and long-nurture sequences for residential solar buyers.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Qualification</span><span class="industry-tag">Proposal
+              Automation</span><span class="industry-tag">Rebate Follow-up</span><span class="industry-tag">Nurture
+              Sequences</span></div>
+        </a>
+
+        <a class="industry-card" href="auto-dealerships.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M5 17h14l-1.5-9h-11z" />
+              <circle cx="8" cy="19" r="1.5" />
+              <circle cx="16" cy="19" r="1.5" />
+                <path d="M6 8l-2-4h3l2 4" />
+                <path d="M18 8l2-4h-3l-2 4" />
+            </svg></div>
+          <div class="industry-name">Auto dealerships</div>
+          <div class="industry-desc">Lead response AI, test drive scheduling, inventory alert automation, and
+            long-term customer re-engagement campaigns for sales and service.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Response AI</span><span class="industry-tag">Test
+              Drive Booking</span><span class="industry-tag">Inventory Alerts</span><span class="industry-tag">Re-engagement
+              Campaigns</span></div>
+        </a>
+
+        <a class="industry-card" href="info-products.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              <line x1="12" y1="6" x2="12" y2="13" />
+              <polyline points="9 10 12 13 15 10" />
+            </svg></div>
+          <div class="industry-name">Info products</div>
+          <div class="industry-desc">Course platforms, membership communities, digital product funnels, and AI-powered
+            student engagement systems.</div>
+          <div class="industry-tags"><span class="industry-tag">Course Platforms</span><span
+              class="industry-tag">Membership Automation</span><span class="industry-tag">Student Engagement</span><span
+              class="industry-tag">Affiliate Systems</span>
+          </div>
+        </a>
+
+        <a class="industry-card" href="coaching-consulting.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg></div>
+          <div class="industry-name">Coaching &amp; consulting</div>
+          <div class="industry-desc">Client acquisition funnels, session scheduling automation, AI-powered follow-up
+            sequences, and community management.</div>
+          <div class="industry-tags"><span class="industry-tag">Client Acquisition</span><span
+              class="industry-tag">Session Automation</span><span class="industry-tag">Community Management</span><span
+              class="industry-tag">Payment Plans</span></div>
+        </a>
+
+        <a class="industry-card" href="property-management.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="industry-name">Property management</div>
+          <div class="industry-desc">Tenant lead gen AI, automated maintenance dispatch, rent collection workflows, lease renewal campaigns, and portfolio-wide reporting for property managers.</div>
+          <div class="industry-tags"><span class="industry-tag">Tenant Lead Gen</span><span class="industry-tag">Maintenance Dispatch</span><span class="industry-tag">Rent Automation</span><span class="industry-tag">Portfolio Analytics</span></div>
+        </a>
+
+        <a class="industry-card" href="manufacturing-warehousing.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="industry-name">Manufacturing &amp; warehousing</div>
+          <div class="industry-desc">Predictive maintenance AI, inventory forecasting, supply chain automation, quality control vision systems, and production monitoring dashboards.</div>
+          <div class="industry-tags"><span class="industry-tag">Predictive Maintenance</span><span class="industry-tag">Inventory AI</span><span class="industry-tag">Supply Chain</span><span class="industry-tag">Quality Control</span></div>
+        </a>
+
+        <a class="industry-card" href="commercial-cleaning.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M12 2v8"/><path d="M12 22a8 8 0 0 0 8-8c0-3-2-5-4-6-1 2-3 3-4 3s-3-1-4-3c-2 1-4 3-4 6a8 8 0 0 0 8 8z"/></svg></div>
+          <div class="industry-name">Commercial cleaning</div>
+          <div class="industry-desc">Route optimization AI, bid proposal automation, client retention campaigns, workforce scheduling, and janitorial lead generation for cleaning companies.</div>
+          <div class="industry-tags"><span class="industry-tag">Route Optimization</span><span class="industry-tag">Bid Automation</span><span class="industry-tag">Client Retention</span><span class="industry-tag">Workforce AI</span></div>
+        </a>
+
+        <a class="industry-card" href="it-support-computer-repair.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="industry-name">IT support &amp; computer repair</div>
+          <div class="industry-desc">Ticket triage AI, remote diagnostics, client onboarding automation, recurring service campaigns, and technician dispatch for IT companies.</div>
+          <div class="industry-tags"><span class="industry-tag">Ticket Triage AI</span><span class="industry-tag">Remote Diagnostics</span><span class="industry-tag">Client Onboarding</span><span class="industry-tag">Dispatch AI</span></div>
+        </a>
+
+        <a class="industry-card" href="staffing-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="industry-name">Staffing agencies</div>
+          <div class="industry-desc">Candidate sourcing AI, resume screening automation, client prospecting, interview scheduling, and placement follow-up for recruitment firms.</div>
+          <div class="industry-tags"><span class="industry-tag">Candidate Sourcing</span><span class="industry-tag">Resume Screening</span><span class="industry-tag">Client Outreach</span><span class="industry-tag">Placement AI</span></div>
+        </a>
+
+        <a class="industry-card" href="architecture-firms.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="industry-name">Architecture firms</div>
+          <div class="industry-desc">Project pursuit AI, BIM data extraction, proposal generation, resource planning, automated compliance checking, and client CRM for design firms.</div>
+          <div class="industry-tags"><span class="industry-tag">Project Pipeline</span><span class="industry-tag">BIM Automation</span><span class="industry-tag">Proposal AI</span><span class="industry-tag">Compliance</span></div>
+        </a>
+
+        <a class="industry-card" href="physical-therapy-chiropractic.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="14" r="2"/><path d="M9 6h6"/></svg></div>
+          <div class="industry-name">Physical therapy &amp; chiropractic</div>
+          <div class="industry-desc">Patient intake AI, insurance verification automation, no-show reduction, re-activation campaigns, and home exercise AI for PT and chiro practices.</div>
+          <div class="industry-tags"><span class="industry-tag">Patient Intake</span><span class="industry-tag">Insurance Verification</span><span class="industry-tag">No-Show Reduction</span><span class="industry-tag">Re-activation</span></div>
+        </a>
+
+        <a class="industry-card" href="dermatology-skincare.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <div class="industry-name">Dermatology &amp; skincare</div>
+          <div class="industry-desc">Patient lead gen AI, consultation booking, treatment follow-up sequences, product recommendation AI, and review generation for aesthetic practices.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Gen AI</span><span class="industry-tag">Consult Booking</span><span class="industry-tag">Follow-Up Automation</span><span class="industry-tag">Product AI</span></div>
+        </a>
+
+        <a class="industry-card" href="logistics-freight-brokerage.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="industry-name">Logistics &amp; freight brokerage</div>
+          <div class="industry-desc">Load matching AI, carrier onboarding automation, rate negotiation bots, automated dispatch, and real-time tracking dashboards for logistics companies.</div>
+          <div class="industry-tags"><span class="industry-tag">Load Matching AI</span><span class="industry-tag">Carrier Onboarding</span><span class="industry-tag">Rate Optimization</span><span class="industry-tag">Dispatch Automation</span></div>
+        </a>
+
+        <a class="industry-card" href="wholesale-distribution.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="industry-name">Wholesale &amp; distribution</div>
+          <div class="industry-desc">Inventory forecasting AI, automated PO generation, supplier management, warehouse optimization, and B2B sales automation for distributors.</div>
+          <div class="industry-tags"><span class="industry-tag">Inventory AI</span><span class="industry-tag">PO Automation</span><span class="industry-tag">Supplier Management</span><span class="industry-tag">B2B Sales AI</span></div>
+        </a>
+
+        <a class="industry-card" href="interior-design.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <div class="industry-name">Interior design</div>
+          <div class="industry-desc">Client inquiry AI, mood board automation, project management workflows, vendor coordination, and portfolio marketing for interior design firms.</div>
+          <div class="industry-tags"><span class="industry-tag">Client Intake AI</span><span class="industry-tag">Mood Board Automation</span><span class="industry-tag">Project Tracking</span><span class="industry-tag">Vendor Management</span></div>
+        </a>
+
+        <a class="industry-card" href="senior-care-assisted-living.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="industry-name">Senior care &amp; assisted living</div>
+          <div class="industry-desc">Family lead gen AI, resident intake automation, staffing optimization, compliance monitoring, and family communication portals for senior care facilities.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Gen AI</span><span class="industry-tag">Resident Intake</span><span class="industry-tag">Staffing AI</span><span class="industry-tag">Family Portals</span></div>
+        </a>
+
+        <a class="industry-card" href="security-guard-services.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="industry-name">Security guard services</div>
+          <div class="industry-desc">Guard scheduling AI, incident report automation, client billing workflows, patrol route optimization, and compliance tracking for security companies.</div>
+          <div class="industry-tags"><span class="industry-tag">Scheduling AI</span><span class="industry-tag">Incident Reports</span><span class="industry-tag">Billing Automation</span><span class="industry-tag">Compliance Tracking</span></div>
+        </a>
+
+        <a class="industry-card" href="franchises.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="industry-name">Franchises</div>
+          <div class="industry-desc">Multi-location marketing AI, franchisee onboarding automation, centralized lead distribution, operations dashboards, and co-op fund management.</div>
+          <div class="industry-tags"><span class="industry-tag">Multi-Location AI</span><span class="industry-tag">Franchisee Onboarding</span><span class="industry-tag">Lead Routing</span><span class="industry-tag">Ops Dashboards</span></div>
+        </a>
+
+        <a class="industry-card" href="veterinary-pet-care.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <div class="industry-name">Veterinary &amp; pet care</div>
+          <div class="industry-desc">Pet owner lead gen, appointment booking AI, records automation, medication reminders, and telehealth triage for veterinary practices.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Gen AI</span><span class="industry-tag">Booking AI</span><span class="industry-tag">Records Automation</span><span class="industry-tag">Telehealth Triage</span></div>
+        </a>
+
+        <a class="industry-card" href="accounting-bookkeeping.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+          <div class="industry-name">Accounting &amp; bookkeeping</div>
+          <div class="industry-desc">Automated data entry, client onboarding AI, tax prep workflows, financial reporting automation, and practice management dashboards for CPAs.</div>
+          <div class="industry-tags"><span class="industry-tag">Data Entry AI</span><span class="industry-tag">Tax Prep Automation</span><span class="industry-tag">Financial Reports</span><span class="industry-tag">Practice Management</span></div>
+        </a>
+
+        <a class="industry-card" href="insurance-agencies.html">
+          <div class="industry-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="industry-name">Insurance agencies</div>
+          <div class="industry-desc">Lead generation AI, policy management automation, claims processing, client retention campaigns, and compliance workflows for agents.</div>
+          <div class="industry-tags"><span class="industry-tag">Lead Gen AI</span><span class="industry-tag">Policy Automation</span><span class="industry-tag">Claims AI</span><span class="industry-tag">Retention Engine</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETING AUTOMATION SECTION -->
+  <section class="automme-section marketing-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Full-stack marketing automation.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em">We build AI-powered marketing systems across every major channel — Google, Facebook, TikTok, LinkedIn, and beyond. Lead gen, ad optimization, creative testing, and full-funnel automation.</p>
+      </div>
+      <div class="marketing-grid">
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="marketing-card-name">Google Ads &amp; SEO</div>
+          <div class="marketing-card-desc">AI-powered bid management, keyword discovery, automated ad copy testing, and search intent analysis. Maximize ROAS across Search, Display, and Performance Max.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Bid Automation</span><span class="marketing-tag">Keyword AI</span><span class="marketing-tag">Ad Copy Testing</span><span class="marketing-tag">ROAS Optimization</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+          <div class="marketing-card-name">Facebook &amp; Instagram</div>
+          <div class="marketing-card-desc">Creative fatigue detection, automated audience segmentation, lookalike scaling, and dynamic creative optimization for Meta platforms.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Audience AI</span><span class="marketing-tag">Creative Testing</span><span class="marketing-tag">Lookalike Scaling</span><span class="marketing-tag">Retargeting Flows</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4H2v12h20V4z"/><path d="M8 19h8"/><path d="M12 16v3"/></svg></div>
+          <div class="marketing-card-name">TikTok &amp; Short-Form</div>
+          <div class="marketing-card-desc">Viral trend detection, automated creative assembly, Spark Ads optimization, and audience matching for TikTok &amp; Reels growth.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Trend Detection</span><span class="marketing-tag">Creative AI</span><span class="marketing-tag">Spark Ads</span><span class="marketing-tag">Viral Optimization</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div class="marketing-card-name">LinkedIn &amp; B2B</div>
+          <div class="marketing-card-desc">Automated outreach sequences, AI ghostwriting for executive profiles, lead scoring, and account-based marketing automation for B2B pipelines.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Outreach Automation</span><span class="marketing-tag">AI Ghostwriting</span><span class="marketing-tag">Lead Scoring</span><span class="marketing-tag">ABM Pipelines</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="marketing-card-name">Cold Email Generation</div>
+          <div class="marketing-card-desc">AI that writes, personalizes, and sends cold email campaigns automatically. Smart lead research, dynamic subject lines, follow-up sequencing, and deliverability optimization — fully hands-off.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Auto Writer AI</span><span class="marketing-tag">Personalization</span><span class="marketing-tag">Follow-up Sequences</span><span class="marketing-tag">Deliverability</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="marketing-card-name">Omnichannel Analytics</div>
+          <div class="marketing-card-desc">Unified cross-platform dashboards, attribution modeling, automated reporting, and AI-driven budget allocation across all channels.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Cross-Platform Reports</span><span class="marketing-tag">Attribution AI</span><span class="marketing-tag">Budget Optimization</span><span class="marketing-tag">Real-Time Dashboards</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div class="marketing-card-name">Funnel Websites</div>
+          <div class="marketing-card-desc">AI-built landing pages, lead capture funnels, sales pages, and webinar registration flows. Optimized for conversion with automated A/B testing and heatmap-driven improvements.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Landing Pages</span><span class="marketing-tag">Sales Funnels</span><span class="marketing-tag">Lead Capture</span><span class="marketing-tag">Conversion AI</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></div>
+          <div class="marketing-card-name">Mobile Apps &amp; Web Apps</div>
+          <div class="marketing-card-desc">Custom AI-powered mobile apps and web applications for marketing, client portals, booking systems, and internal automation dashboards. Built fast, deployed faster.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Web Apps</span><span class="marketing-tag">Mobile Apps</span><span class="marketing-tag">Client Portals</span><span class="marketing-tag">Custom Dashboards</span></div>
+        </a>
+        <a class="marketing-card" href="marketing-automation.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="marketing-card-name">AI Chatbots &amp; Conversational AI</div>
+          <div class="marketing-card-desc">24/7 AI chatbots for lead qualification, customer support, appointment booking, and FAQ automation. Voice-enabled, multi-language, and trained on your business data.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Lead Qualification</span><span class="marketing-tag">Customer Support</span><span class="marketing-tag">Appointment Booking</span><span class="marketing-tag">Multi-Language</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL AI ASSISTANTS SECTION -->
+  <section class="automme-section marketing-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Personal AI assistants.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em">Your own AI workforce — trained on your business, your voice, your playbooks. Deploy in days, not months. These aren't chatbots. They're autonomous agents that execute.</p>
+      </div>
+      <div class="marketing-grid">
+        <a class="marketing-card" href="ai-business-os.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M2 12a10 10 0 0 1 10-10"/><path d="M12 22a10 10 0 0 0 10-10"/><path d="M12 22a10 10 0 0 1-10-10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+          <div class="marketing-card-name">AI Business OS</div>
+          <div class="marketing-card-desc">An intelligent operating system that observes every layer of your business — marketing, sales, operations, finance, support, and more. Deploy specialized skill agents that coordinate, execute, and report back to a central AI command center. One OS, infinite capability.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Business Observation</span><span class="marketing-tag">Multi-Agent System</span><span class="marketing-tag">Cross-Dept Automation</span><span class="marketing-tag">Skill Agents</span></div>
+        </a>
+        <a class="marketing-card" href="ai-business-os.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M12 2a15 15 0 0 1 8 4"/><path d="M12 22a15 15 0 0 1-8-4"/></svg></div>
+          <div class="marketing-card-name">Hermes Personal AI</div>
+          <div class="marketing-card-desc">Your always-on executive assistant. Manages email, schedules, research, and decision-making. Connects to your tools, learns your preferences, and acts on your behalf — securely.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Email Management</span><span class="marketing-tag">Schedule AI</span><span class="marketing-tag">Research Agent</span><span class="marketing-tag">Decision Support</span></div>
+        </a>
+        <a class="marketing-card" href="ai-business-os.html">
+          <div class="marketing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15 9 22 9 16 14 18 21 12 17 6 21 8 14 2 9 9 9 12 2"/><circle cx="12" cy="12" r="3" fill="none"/></svg></div>
+          <div class="marketing-card-name">Agentic Orchestrator</div>
+          <div class="marketing-card-desc">Your autonomous CEO agent. It plans, delegates, and coordinates every specialized AI agent across your business — marketing, sales, support, ops, finance. Give it a high-level goal, and it breaks it down, assigns tasks, monitors progress, and reports results. Fully autonomous business execution.</div>
+          <div class="marketing-card-tags"><span class="marketing-tag">Task Delegation</span><span class="marketing-tag">Multi-Agent Orchestration</span><span class="marketing-tag">Autonomous Execution</span><span class="marketing-tag">CEO-Level AI</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale with
+              AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute growth mapping call. We'll audit your funnel,
+          find the bottlenecks, and show you exactly where AI moves the needle.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Engagements typically start at $5K.
+          Most projects range $10K-$50K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    // Typewriter Intersection Observer
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    // Text Generate Effect Initialization
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40); // Fast but smooth word revelation
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+
+    initTextGenerate();
+  </script>
+</body>
+
+</html>

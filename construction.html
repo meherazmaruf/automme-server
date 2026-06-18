@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Construction Companies | Construction Automation — Automme</title>
+  <meta name="description" content="AI-driven bid automation, subcontractor CRM, and project tracking for construction companies. Stop losing bids and start winning more — on autopilot. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for construction companies, construction automation, construction lead generation, bid automation, subcontractor CRM, construction AI marketing, construction project tracking, change order automation, safety compliance AI, construction business growth">
+  <link rel="canonical" href="https://automme.ai/construction">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .construction-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .construction-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .construction-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .construction-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .construction-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .construction-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .construction-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+
+    .construction-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+
+    .construction-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .construction-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+
+    .construction-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+
+    .construction-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .construction-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .construction-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .construction-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .construction-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .construction-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .construction-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+
+    .construction-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .construction-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .construction-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    .construction-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+
+    .construction-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .construction-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .construction-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+
+    .construction-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .construction-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+
+    .construction-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 991px) {
+      .construction-problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .construction-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .construction-process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .construction-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section construction-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="construction-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for construction.</span></span></h1>
+        <p class="construction-hero-sub text-generate">Bid automation, subcontractor CRM, and project intelligence systems built for general contractors, specialty trades, and construction firms.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free construction growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS WE SOLVE -->
+  <section class="automme-section construction-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why construction firms leave money on the table.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most construction companies lose bids, burn out estimators, and juggle subcontractors with spreadsheets. Here are the breakdowns we fix.</p>
+      </div>
+      <div class="construction-problem-grid">
+        <div class="construction-problem-card">
+          <h3>Bid inefficiency costs you jobs</h3>
+          <p>Estimators spend 40% of their time on repetitive takeoffs and manual data entry instead of high-value bid strategy. Slow turnaround means you miss bid deadlines or submit rushed, inaccurate numbers. Our AI automates the busywork so you bid faster and win more.</p>
+        </div>
+        <div class="construction-problem-card">
+          <h3>Subcontractor coordination chaos</h3>
+          <p>Tracking sub quotes, qualifications, and availability across multiple projects is a nightmare of email chains and sticky notes. Lost sub bids mean delayed project starts and angry GCs. Our subcontractor CRM centralizes everything in one automated system.</p>
+        </div>
+        <div class="construction-problem-card">
+          <h3>Client communication breaks down</h3>
+          <p>Owners and GCs expect real-time updates, but most contractors rely on manual status calls and weekly PDFs. When communication lags, trust erodes and change orders become battles. Automated client portals and progress reports keep everyone aligned.</p>
+        </div>
+        <div class="construction-problem-card">
+          <h3>Project tracking is reactive</h3>
+          <p>Without automated scheduling and budget alerts, problems get caught too late. Material delays, labor shortages, and budget overruns compound because no system flags them in real time. AI-powered project tracking gives you proactive control over every job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section construction-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your construction company needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered operations and growth stack built for construction. From bid to closeout, every system works together to win more work and deliver projects profitably.</p>
+      </div>
+      <div class="construction-solutions-grid">
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="construction-solution-name">Bid automation</div>
+          <div class="construction-solution-desc">AI-powered takeoff assistance, automated quote generation, and bid calendar management. Reduce estimating time by 60% while increasing bid accuracy. Smart bid/no-bid analysis based on historical win data and project margin targets.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="construction-solution-name">Subcontractor CRM</div>
+          <div class="construction-solution-desc">Centralized database of every subcontractor you've worked with — qualifications, insurance certs, past bids, performance ratings. Automated ITB distribution, quote follow-ups, and compliance tracking. Never lose a sub bid again.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="construction-solution-name">Progress reporting</div>
+          <div class="construction-solution-desc">Automated daily and weekly progress reports generated from field data, photo logs, and schedule updates. Customizable client-facing reports with branded PDFs, photo documentation, and schedule comparisons. Sent automatically to stakeholders.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="construction-solution-name">Project tracking</div>
+          <div class="construction-solution-desc">Real-time project dashboard with budget vs. actual tracking, schedule adherence, material procurement status, and labor allocation. AI alerts flag potential delays, budget overruns, and resource conflicts before they become problems.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="construction-solution-name">Lead generation</div>
+          <div class="construction-solution-desc">Multi-channel lead generation for construction: targeted outreach to GCs, property managers, and facility owners. AI-powered bid board monitoring, RFP alerts, and automated qualification to fill your pipeline with high-margin opportunities.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="construction-solution-name">Document management</div>
+          <div class="construction-solution-desc">Automated document control for specs, drawings, RFIs, submittals, and change orders. Version tracking, automated distribution, and audit trails. AI-powered document search finds any specification or drawing in seconds across thousands of files.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="construction-solution-name">Change order automation</div>
+          <div class="construction-solution-desc">Streamlined change order workflow from field initiation through approval and billing. Automated notifications, digital signatures, cost impact analysis, and historical change order tracking. Reduce change order cycle time by 70%.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="construction-solution-name">Safety compliance AI</div>
+          <div class="construction-solution-desc">Automated safety documentation, toolbox talk scheduling, incident reporting, and OSHA compliance tracking. AI-powered inspection checklist generation and hazard identification from job site photos. Reduce safety admin time by 80%.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="construction-solution-name">Equipment tracking</div>
+          <div class="construction-solution-desc">Real-time equipment location, utilization monitoring, maintenance scheduling, and fuel tracking. Automated alerts for service intervals, GPS geofencing, and utilization reports. Reduce equipment downtime by 40% and extend asset life.</div>
+        </div>
+        <div class="construction-solution-card">
+          <div class="construction-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="construction-solution-name">Client portals</div>
+          <div class="construction-solution-desc">White-label client portals with real-time project dashboards, document sharing, photo logs, schedule views, and direct messaging. Clients check status anytime without calling your PM. Improves client satisfaction and reduces administrative interruptions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section construction-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your construction growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="construction-process-steps">
+        <div class="construction-process-step">
+          <div class="construction-process-step-num">Step 01</div>
+          <h3>Construction ops audit</h3>
+          <p>Free 30-minute session where we audit your current bidding workflow, subcontractor management, project tracking, and client communication. We identify every inefficiency and map out exactly where AI can move the needle for your company.</p>
+        </div>
+        <div class="construction-process-step">
+          <div class="construction-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for bid win rate and operational efficiency.</p>
+        </div>
+        <div class="construction-process-step">
+          <div class="construction-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing estimating software, project management tools, and accounting platform. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="construction-process-step">
+          <div class="construction-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, system performance tuning, and workflow improvements. Most construction firms see compounding efficiency gains over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section construction-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="construction-faq-grid">
+        <div class="construction-faq-item">
+          <h3>How is this different from a regular software consultant?</h3>
+          <p>We don't just recommend tools or write documentation. We build and deploy working AI systems that automate your construction operations — bidding, sub management, project tracking, and client communication. A consultant gives you a report. We give you a system that runs on its own.</p>
+        </div>
+        <div class="construction-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Procore, Bluebeam, PlanSwift, Buildertrend, whatever you use. Our systems integrate with your current estimating, project management, and accounting tools. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="construction-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most construction companies see measurable improvements within 30 days — typically in estimating turnaround time, sub bid response rates, and project reporting accuracy. Full system optimization compounds over 3-6 months as AI models learn your specific workflows.</p>
+        </div>
+        <div class="construction-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical construction company projects range from $5K to $25K depending on complexity and number of divisions. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="construction-faq-item">
+          <h3>Do you work with small contractors?</h3>
+          <p>Yes. We work with small specialty trades, mid-size general contractors, and large construction firms. Our systems are modular — you can start with bid automation and expand into project tracking and client portals as you grow.</p>
+        </div>
+        <div class="construction-faq-item">
+          <h3>What kind of results have you generated for construction clients?</h3>
+          <p>We've helped contractors reduce estimating time by 60%, increase bid win rates by 35%, cut change order cycle time by 70%, and build automated sub CRM systems that eliminated 15+ hours of coordination per week per project manager.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to win more bids with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute construction growth mapping call. We'll audit your current bidding and operations workflow, find the bottlenecks, and show you exactly where AI moves the needle for your company.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Construction engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free construction growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

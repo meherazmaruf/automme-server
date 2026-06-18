@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Law Firms | Legal Practice Growth & PPC — Automme</title>
+  <meta name="description" content="AI-driven client intake, case qualification chatbots, and document automation for law firms and legal practices. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for law firms, legal practice automation, law firm lead generation, legal intake AI, case qualification chatbot, document automation legal, law firm CRM, legal marketing automation">
+  <link rel="canonical" href="https://automme.ai/law-firms">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .law-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+    .law-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+    .law-hero-inner h1 { line-height: 105%; }
+    .law-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+    .law-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .law-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .law-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    .law-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .law-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .law-solutions-section { padding: 5em 0; background: #111113; }
+    .law-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+    .law-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .law-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+    .law-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .law-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .law-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .law-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .law-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+    .law-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .law-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .law-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .law-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .law-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .law-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .law-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+    .law-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .law-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .law-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    @media (max-width: 991px) {
+      .law-problem-grid { grid-template-columns: 1fr; }
+      .law-solutions-grid { grid-template-columns: 1fr; }
+      .law-process-steps { grid-template-columns: 1fr; }
+      .law-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section law-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="law-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for law firms.</span></span></h1>
+        <p class="law-hero-sub text-generate">Client intake automation, case qualification chatbots, and document processing built for law firms, solo practitioners, and legal practices.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free law firm growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="automme-section law-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why law firms struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most legal practices leave cases on the table because their intake and operations run on outdated, manual processes. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="law-problem-grid">
+        <div class="law-problem-card">
+          <h3>Client intake inefficiency</h3>
+          <p>Potential clients call, email, and fill web forms — but without automated intake, these leads pile up in inboxes and voicemail. By the time someone follows up, the prospect has already called three other firms. Our AI captures and qualifies every lead instantly.</p>
+        </div>
+        <div class="law-problem-card">
+          <h3>Case qualification takes too long</h3>
+          <p>Paralegals spend hours on initial case assessments, reviewing facts against practice areas, and determining viability. This manual bottleneck means slow response times and inconsistent qualification criteria across your team.</p>
+        </div>
+        <div class="law-problem-card">
+          <h3>Document overload</h3>
+          <p>Legal document preparation, discovery review, and contract analysis consume billable hours that could go to higher-value work. Without AI document automation, your team is buried in paperwork instead of practicing law.</p>
+        </div>
+        <div class="law-problem-card">
+          <h3>Missed calls = missed cases</h3>
+          <p>Law firms lose 30%+ of new client opportunities because calls go unanswered after hours or during court appearances. Every missed call is a potential six-figure case walking out the door. Our AI answers and qualifies 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section law-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your law firm needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and operations stack built for legal. From the first client call to case resolution, every system works together to maximize your caseload and minimize overhead.</p>
+      </div>
+      <div class="law-solutions-grid">
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="law-solution-name">Client intake AI</div>
+          <div class="law-solution-desc">Multi-channel intake automation that captures leads from phone calls, web forms, social media, and chat. AI qualifies prospects, captures case details, and routes high-value leads to the right attorney instantly. Zero leads fall through the cracks.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="law-solution-name">Case qualification chatbots</div>
+          <div class="law-solution-desc">Conversational AI that pre-qualifies potential clients through a structured intake interview. Collects case facts, practice area fit, and urgency — then assigns a qualification score and routes to the right team member for immediate follow-up.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="law-solution-name">Document automation</div>
+          <div class="law-solution-desc">AI-powered document generation for contracts, pleadings, discovery requests, and client correspondence. Templates populated automatically from intake data. Reduces document preparation time by 70% while eliminating manual errors.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="law-solution-name">Consult booking automation</div>
+          <div class="law-solution-desc">Automated consultation scheduling that syncs with attorney calendars. Prospects book initial consults through your website, Google Business Profile, or SMS — with automatic confirmation, reminder, and rescheduling workflows.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="law-solution-name">CRM automation</div>
+          <div class="law-solution-desc">Every lead and client interaction automatically logged and scored in your CRM. Automated follow-up sequences for unqualified leads, past clients, and referral sources. No manual data entry, no missed touchpoints.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="law-solution-name">Review generation</div>
+          <div class="law-solution-desc">Automated review request campaigns that route satisfied clients to Google, Avvo, and Martindale-Hubbell. Steady review velocity improves local SEO rankings and builds the social proof that drives legal client decisions.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="law-solution-name">Settlement calculator</div>
+          <div class="law-solution-desc">Interactive settlement value calculator that prospects can use on your website. AI crunches case variables to provide estimated ranges. Captures lead information and triggers immediate follow-up from the appropriate practice area team.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="law-solution-name">Referral tracking</div>
+          <div class="law-solution-desc">Automated referral source tracking and nurture campaigns. Identify which attorneys, past clients, and partners send you the best cases. Reward top referrers and systematically expand your referral network with AI-driven outreach.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="law-solution-name">Email nurturing</div>
+          <div class="law-solution-desc">Automated email sequences for lead nurturing, case updates, and cross-practice area marketing. AI segments contacts by practice area interest and case stage, delivering relevant content that converts prospects into retained clients.</div>
+        </div>
+        <div class="law-solution-card">
+          <div class="law-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="law-solution-name">Compliance automation</div>
+          <div class="law-solution-desc">Automated compliance workflows for client intake disclosures, conflict checks, and document retention. AI ensures every new matter follows your firm's ethical and regulatory requirements — reducing risk and administrative overhead.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section law-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your law firm growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="law-process-steps">
+        <div class="law-process-step">
+          <div class="law-process-step-num">Step 01</div>
+          <h3>Law firm audit</h3>
+          <p>Free 30-minute session where we audit your current client intake, case qualification, document workflows, and marketing spend. We identify every leak in your client acquisition funnel and map out where AI can move the needle.</p>
+        </div>
+        <div class="law-process-step">
+          <div class="law-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for cost per case and response time.</p>
+        </div>
+        <div class="law-process-step">
+          <div class="law-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing practice management software, CRM, phone system, and ad accounts. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="law-process-step">
+          <div class="law-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, intake performance tuning, and system maintenance. Most law firms see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section law-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="law-faq-grid">
+        <div class="law-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire client intake and operations workflows. A marketing agency gives you reports. We give you working systems that capture leads, qualify cases, generate documents, and follow up automatically — connected directly to your practice management software.</p>
+        </div>
+        <div class="law-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Clio, MyCase, PracticePanther, or whatever you use. Our systems integrate with your current practice management software, phone system, and ad accounts. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="law-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most law firms see measurable improvements within 30 days — typically in lead response time, consultation booking rate, and cost per case. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="law-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical law firm projects range from $5K to $25K depending on complexity and number of practice areas. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="law-faq-item">
+          <h3>Do you work with solo practitioners?</h3>
+          <p>Yes. We work with solo attorneys, boutique firms, and multi-practice-area firms. Our systems are modular — you can start with intake automation and expand to document automation and beyond. Every system scales with your practice.</p>
+        </div>
+        <div class="law-faq-item">
+          <h3>What kind of results have you generated for legal clients?</h3>
+          <p>We've helped law firms reduce client intake response time by 80%+, increase consultation booking rates by 50%+, cut document preparation time by 70%, and build automated lead funnels that generate consistent case flow without manual management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to grow your law firm with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute law firm growth mapping call. We'll audit your current client intake and operations, find the bottlenecks, and show you exactly where AI moves the needle for your practice.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Law firm engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free law firm growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

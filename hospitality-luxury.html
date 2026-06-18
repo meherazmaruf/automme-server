@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Hospitality & Luxury Brands | Guest Experience — Automme</title>
+  <meta name="description" content="AI-driven concierge services, VIP management, and booking automation for hospitality and luxury brands. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for hospitality, luxury brand automation, concierge AI, VIP management, hotel booking automation, guest experience AI, hospitality CRM, luxury marketing automation">
+  <link rel="canonical" href="https://automme.ai/hospitality-luxury">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hosp-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .hosp-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .hosp-hero-inner h1 { line-height: 105%; }
+    .hosp-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .hosp-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .hosp-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .hosp-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .hosp-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .hosp-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .hosp-solutions-section { padding: 5em 0; background: #111113; }
+    .hosp-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .hosp-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .hosp-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .hosp-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hosp-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .hosp-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .hosp-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .hosp-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .hosp-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .hosp-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .hosp-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .hosp-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .hosp-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .hosp-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .hosp-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .hosp-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .hosp-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .hosp-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .hosp-problem-grid { grid-template-columns: 1fr; }
+      .hosp-solutions-grid { grid-template-columns: 1fr; }
+      .hosp-process-steps { grid-template-columns: 1fr; }
+      .hosp-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section hosp-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="hosp-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for hospitality & luxury.</span></span></h1>
+        <p class="hosp-hero-sub text-generate">Concierge AI, VIP management, and guest experience systems built for hotels, resorts, luxury brands, and hospitality groups.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free hospitality growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section hosp-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why hospitality & luxury brands struggle to grow.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most hospitality brands leave revenue on the table because their guest experience and operations run on fragmented, manual systems. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="hosp-problem-grid">
+        <div class="hosp-problem-card">
+          <h3>Concierge demand exceeds capacity</h3>
+          <p>Guests expect 24/7 concierge service — restaurant recommendations, activity bookings, transportation, and special requests. Without AI, you need a massive team to deliver white-glove service at scale. Most properties can't staff for peak demand without overspending during slow periods.</p>
+        </div>
+        <div class="hosp-problem-card">
+          <h3>VIP management complexity</h3>
+          <p>High-value guests, loyalty members, and celebrity visitors require personalized attention that most CRMs can't deliver. Preferences, past stays, special occasions — tracking and acting on this data manually is impossible at scale. Every missed detail damages your reputation.</p>
+        </div>
+        <div class="hosp-problem-card">
+          <h3>Booking complexity across channels</h3>
+          <p>Direct bookings, OTAs, corporate accounts, and group reservations create a maze of rates, availability rules, and commission structures. Without AI-driven channel management, you're either overbooked or leaving rooms empty — both scenarios hurt revenue.</p>
+        </div>
+        <div class="hosp-problem-card">
+          <h3>Guest personalization at scale</h3>
+          <p>Luxury guests expect personalized experiences — from welcome amenities to room preferences to curated itineraries. Most properties have the data but no system to act on it automatically. Every generic experience is a missed opportunity to create a loyal, high-value guest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section hosp-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your hospitality brand needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered guest experience and operations stack built for hospitality. From the first booking inquiry to the post-stay follow-up, every system works together to deliver luxury at scale.</p>
+      </div>
+      <div class="hosp-solutions-grid">
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="hosp-solution-name">Concierge AI</div>
+          <div class="hosp-solution-desc">24/7 AI concierge that handles guest requests via chat, SMS, and voice — restaurant bookings, spa appointments, local recommendations, transportation, and special requests. Natural, personalized interactions that feel like a human concierge at scale.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="hosp-solution-name">VIP management</div>
+          <div class="hosp-solution-desc">AI-powered VIP recognition and personalization system. Automatically identifies high-value guests, surfaces their preferences and history, and triggers personalized service actions — from room upgrades to welcome amenities to curated experiences — without manual intervention.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="hosp-solution-name">Booking automation</div>
+          <div class="hosp-solution-desc">AI-driven booking management across direct, OTA, and corporate channels. Dynamic rate optimization, availability management, and automated rate parity enforcement. Reduces overbookings, maximizes RevPAR, and eliminates manual channel management.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="hosp-solution-name">Guest experience automation</div>
+          <div class="hosp-solution-desc">Automated pre-arrival, in-stay, and post-departure guest communication. Personalized welcome messages, in-stay check-ins, feedback collection, and re-engagement campaigns. AI tailors every interaction based on guest profile, stay history, and real-time behavior.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="hosp-solution-name">Review generation</div>
+          <div class="hosp-solution-desc">Automated review request campaigns that route satisfied guests to Google, TripAdvisor, and OTAs. Smart timing ensures requests go out at peak satisfaction moments. Steady review velocity builds social proof and improves search rankings.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="hosp-solution-name">CRM automation</div>
+          <div class="hosp-solution-desc">Every guest interaction automatically logged and scored. AI tracks preferences, stay history, spending patterns, and engagement signals. Automated workflows for pre-arrival outreach, anniversary offers, and re-engagement campaigns that drive direct bookings.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="hosp-solution-name">Personalized offers</div>
+          <div class="hosp-solution-desc">AI-generated personalized offers and packages based on guest preferences, past stays, and booking patterns. Automated email and SMS campaigns that deliver the right offer at the right time — anniversary specials, seasonal packages, and last-minute upgrades.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="hosp-solution-name">Event management</div>
+          <div class="hosp-solution-desc">Automated event and group booking management. AI handles inquiries, proposal generation, room block management, and event timelines. Streamlines the entire process from initial inquiry to post-event follow-up for weddings, conferences, and social events.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="hosp-solution-name">Loyalty programs</div>
+          <div class="hosp-solution-desc">AI-powered loyalty program management that drives repeat bookings and guest advocacy. Automated point tracking, tier upgrades, personalized rewards, and status match offers. AI identifies your most valuable members and ensures they feel recognized at every touchpoint.</div>
+        </div>
+        <div class="hosp-solution-card">
+          <div class="hosp-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="hosp-solution-name">Staff scheduling</div>
+          <div class="hosp-solution-desc">AI-driven staff scheduling based on occupancy forecasts, event calendars, and historical demand patterns. Automatically generates optimized shift plans, handles swap requests, and predicts labor needs across housekeeping, front desk, F&B, and concierge teams.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section hosp-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your hospitality growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="hosp-process-steps">
+        <div class="hosp-process-step">
+          <div class="hosp-process-step-num">Step 01</div>
+          <h3>Hospitality audit</h3>
+          <p>Free 30-minute session where we audit your current guest experience, booking operations, CRM, and marketing systems. We identify every revenue leak and map out exactly where AI can move the needle for your property.</p>
+        </div>
+        <div class="hosp-process-step">
+          <div class="hosp-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for guest satisfaction and direct booking revenue.</p>
+        </div>
+        <div class="hosp-process-step">
+          <div class="hosp-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing PMS, CRM, and booking channels. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="hosp-process-step">
+          <div class="hosp-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, guest experience tuning, and system maintenance. Most properties see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section hosp-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="hosp-faq-grid">
+        <div class="hosp-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire guest experience and operations workflows. A marketing agency gives you reports. We give you working systems that handle concierge requests, manage VIP preferences, optimize bookings, and personalize guest communications — connected directly to your PMS.</p>
+        </div>
+        <div class="hosp-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Oracle Opera, Maestro, Cloudbeds, or whatever you use. Our systems integrate with your current PMS, CRM, and booking channels. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="hosp-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most properties see measurable improvements within 30 days — typically in guest satisfaction scores, direct booking volume, and operational efficiency. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="hosp-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical hospitality projects range from $5K to $25K depending on complexity and property size. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="hosp-faq-item">
+          <h3>Do you work with independent hotels?</h3>
+          <p>Yes. We work with independent properties, boutique hotels, luxury resorts, and large hospitality groups. Our systems are modular — you can start with concierge AI and expand to full-stack automation. Every system scales with your portfolio.</p>
+        </div>
+        <div class="hosp-faq-item">
+          <h3>What kind of results have you generated for hospitality clients?</h3>
+          <p>We've helped properties increase direct booking revenue by 40%+, improve guest satisfaction scores by 25%+, reduce concierge response time to seconds, and build automated guest experience systems that deliver luxury personalization at scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to elevate your guest experience with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute hospitality growth mapping call. We'll audit your current guest experience and operations, find the bottlenecks, and show you exactly where AI moves the needle for your property.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Hospitality engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free hospitality growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

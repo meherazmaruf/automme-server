@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Brokers & Financial Services | Compliance & Growth — Automme</title>
+  <meta name="description" content="AI-driven compliance automation, document processing, KYC workflows, and client outreach systems for brokers and financial services firms. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for brokers, financial services automation, KYC automation, compliance AI, document processing AI, broker CRM automation, client outreach automation, risk assessment AI, fintech automation">
+  <link rel="canonical" href="https://automme.ai/brokers-financial-services">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .brokers-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+    .brokers-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+    .brokers-hero-inner h1 {
+      line-height: 105%;
+    }
+    .brokers-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+    .brokers-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+    .brokers-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .brokers-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    .brokers-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+    .brokers-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .brokers-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+    .brokers-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+    .brokers-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .brokers-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+    .brokers-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brokers-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .brokers-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+    .brokers-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .brokers-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+    .brokers-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .brokers-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .brokers-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .brokers-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+    .brokers-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .brokers-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+    .brokers-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+    .brokers-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .brokers-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+    .brokers-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    @media (max-width: 991px) {
+      .brokers-problem-grid { grid-template-columns: 1fr; }
+      .brokers-solutions-grid { grid-template-columns: 1fr; }
+      .brokers-process-steps { grid-template-columns: 1fr; }
+      .brokers-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section brokers-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="brokers-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for brokers & financial services.</span></span></h1>
+        <p class="brokers-hero-sub text-generate">Compliance automation, document intelligence, and client acquisition systems built for broker-dealers, RIAs, and financial services firms.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="automme-section brokers-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why financial firms struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Regulatory pressure and manual workflows keep most financial firms operating far below their potential. Here are the biggest bottlenecks we eliminate.</p>
+      </div>
+      <div class="brokers-problem-grid">
+        <div class="brokers-problem-card">
+          <h3>Compliance burden crushing productivity</h3>
+          <p>Financial firms spend 15-25% of revenue on compliance overhead. Manual reviews, documentation, and reporting consume hours that should go toward client service and business development. Our AI automates compliance workflows end-to-end.</p>
+        </div>
+        <div class="brokers-problem-card">
+          <h3>Document processing drowning your team</h3>
+          <p>Account applications, disclosure forms, withdrawal requests — each client generates dozens of documents that must be reviewed, verified, and filed. Manual processing creates backlogs and errors. AI extracts, validates, and routes documents in seconds.</p>
+        </div>
+        <div class="brokers-problem-card">
+          <h3>Client onboarding friction</h3>
+          <p>Slow onboarding is the #1 reason prospects abandon financial firms before funding. Paper applications, manual ID checks, and scattered follow-ups create a fragmented experience. Automated KYC and onboarding flows turn weeks into hours.</p>
+        </div>
+        <div class="brokers-problem-card">
+          <h3>Outreach that doesn't scale</h3>
+          <p>Personalized client outreach at scale is nearly impossible with manual processes. Compliance-approved messaging, multi-channel follow-up, and timely touchpoints require automation. Without it, your best prospects go cold while you're stuck in spreadsheets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section brokers-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your financial firm needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered operations stack built for financial services. From compliance to client acquisition, every system works together to reduce overhead and accelerate growth.</p>
+      </div>
+      <div class="brokers-solutions-grid">
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="brokers-solution-name">KYC & AML automation</div>
+          <div class="brokers-solution-desc">Automated identity verification, document validation, and AML screening. Reduces onboarding from days to minutes while maintaining full regulatory compliance. Integrated with major compliance databases and reporting systems.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="brokers-solution-name">Intelligent document processing</div>
+          <div class="brokers-solution-desc">AI-powered extraction, classification, and validation for account forms, trade confirmations, statements, and disclosures. Handles structured and unstructured documents with 99%+ accuracy. Direct integration with your document management system.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="brokers-solution-name">Outbound compliance automation</div>
+          <div class="brokers-solution-desc">Compliance-approved multi-channel outreach with automated pre-approval workflows. Every email, SMS, and social message is screened against regulatory requirements before sending. Full audit trail for FINRA, SEC, and other regulators.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="brokers-solution-name">Risk assessment AI</div>
+          <div class="brokers-solution-desc">Real-time risk monitoring and portfolio risk assessment using machine learning models. Automated alerts for unusual activity, concentration risk, and regulatory breaches. Customizable risk parameters for your specific business lines.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="brokers-solution-name">CRM automation</div>
+          <div class="brokers-solution-desc">Automated lead capture, scoring, routing, and follow-up sequences built for financial services workflows. Integrates with major CRMs including Salesforce, Redtail, and Wealthbox. Full compliance logging on every client interaction.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="brokers-solution-name">Market analysis AI</div>
+          <div class="brokers-solution-desc">Real-time market intelligence aggregation and analysis. AI monitors news, economic data, and market movements to generate actionable insights. Automated briefings, sector analysis, and customized alerts for your team and clients.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="brokers-solution-name">Portfolio reporting automation</div>
+          <div class="brokers-solution-desc">Automated generation of client portfolio reports, quarterly statements, and performance summaries. Custom branding, regulatory-compliant disclosures, and multi-format delivery. Reduce reporting time from days to minutes.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="brokers-solution-name">Client communication AI</div>
+          <div class="brokers-solution-desc">Intelligent multi-channel communication platform with compliance guardrails. Automated check-ins, life events triggers, and personalized market commentary. Two-way SMS, email, and portal messaging with full audit trail.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brokers-solution-name">Appointment booking automation</div>
+          <div class="brokers-solution-desc">Automated scheduling for client reviews, financial planning sessions, and discovery calls. Smart calendar management, automated reminders, and rescheduling workflows. Integrates with Outlook and Google Calendar.</div>
+        </div>
+        <div class="brokers-solution-card">
+          <div class="brokers-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="brokers-solution-name">Review & referral generation</div>
+          <div class="brokers-solution-desc">Automated review request and referral generation campaigns. Compliance-approved messaging prompts happy clients to leave reviews on Google, Yelp, and industry platforms. Smart routing for complaints to private channels.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="automme-section brokers-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your financial automation system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="brokers-process-steps">
+        <div class="brokers-process-step">
+          <div class="brokers-process-step-num">Step 01</div>
+          <h3>Financial operations audit</h3>
+          <p>Free 30-minute session where we audit your current compliance workflows, document processing, client onboarding, and outreach systems. We identify every bottleneck and map exactly where AI can move the needle for your firm.</p>
+        </div>
+        <div class="brokers-process-step">
+          <div class="brokers-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for time savings, compliance coverage, and client acquisition cost.</p>
+        </div>
+        <div class="brokers-process-step">
+          <div class="brokers-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing CRM, compliance software, document management, and communication platforms. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="brokers-process-step">
+          <div class="brokers-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Compliance updates, system tuning, and performance reporting. Most firms see compounding improvements in efficiency and client acquisition over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section brokers-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="brokers-faq-grid">
+        <div class="brokers-faq-item">
+          <h3>Is this compliant with financial regulations?</h3>
+          <p>Yes. Every system we build includes compliance guardrails designed for FINRA, SEC, and state regulatory environments. Automated audit trails, pre-approved messaging templates, and document retention policies are built in from day one — not bolted on after.</p>
+        </div>
+        <div class="brokers-faq-item">
+          <h3>How long does implementation take?</h3>
+          <p>Most financial firms are live within 30-60 days. Document processing and KYC automation can deploy in as little as two weeks. Full compliance workflow automation typically takes 45-60 days depending on complexity and system integrations.</p>
+        </div>
+        <div class="brokers-faq-item">
+          <h3>Do I need to replace my current systems?</h3>
+          <p>No. We integrate with your existing stack — Salesforce, Redtail, Wealthbox, XPlan, Morningstar, or any major financial services platform. Our systems work alongside what you already have. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="brokers-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical financial services projects range from $7.5K to $50K depending on complexity. Ongoing management retainers start at $3K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="brokers-faq-item">
+          <h3>Can you work with our existing compliance team?</h3>
+          <p>Absolutely. We partner with your compliance and legal teams to ensure every automated workflow meets your specific regulatory requirements. Our systems are designed to augment your compliance team, not replace them.</p>
+        </div>
+        <div class="brokers-faq-item">
+          <h3>What kind of results have you seen for financial firms?</h3>
+          <p>We've helped broker-dealers reduce document processing time by 85%, cut client onboarding from 5 days to 4 hours, and increase compliance-approved outreach volume by 10x without adding headcount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to automate your financial services firm?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute financial operations audit. We'll review your current compliance workflows, document processing, and client acquisition systems — then show you exactly where AI moves the needle for your firm.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Financial services engagements typically start at $7.5K. Most projects range $7.5K-$50K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

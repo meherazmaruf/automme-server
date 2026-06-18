@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for AI Agencies | White-Label AI & Partner Delivery — Automme</title>
+  <meta name="description" content="AI-driven white-label solutions, partner delivery systems, and resellable automations for AI and automation agencies. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for AI agencies, automation agency, white-label AI, partner delivery automation, resellable automations, AI agency scaling, AI consulting, automation consulting">
+  <link rel="canonical" href="https://automme.ai/ai-automation-agencies">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aa-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .aa-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .aa-hero-inner h1 { line-height: 105%; }
+    .aa-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .aa-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .aa-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .aa-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .aa-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .aa-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .aa-solutions-section { padding: 5em 0; background: #111113; }
+    .aa-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .aa-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .aa-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .aa-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .aa-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .aa-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .aa-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .aa-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .aa-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .aa-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .aa-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .aa-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .aa-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .aa-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .aa-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .aa-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .aa-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .aa-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .aa-problem-grid { grid-template-columns: 1fr; }
+      .aa-solutions-grid { grid-template-columns: 1fr; }
+      .aa-process-steps { grid-template-columns: 1fr; }
+      .aa-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section aa-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="aa-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for AI agencies.</span></span></h1>
+        <p class="aa-hero-sub text-generate">White-label AI solutions, partner delivery systems, and resellable automations built for AI agencies, automation consultancies, and tech service providers.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free AI agency growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section aa-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why AI agencies struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most AI and automation agencies hit a growth ceiling because their delivery relies on custom-building every solution from scratch. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="aa-problem-grid">
+        <div class="aa-problem-card">
+          <h3>Delivery consistency is elusive</h3>
+          <p>Every client engagement requires custom AI development — and every developer builds differently. Without standardized delivery frameworks and reusable components, quality varies, timelines slip, and margins shrink the more you sell.</p>
+        </div>
+        <div class="aa-problem-card">
+          <h3>White-label needs go unmet</h3>
+          <p>Your clients want to resell AI solutions under their own brand, but you don't have a white-label infrastructure. Every partner requires custom onboarding, branding, and deployment — making reseller programs unprofitable at scale without automation.</p>
+        </div>
+        <div class="aa-problem-card">
+          <h3>Scalability hits a wall</h3>
+          <p>AI agencies sell high-value services but deliver them manually. Adding a client means adding a team member. Without productized, repeatable systems, your agency stays a services business — trading time for dollars with a hard cap on revenue.</p>
+        </div>
+        <div class="aa-problem-card">
+          <h3>Partner management is manual</h3>
+          <p>Managing reseller partners, affiliate relationships, and channel sales requires onboarding, training, support, and reporting — all typically handled manually. Without automation, your partner program becomes a time sink that never reaches its revenue potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section aa-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your AI agency needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered operations and delivery stack built for AI agencies. From white-label deployment to partner management, every system works together to help you scale without breaking your delivery model.</p>
+      </div>
+      <div class="aa-solutions-grid">
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="aa-solution-name">White-label AI</div>
+          <div class="aa-solution-desc">Fully white-label AI solutions that you can resell under your own brand. Custom domain, custom branding, custom pricing. AI systems are pre-built, tested, and deployable in days — not months. Your clients never know they're running on our infrastructure.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="aa-solution-name">Partner delivery</div>
+          <div class="aa-solution-desc">Automated partner delivery system that handles onboarding, deployment, billing, and support for your resellers and white-label clients. Self-service portals, automated provisioning, and standardized delivery frameworks that make every partner profitable from day one.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="aa-solution-name">Resellable automations</div>
+          <div class="aa-solution-desc">Pre-built, productized automation systems that you can resell to your clients. AI phone agents, chatbots, email sequences, review generation, and more — all ready to deploy with your branding. Vertical-specific solutions for industries you serve.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="aa-solution-name">Client onboarding</div>
+          <div class="aa-solution-desc">Automated client onboarding workflows tailored for AI service delivery. Collect requirements, configure systems, deploy solutions, and train stakeholders — all through structured, repeatable processes that ensure consistency across every engagement.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="aa-solution-name">Campaign automation</div>
+          <div class="aa-solution-desc">Multi-channel campaign automation for your own agency marketing — not your clients'. Automated outreach, nurture sequences, proposal follow-up, and re-engagement that fills your agency pipeline without manual sales effort.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="aa-solution-name">Reporting dashboards</div>
+          <div class="aa-solution-desc">White-label client reporting dashboards that showcase the value of your AI systems. Real-time performance data, ROI metrics, and automated insights — all under your brand. Impress your clients with professional reporting without building from scratch.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="aa-solution-name">Proposal generation</div>
+          <div class="aa-solution-desc">AI-powered proposal generation tailored for AI services. Dynamically generates scopes of work, pricing, timelines, and expected ROI based on prospect industry and pain points. Reduces proposal creation from days to minutes.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="aa-solution-name">Support automation</div>
+          <div class="aa-solution-desc">AI-powered support system for your agency's clients. Automated ticket triage, knowledge base search, and common issue resolution. Escalates complex issues to your team with full context. Reduces support overhead by 60%+ while improving response times.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="aa-solution-name">Knowledge base</div>
+          <div class="aa-solution-desc">Centralized knowledge base for your AI systems, delivery processes, and client configurations. AI-powered search and documentation that your team and partners can access instantly. Reduces training time and ensures consistent delivery across every engagement.</div>
+        </div>
+        <div class="aa-solution-card">
+          <div class="aa-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="aa-solution-name">Quality assurance</div>
+          <div class="aa-solution-desc">Automated QA framework for AI system delivery. Pre-deployment testing checklists, performance benchmarking, and client satisfaction monitoring. Ensures every engagement meets your quality bar before launch and maintains it through ongoing monitoring.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section aa-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your AI agency growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="aa-process-steps">
+        <div class="aa-process-step">
+          <div class="aa-process-step-num">Step 01</div>
+          <h3>Agency audit</h3>
+          <p>Free 30-minute session where we audit your current delivery model, white-label capabilities, and partner infrastructure. We identify every scaling bottleneck and map out exactly where our platform can help you grow.</p>
+        </div>
+        <div class="aa-process-step">
+          <div class="aa-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for delivery efficiency and partner revenue.</p>
+        </div>
+        <div class="aa-process-step">
+          <div class="aa-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your white-label infrastructure. We set up your partner portal, resellable automation library, and delivery frameworks. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="aa-process-step">
+          <div class="aa-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Partner program management, system updates, and quality assurance. Most agencies see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section aa-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="aa-faq-grid">
+        <div class="aa-faq-item">
+          <h3>How is this different from building AI solutions in-house?</h3>
+          <p>We provide a complete white-label platform with pre-built, tested AI systems that you can deploy under your own brand. Instead of building every solution from scratch, you leverage our infrastructure — saving months of development time and millions in R&D costs.</p>
+        </div>
+        <div class="aa-faq-item">
+          <h3>Will my clients know I'm using your platform?</h3>
+          <p>No. Everything is fully white-label — custom domain, custom branding, custom pricing. Your clients see your logo, your brand, your interface. Our infrastructure runs silently in the background. You get all the credit.</p>
+        </div>
+        <div class="aa-faq-item">
+          <h3>How long does it take to get started?</h3>
+          <p>Most agencies go from signed agreement to first white-label client deployment within 2-4 weeks. Our systems are pre-built and ready to brand — no custom development required. The timeline depends on how many vertical solutions you want to offer.</p>
+        </div>
+        <div class="aa-faq-item">
+          <h3>What does it cost?</h3>
+          <p>We offer partnership pricing based on your expected volume and service model. Typical AI agency partnerships start at $2K/mo and include access to our full white-label platform, resellable automation library, and partner delivery infrastructure.</p>
+        </div>
+        <div class="aa-faq-item">
+          <h3>Do I need a technical team?</h3>
+          <p>No. Our platform is designed for agencies of any technical ability. We handle all the infrastructure, development, and maintenance. Your team focuses on sales, strategy, and client relationships — we handle the technology.</p>
+        </div>
+        <div class="aa-faq-item">
+          <h3>What kind of results have you generated for AI agency partners?</h3>
+          <p>Our agency partners have launched white-label AI practices in weeks instead of months, reduced delivery time by 70%+, scaled to 5x more clients without adding headcount, and built recurring revenue streams through resellable automation products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale your AI agency with our platform?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute agency partnership call. We'll show you our white-label platform, discuss your service model, and map out exactly how we can help you scale your AI agency.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Agency partnerships typically start at $2K/mo. Contact us for custom pricing.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free agency partnership call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

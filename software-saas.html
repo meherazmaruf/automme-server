@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for SaaS Companies | Product Growth & PLG — Automme</title>
+  <meta name="description" content="AI-driven PLG automation, churn prediction, user onboarding, and support scaling for SaaS companies. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for SaaS, SaaS automation, PLG automation, churn prediction AI, user onboarding automation, SaaS support scaling, feature adoption AI, SaaS product growth, email nurturing automation, SaaS analytics">
+  <link rel="canonical" href="https://automme.ai/software-saas">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .software-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+    .software-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+    .software-hero-inner h1 { line-height: 105%; }
+    .software-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+    .software-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .software-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .software-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    .software-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .software-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .software-solutions-section { padding: 5em 0; background: #111113; }
+    .software-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+    .software-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .software-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+    .software-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .software-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .software-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+    .software-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .software-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+    .software-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .software-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .software-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .software-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .software-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .software-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .software-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+    .software-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .software-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .software-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .software-problem-grid { grid-template-columns: 1fr; }
+      .software-solutions-grid { grid-template-columns: 1fr; }
+      .software-process-steps { grid-template-columns: 1fr; }
+      .software-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section software-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="software-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for SaaS companies.</span></span></h1>
+        <p class="software-hero-sub text-generate">Product-led growth automation, churn prediction, and intelligent onboarding systems built for SaaS teams scaling from product-market fit to hypergrowth.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="automme-section software-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why SaaS companies leak growth.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Even world-class products struggle with user activation, retention, and support at scale. Here are the most common growth leaks we fix for SaaS companies.</p>
+      </div>
+      <div class="software-problem-grid">
+        <div class="software-problem-card">
+          <h3>User onboarding that doesn't convert</h3>
+          <p>Most SaaS products lose 40-60% of new users in the first week. Confusing onboarding flows, unclear value prop, and delayed time-to-value drive users away before they experience your core product. AI personalizes onboarding in real-time based on user behavior.</p>
+        </div>
+        <div class="software-problem-card">
+          <h3>Churn you can't predict or prevent</h3>
+          <p>By the time you notice a user is at risk, they're already gone. Manual churn analysis is reactive and slow. Our AI models identify at-risk users 30-60 days before churn, triggering automated interventions that have cut churn by 35%+ for our clients.</p>
+        </div>
+        <div class="software-problem-card">
+          <h3>Support team drowning in tickets</h3>
+          <p>As you scale users, support tickets scale exponentially. Tier-1 questions about billing, account setup, and basic features consume hours that your team should spend on complex customer problems. AI support automation handles 60-80% of tickets without human touch.</p>
+        </div>
+        <div class="software-problem-card">
+          <h3>Feature adoption stuck below 20%</h3>
+          <p>You ship amazing features, but nobody uses them. Without intelligent feature discovery and guided adoption, users stick to the 20% they know. Our AI drives feature adoption through contextual prompts, personalized training, and usage-based triggers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section software-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your SaaS needs to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and operations stack for SaaS. From user acquisition to retention, every system works together to accelerate revenue and reduce manual overhead.</p>
+      </div>
+      <div class="software-solutions-grid">
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="software-solution-name">PLG automation</div>
+          <div class="software-solution-desc">Product-led growth workflows that automate user activation, feature discovery, and upgrade prompts. Behavioral triggers deliver the right message at the right moment — in-app, via email, or through your product UI — driving self-serve conversion.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="software-solution-name">Churn prediction AI</div>
+          <div class="software-solution-desc">Machine learning models that analyze usage patterns, support interactions, billing history, and engagement signals to predict churn with 85%+ accuracy. Automated intervention sequences re-engage at-risk users before they cancel.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="software-solution-name">AI onboarding assistant</div>
+          <div class="software-solution-desc">Intelligent onboarding that adapts to each user's role, goals, and behavior. Guided setup flows, interactive walkthroughs, and personalized success milestones that reduce time-to-value from days to minutes.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="software-solution-name">Feature adoption engine</div>
+          <div class="software-solution-desc">AI-driven feature discovery campaigns that identify underutilized capabilities and deliver contextual prompts, video tutorials, and power-user tips. Increases feature adoption rates from 20% to 70%+ within 30 days.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="software-solution-name">Automated support</div>
+          <div class="software-solution-desc">AI-powered support that resolves 60-80% of tier-1 tickets instantly. Natural language understanding handles billing questions, account issues, and feature FAQs. Seamless escalation to human agents with full context preserved.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="software-solution-name">NPS & voice of customer</div>
+          <div class="software-solution-desc">Automated NPS collection and sentiment analysis across all touchpoints. AI analyzes support tickets, product reviews, and survey responses to surface actionable insights. Real-time alerts for sentiment shifts that need attention.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="software-solution-name">Email nurturing automation</div>
+          <div class="software-solution-desc">Behavior-triggered email sequences for trial conversion, feature adoption, upgrade prompts, and re-engagement. AI optimizes send times, subject lines, and content personalization. Integrates with Intercom, Customer.io, and HubSpot.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="software-solution-name">Billing automation</div>
+          <div class="software-solution-desc">Automated subscription management, invoice generation, dunning workflows, and payment recovery. AI detects billing issues before they cause churn and triggers personalized retention offers for failed payments.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="software-solution-name">User segmentation & targeting</div>
+          <div class="software-solution-desc">AI-powered user segmentation based on behavioral patterns, product usage, demographic data, and engagement history. Dynamic cohorts update in real-time, enabling hyper-personalized campaigns without manual segment management.</div>
+        </div>
+        <div class="software-solution-card">
+          <div class="software-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="software-solution-name">Product analytics dashboard</div>
+          <div class="software-solution-desc">Real-time unified dashboard showing every SaaS metric that matters: activation rate, time-to-value, feature adoption, churn risk score, LTV by cohort, and NPS trends. Data-driven product decisions, not guesses.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="automme-section software-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your SaaS growth engine.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="software-process-steps">
+        <div class="software-process-step">
+          <div class="software-process-step-num">Step 01</div>
+          <h3>SaaS growth audit</h3>
+          <p>Free 30-minute session where we audit your current user onboarding, churn patterns, support operations, and feature adoption. We analyze your product data and identify every growth leak with specific AI automation opportunities.</p>
+        </div>
+        <div class="software-process-step">
+          <div class="software-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for activation rate, churn reduction, and support deflection.</p>
+        </div>
+        <div class="software-process-step">
+          <div class="software-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your product, CRM, support platform, and analytics stack. Weekly progress updates, working product at every stage. Most deployments go live within 30 days.</p>
+        </div>
+        <div class="software-process-step">
+          <div class="software-process-step-num">Step 04</div>
+          <h3>Ongoing optimization</h3>
+          <p>Optional retainer for continuous monitoring, A/B testing, and iteration. Model retraining, campaign optimization, and system tuning. Most SaaS teams see compounding improvements in activation and retention over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section software-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="software-faq-grid">
+        <div class="software-faq-item">
+          <h3>How is this different from ProductBoard or Amplitude?</h3>
+          <p>Those are analytics tools that tell you what's happening. We build automated systems that act on that data in real-time — triggering personalized onboarding, churn interventions, and feature prompts without manual campaign management.</p>
+        </div>
+        <div class="software-faq-item">
+          <h3>Can you integrate with our existing stack?</h3>
+          <p>Yes. We work with your current product analytics (Amplitude, Mixpanel, Heap), CRM (HubSpot, Salesforce), support platform (Intercom, Zendesk), and email tools (Customer.io, Braze). Our systems connect your existing data sources into automated workflows.</p>
+        </div>
+        <div class="software-faq-item">
+          <h3>How long does it take to see churn improvement?</h3>
+          <p>Churn prediction models start producing actionable signals within 2-4 weeks of deployment. Most clients see measurable churn reduction (15-25%) within 60-90 days as automated intervention sequences mature and optimize.</p>
+        </div>
+        <div class="software-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical SaaS projects range from $5K to $35K depending on complexity and number of integrations. Ongoing optimization retainers start at $2.5K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="software-faq-item">
+          <h3>Do you work with early-stage SaaS companies?</h3>
+          <p>Yes. We work with startups from seed to Series C and beyond. Our systems are modular — start with onboarding automation or churn prediction and expand as you grow. Every system is designed to scale with your user base.</p>
+        </div>
+        <div class="software-faq-item">
+          <h3>What results have you generated for SaaS clients?</h3>
+          <p>We've helped SaaS companies reduce churn by 35%, increase trial-to-paid conversion by 28%, deflect 70% of support tickets with AI, and improve feature adoption from under 20% to over 65% within 30 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale your SaaS with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute SaaS growth audit. We'll analyze your product data, identify your biggest growth leaks, and show you exactly where AI automation can move the needle for your business.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">SaaS engagements typically start at $5K. Most projects range $5K-$35K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

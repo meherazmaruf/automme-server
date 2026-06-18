@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for PPC Agencies | Paid Advertising Automation — Automme</title>
+  <meta name="description" content="AI-driven bid management, ad copy generation, cross-platform reporting, and ROI tracking for PPC agencies. Scale your paid advertising operations with AI.">
+  <meta name="keywords" content="AI for PPC agencies, paid advertising automation, bid management AI, ad copy AI, cross-platform reporting, PPC ROI tracking, audience segmentation AI, landing page optimization, creative testing automation, PPC client dashboards">
+  <link rel="canonical" href="https://automme.ai/ppc-agencies">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== PPC PAGE STYLES ===== */
+    .ppc-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .ppc-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .ppc-hero-inner h1 {
+      line-height: 105%;
+    }
+
+    .ppc-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+
+    .ppc-problem-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .ppc-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .ppc-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+
+    .ppc-problem-card h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      color: #f0f0f2;
+    }
+
+    .ppc-problem-card p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ppc-solutions-section {
+      padding: 5em 0;
+      background: #111113;
+    }
+
+    .ppc-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+
+    .ppc-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .ppc-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .ppc-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ppc-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ppc-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+
+    .ppc-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ppc-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+
+    .ppc-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+
+    .ppc-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .ppc-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+
+    .ppc-process-step h3 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.75em;
+      color: #f0f0f2;
+    }
+
+    .ppc-process-step p {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ppc-faq-section {
+      padding: 5em 0;
+      background: #0a0a0c;
+    }
+
+    .ppc-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+
+    .ppc-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+
+    .ppc-faq-item h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: #f0f0f2;
+      margin-bottom: 0.5em;
+    }
+
+    .ppc-faq-item p {
+      font-size: 0.85em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 991px) {
+      .ppc-problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ppc-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ppc-process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .ppc-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span
+            class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section ppc-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="ppc-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for PPC agencies.</span></span></h1>
+        <p class="ppc-hero-sub text-generate">Bid management, ad copy AI, cross-platform reporting, and ROI tracking automation built for paid advertising agencies.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free PPC growth call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS WE SOLVE -->
+  <section class="automme-section ppc-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why PPC agencies struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most PPC agencies are trapped in a cycle of manual optimization that limits how many accounts they can profitably manage. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="ppc-problem-grid">
+        <div class="ppc-problem-card">
+          <h3>Bid management overhead</h3>
+          <p>Manual bid adjustments across hundreds of keywords, multiple platforms, and dozens of accounts consume hours every day. Most agencies can't afford the headcount to optimize properly, so they leave money on the table. Our AI handles bid optimization at machine speed, 24/7.</p>
+        </div>
+        <div class="ppc-problem-card">
+          <h3>Ad fatigue</h3>
+          <p>Running the same creative for weeks kills CTR and drives up costs. But generating, testing, and rotating ad copy at scale is brutally manual. Without AI, most agencies rotate creative far too slowly and watch performance decay.</p>
+        </div>
+        <div class="ppc-problem-card">
+          <h3>Cross-platform complexity</h3>
+          <p>Managing campaigns across Google, Meta, LinkedIn, TikTok, Amazon, and more means logging into 6+ dashboards daily. Cross-platform reporting is a spreadsheet nightmare. Our unified platform lets you manage and report from a single pane of glass.</p>
+        </div>
+        <div class="ppc-problem-card">
+          <h3>Reporting burden</h3>
+          <p>Building client reports eats 10-20 hours per week per account manager. Every report requires pulling data from multiple sources, formatting charts, and writing commentary. It's the most hated part of the job — and the most automatable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section ppc-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your PPC agency needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered automation stack for paid advertising. From bid management to client reporting, every system is built to help you manage more accounts with fewer resources.</p>
+      </div>
+      <div class="ppc-solutions-grid">
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="ppc-solution-name">Bid automation & optimization</div>
+          <div class="ppc-solution-desc">AI-powered bid management across Google, Meta, LinkedIn, and more. Real-time adjustments based on conversion data, dayparting, device performance, and audience signals. Set rules, goals, and constraints — our AI executes the rest.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="ppc-solution-name">Ad copy AI generation</div>
+          <div class="ppc-solution-desc">Generate headlines, descriptions, and creative variations at scale. Train AI on your agency's proven frameworks and client brand voices. A/B test automatically and rotate winning copy before fatigue sets in. More tests, better results, less manual work.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="ppc-solution-name">Cross-platform reporting</div>
+          <div class="ppc-solution-desc">Unified reporting dashboard that pulls data from every ad platform into a single view. Custom report templates, automated delivery, and AI-powered insights that highlight trends, anomalies, and optimization opportunities. No more spreadsheet marathons.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="ppc-solution-name">ROI tracking & attribution</div>
+          <div class="ppc-solution-desc">Multi-touch attribution that shows exactly which channels, campaigns, and keywords drive revenue. Connect ad spend to closed deals with CRM integration. Real-time ROAS tracking at the campaign, ad group, and keyword level.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="ppc-solution-name">Audience segmentation & targeting</div>
+          <div class="ppc-solution-desc">AI-powered audience discovery and segmentation based on intent, behavior, and lookalike modeling. Automatically build and refresh audience lists, exclude underperformers, and find new high-intent segments across every platform.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="ppc-solution-name">Creative testing automation</div>
+          <div class="ppc-solution-desc">Automated A/B and multivariate testing for ad creative, landing pages, and offers. AI allocates traffic to winning variations in real time and surfaces actionable insights about what resonates with each audience segment.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="ppc-solution-name">Landing page optimization</div>
+          <div class="ppc-solution-desc">AI-powered landing page analysis and optimization. Automated heat mapping, form analysis, speed optimization, and conversion rate recommendations. Generate and test landing page variations that improve quality score and conversion rates.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+          </div>
+          <div class="ppc-solution-name">Budget allocation AI</div>
+          <div class="ppc-solution-desc">AI-driven budget allocation across campaigns, channels, and accounts. Automatically shift spend to highest-performing areas based on real-time ROAS and volume data. Set floor and ceiling rules — our AI optimizes within your constraints.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="ppc-solution-name">Competitor analysis automation</div>
+          <div class="ppc-solution-desc">Automated competitor monitoring across ad copy, keywords, landing pages, and positioning. Receive alerts when competitors enter your markets, change messaging, or launch new offers. Stay ahead without manual surveillance.</div>
+        </div>
+        <div class="ppc-solution-card">
+          <div class="ppc-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="ppc-solution-name">Client dashboards & portals</div>
+          <div class="ppc-solution-desc">White-label client portals with real-time performance dashboards, automated report delivery, and goal tracking. Your clients see exactly what matters — simplified metrics, trend lines, and ROI — without overwhelming them with data.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="automme-section ppc-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your PPC automation system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="ppc-process-steps">
+        <div class="ppc-process-step">
+          <div class="ppc-process-step-num">Step 01</div>
+          <h3>PPC operations audit</h3>
+          <p>Free 30-minute session where we audit your current campaign management processes, reporting workflows, creative testing cadence, and client communication systems. We identify every efficiency gap and map out exactly where AI can help you manage more accounts with less effort.</p>
+        </div>
+        <div class="ppc-process-step">
+          <div class="ppc-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected time savings and performance improvements.</p>
+        </div>
+        <div class="ppc-process-step">
+          <div class="ppc-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing ad platforms, reporting tools, and client portals. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="ppc-process-step">
+          <div class="ppc-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Model fine-tuning, platform updates, and system maintenance. Most agencies see compounding improvements in account performance and team efficiency over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section ppc-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="ppc-faq-grid">
+        <div class="ppc-faq-item">
+          <h3>How is this different from platform automation (Smart Bidding, etc.)?</h3>
+          <p>Platform tools optimize within their own ecosystem. Our AI works across Google, Meta, LinkedIn, TikTok, and Amazon from a single system. We also add capabilities platforms don't offer — automated creative testing, cross-platform attribution, unified reporting, and AI-generated ad copy tailored to each platform's best practices.</p>
+        </div>
+        <div class="ppc-faq-item">
+          <h3>Will this replace my media buyers?</h3>
+          <p>No. AI handles repetitive optimization, reporting, and routine tasks — freeing your media buyers to focus on strategy, client relationships, and high-impact campaigns. Our clients find their teams are happier and more productive because they spend their time on work that matters.</p>
+        </div>
+        <div class="ppc-faq-item">
+          <h3>How long does implementation take?</h3>
+          <p>Most PPC automation projects go live within 3-5 weeks. Bid automation and reporting dashboards are fastest (1-2 weeks). Full-stack implementation including creative AI, competitor analysis, and client portals takes 4-5 weeks.</p>
+        </div>
+        <div class="ppc-faq-item">
+          <h3>Do you integrate with existing ad platforms and tools?</h3>
+          <p>Yes. We integrate with Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads, Amazon Ads, and most third-party tools including Supermetrics, Klipfolio, and Google Data Studio. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="ppc-faq-item">
+          <h3>What size agencies do you work with?</h3>
+          <p>We work with boutique PPC agencies, full-service digital agencies, and in-house teams. Our systems are modular — start with bid automation and reporting, then add creative AI, competitor analysis, and client portals as you scale.</p>
+        </div>
+        <div class="ppc-faq-item">
+          <h3>What results have you delivered for PPC clients?</h3>
+          <p>We've helped agencies reduce reporting time by 80%, increase managed accounts per team member by 3x, improve ROAS by 25%+ through automated bid optimization, and eliminate ad fatigue with AI-driven creative rotation schedules.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale your PPC agency with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute PPC operations audit call. We'll review your current campaign management workflows, find the efficiency gaps, and show you exactly where AI can help you manage more accounts with less effort.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">PPC agency engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free PPC growth call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

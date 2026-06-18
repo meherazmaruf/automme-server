@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Coaches & Consultants | Coaching Business Growth — Automme</title>
+  <meta name="description" content="AI-driven client acquisition, session automation, and community management for coaches and consultants. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for coaches, AI for consultants, coaching business automation, client acquisition AI, consultant marketing automation, coaching CRM, webinar funnel automation, coaching business growth">
+  <link rel="canonical" href="https://automme.ai/coaching-consulting">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .coach-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .coach-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .coach-hero-inner h1 { line-height: 105%; }
+    .coach-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .coach-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .coach-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .coach-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .coach-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .coach-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .coach-solutions-section { padding: 5em 0; background: #111113; }
+    .coach-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .coach-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .coach-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .coach-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .coach-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .coach-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .coach-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .coach-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .coach-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .coach-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .coach-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .coach-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .coach-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .coach-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .coach-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .coach-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .coach-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .coach-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .coach-problem-grid { grid-template-columns: 1fr; }
+      .coach-solutions-grid { grid-template-columns: 1fr; }
+      .coach-process-steps { grid-template-columns: 1fr; }
+      .coach-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section coach-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="coach-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for coaches & consultants.</span></span></h1>
+        <p class="coach-hero-sub text-generate">Client acquisition, session automation, and scaling systems built for coaches, consultants, and service professionals.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free coaching growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section coach-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why coaches & consultants struggle to scale.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most coaches leave revenue on the table because their client acquisition and delivery systems run on manual, time-consuming processes. Here are the most common breakdowns we fix.</p>
+      </div>
+      <div class="coach-problem-grid">
+        <div class="coach-problem-card">
+          <h3>Client acquisition is inconsistent</h3>
+          <p>Coaches rely on referrals, LinkedIn outreach, and word-of-mouth — but without a systematic client acquisition engine, revenue comes in feast-or-famine cycles. One month is full, the next is dry. AI can build a predictable, automated pipeline.</p>
+        </div>
+        <div class="coach-problem-card">
+          <h3>Scheduling friction kills conversions</h3>
+          <p>Prospects want to book discovery calls instantly, but most coaches require back-and-forth emails to find a time. This friction costs you 30-50% of potential clients. Automated scheduling removes the barrier and captures leads while they're hot.</p>
+        </div>
+        <div class="coach-problem-card">
+          <h3>Follow-up gaps lose clients</h3>
+          <p>Prospects who don't buy on the first call, past clients due for a check-in, and leads from your last webinar — without automated follow-up sequences, these opportunities go cold. Most coaches follow up once and give up. AI nurtures until they're ready.</p>
+        </div>
+        <div class="coach-problem-card">
+          <h3>Scaling without a team</h3>
+          <p>Every coach hits a ceiling — you can only trade so many hours for dollars. Without AI automation for onboarding, delivery, and follow-up, you're stuck in the $100K-$200K range. AI lets you scale your impact without scaling your hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section coach-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your coaching business needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered growth and delivery stack built for coaches. From the first discovery call to the ongoing engagement, every system works together to maximize your impact and income.</p>
+      </div>
+      <div class="coach-solutions-grid">
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+          <div class="coach-solution-name">Client acquisition</div>
+          <div class="coach-solution-desc">Multi-channel client acquisition system spanning LinkedIn, Instagram, YouTube, and Google. AI identifies your ideal client profile, targets lookalike audiences, and runs personalized outreach campaigns that fill your pipeline with qualified prospects.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="coach-solution-name">Session automation</div>
+          <div class="coach-solution-desc">Automated scheduling, reminders, and follow-up for coaching sessions. Integration with Zoom, Google Meet, and Calendly. Pre-session questionnaires, post-session summaries, and progress tracking — all handled automatically.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="coach-solution-name">Community management</div>
+          <div class="coach-solution-desc">AI-powered community moderation and engagement for your coaching group, mastermind, or membership. Automated welcome sequences, content prompts, Q&A facilitation, and member check-ins — keeping your community active without your constant presence.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="coach-solution-name">Payment plans</div>
+          <div class="coach-solution-desc">Automated payment plan setup, invoicing, and collection. AI structures optimal payment plans based on client budget and package type. Automatic reminders for upcoming payments and graceful handling of declined transactions.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="coach-solution-name">Email nurturing</div>
+          <div class="coach-solution-desc">AI-powered email sequences that nurture leads from first contact to paid client. Behavioral triggers based on engagement, content consumption, and readiness signals. Personalized content that builds authority, trust, and desire to work with you.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="coach-solution-name">Lead magnets</div>
+          <div class="coach-solution-desc">Automated lead magnet delivery and follow-up sequences. AI optimizes your opt-in offers, tests different lead magnets against audience segments, and delivers multi-touch nurture campaigns that convert freebie seekers into paid clients.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="coach-solution-name">Webinar funnels</div>
+          <div class="coach-solution-desc">End-to-end webinar funnel automation — registration, reminder sequences, live event management, and replay delivery. AI handles chat moderation, polls, and Q&A during live sessions. Automated post-webinar follow-up converts attendees into clients.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div>
+          <div class="coach-solution-name">Testimonial generation</div>
+          <div class="coach-solution-desc">Automated testimonial and case study collection. AI identifies milestone moments in the client journey, triggers feedback requests, and collects video or written testimonials. Builds a library of social proof that fuels your marketing automatically.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="coach-solution-name">Referral automation</div>
+          <div class="coach-solution-desc">Automated referral program management that turns your best clients into your best sales team. AI identifies your happiest clients, triggers referral requests at the right moment, and tracks the entire referral lifecycle from offer to conversion.</div>
+        </div>
+        <div class="coach-solution-card">
+          <div class="coach-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="coach-solution-name">Content repurposing AI</div>
+          <div class="coach-solution-desc">AI that repurposes your long-form content — podcasts, videos, blog posts — into dozens of social media posts, email snippets, and short-form videos. Maximizes the reach of every piece of content you create without burning out on content creation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section coach-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your coaching growth system.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p>
+      </div>
+      <div class="coach-process-steps">
+        <div class="coach-process-step">
+          <div class="coach-process-step-num">Step 01</div>
+          <h3>Coaching business audit</h3>
+          <p>Free 30-minute session where we audit your current client acquisition, session delivery, and follow-up systems. We identify every growth opportunity and map out exactly where AI can move the needle for your coaching business.</p>
+        </div>
+        <div class="coach-process-step">
+          <div class="coach-process-step-num">Step 02</div>
+          <h3>Custom proposal</h3>
+          <p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for client acquisition and session revenue.</p>
+        </div>
+        <div class="coach-process-step">
+          <div class="coach-process-step-num">Step 03</div>
+          <h3>Build & deploy</h3>
+          <p>Our team builds, tests, and deploys your AI systems. We integrate with your existing calendar, email provider, and community platform. Weekly progress updates, working product at every stage.</p>
+        </div>
+        <div class="coach-process-step">
+          <div class="coach-process-step-num">Step 04</div>
+          <h3>Ongoing management</h3>
+          <p>Optional retainer for continuous monitoring, optimization, and iteration. Campaign management, funnel tuning, and system maintenance. Most coaches see compounding improvements over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section coach-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="coach-faq-grid">
+        <div class="coach-faq-item">
+          <h3>How is this different from a regular marketing agency?</h3>
+          <p>We don't just run ads or send emails. We build AI systems that automate entire client acquisition and delivery workflows. A marketing agency gives you reports. We give you working systems that attract clients, book sessions, nurture leads, and deliver content — connected directly to your business tools.</p>
+        </div>
+        <div class="coach-faq-item">
+          <h3>Do I need to change my existing software?</h3>
+          <p>No. We build inside your existing stack — Calendly, Zoom, ConvertKit, Circle, or whatever you use. Our systems integrate with your current calendar, email, and community tools. Nothing gets replaced, everything gets upgraded.</p>
+        </div>
+        <div class="coach-faq-item">
+          <h3>How long does it take to see results?</h3>
+          <p>Most coaches see measurable improvements within 30 days — typically in discovery call booking rate, email engagement, and lead conversion. Full system optimization compounds over 3-6 months.</p>
+        </div>
+        <div class="coach-faq-item">
+          <h3>What does it cost?</h3>
+          <p>Every engagement is fixed price with a clear scope. Typical coaching projects range from $5K to $25K depending on complexity and number of programs. We also offer ongoing management retainers starting at $2K/mo. No hourly billing, ever.</p>
+        </div>
+        <div class="coach-faq-item">
+          <h3>Do you work with solo coaches?</h3>
+          <p>Yes. We work with solo coaches, small consulting firms, and large coaching organizations. Our systems are modular — you can start with client acquisition and expand to full-stack automation. Every system scales with your business.</p>
+        </div>
+        <div class="coach-faq-item">
+          <h3>What kind of results have you generated for coaching clients?</h3>
+          <p>We've helped coaches fill their pipeline with qualified leads, automate 80%+ of their client onboarding, double their conversion rate from discovery call to paid client, and build automated systems that generate consistent revenue without manual effort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to scale your coaching business with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute coaching business growth mapping call. We'll audit your current systems, find the bottlenecks, and show you exactly where AI moves the needle for your business.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Coaching engagements typically start at $5K. Most projects range $5K-$25K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free coaching growth call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

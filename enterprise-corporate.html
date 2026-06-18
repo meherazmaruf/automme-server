@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Enterprise & Corporate | Digital Transformation — Automme</title>
+  <meta name="description" content="Enterprise AI automation for legacy integration, cross-department workflows, compliance, and scale. Custom AI strategy and implementation for corporate teams. Book a free growth mapping call.">
+  <meta name="keywords" content="enterprise AI automation, corporate digital transformation, legacy system integration AI, cross-department automation, enterprise compliance AI, custom AI models, enterprise workflow automation, AI strategy consulting, data infrastructure AI">
+  <link rel="canonical" href="https://automme.ai/enterprise-corporate">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .enterprise-hero {
+      justify-content: center;
+      min-height: calc(70vh);
+      padding-top: 10em;
+      padding-bottom: 4em;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+    .enterprise-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+    .enterprise-hero-inner h1 { line-height: 105%; }
+    .enterprise-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 30em;
+    }
+    .enterprise-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .enterprise-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .enterprise-problem-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+    }
+    .enterprise-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .enterprise-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .enterprise-solutions-section { padding: 5em 0; background: #111113; }
+    .enterprise-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25em;
+      margin-top: 3em;
+    }
+    .enterprise-solution-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .enterprise-solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+    .enterprise-solution-icon {
+      width: 2.75em;
+      height: 2.75em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .enterprise-solution-icon svg {
+      width: 1.35em;
+      height: 1.35em;
+      stroke: #f0f0f2;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .enterprise-solution-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 120%;
+      color: #f0f0f2;
+    }
+    .enterprise-solution-desc {
+      font-size: 0.9em;
+      line-height: 155%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .enterprise-process-section {
+      padding: 5em 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%);
+    }
+    .enterprise-process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+    }
+    .enterprise-process-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .enterprise-process-step-num {
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .enterprise-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .enterprise-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .enterprise-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .enterprise-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 3em;
+    }
+    .enterprise-faq-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1em;
+      padding: 1.5em;
+    }
+    .enterprise-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .enterprise-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) {
+      .enterprise-problem-grid { grid-template-columns: 1fr; }
+      .enterprise-solutions-grid { grid-template-columns: 1fr; }
+      .enterprise-process-steps { grid-template-columns: 1fr; }
+      .enterprise-faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="services.html" style="opacity:1;">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html">Blog</a>
+        </nav>
+        <div class="header-btn">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="automme-section enterprise-hero">
+    <div class="aurora-container">
+      <div class="aurora-bg"></div>
+    </div>
+    <div class="common-wrap">
+      <div class="enterprise-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for enterprise & corporate.</span></span></h1>
+        <p class="enterprise-hero-sub text-generate">Enterprise-grade AI transformation for legacy integration, cross-department workflows, compliance, and scale. Custom AI strategy built for corporate environments.</p>
+        <div class="hero-btn" style="margin-top:0.5em">
+          <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="automme-section enterprise-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why enterprises struggle to adopt AI.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Enterprise organizations know AI is critical but face unique barriers to implementation. Here are the most common roadblocks we help overcome.</p>
+      </div>
+      <div class="enterprise-problem-grid">
+        <div class="enterprise-problem-card">
+          <h3>Legacy integration complexity</h3>
+          <p>Enterprise tech stacks are layered with legacy systems, custom databases, and decades of technical debt. Most AI solutions can't connect without breaking existing workflows. We build integration layers that connect modern AI to your existing infrastructure without disruption.</p>
+        </div>
+        <div class="enterprise-problem-card">
+          <h3>Cross-department silos</h3>
+          <p>Sales, marketing, operations, finance, and HR each operate with separate systems, data sources, and processes. These silos prevent AI from delivering enterprise-wide ROI. Our cross-department automation bridges systems and creates unified workflows that span the organization.</p>
+        </div>
+        <div class="enterprise-problem-card">
+          <h3>Compliance complexity at scale</h3>
+          <p>Enterprise organizations face regulatory requirements across multiple jurisdictions, industries, and business units. AI implementations must be compliant by design — from data privacy to industry-specific regulations like HIPAA, GDPR, SOX, and PCI-DSS.</p>
+        </div>
+        <div class="enterprise-problem-card">
+          <h3>Scale limitations of point solutions</h3>
+          <p>Department-level AI tools create fragmentation rather than transformation. A chatbot here, a workflow automation there — without an enterprise-wide strategy, you get isolated wins instead of compounding ROI. We build for enterprise scale from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="automme-section enterprise-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your enterprise needs.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete enterprise AI transformation stack. From strategy to implementation, every system is built for scale, security, and cross-department impact.</p>
+      </div>
+      <div class="enterprise-solutions-grid">
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Enterprise integrations</div>
+          <div class="enterprise-solution-desc">Custom integration layers connecting AI systems with your existing enterprise stack — SAP, Oracle, Salesforce, Workday, ServiceNow, and legacy databases. API-first architecture that extends rather than replaces your current infrastructure.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="enterprise-solution-name">AI strategy & roadmap</div>
+          <div class="enterprise-solution-desc">Enterprise-wide AI strategy development including opportunity assessment, ROI modeling, implementation roadmap, and governance framework. We help leadership teams align AI investments with business objectives and build organizational buy-in.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Data infrastructure & pipelines</div>
+          <div class="enterprise-solution-desc">Enterprise data architecture design for AI readiness. Automated data pipelines, data quality monitoring, and unified data lakes that break down silos and feed accurate, real-time data to AI models across the organization.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Custom AI model development</div>
+          <div class="enterprise-solution-desc">Tailored machine learning models built for your specific enterprise use cases — from predictive analytics and demand forecasting to natural language processing and computer vision. Deployed on-premise or in your private cloud for data security.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Workflow automation</div>
+          <div class="enterprise-solution-desc">Cross-department workflow automation that connects people, systems, and data across your enterprise. Automated approvals, handoffs, notifications, and reporting — reducing cycle times by 60%+ and eliminating manual bottlenecks.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Compliance AI</div>
+          <div class="enterprise-solution-desc">AI-powered compliance monitoring and reporting across regulatory requirements. Automated policy enforcement, audit trail generation, risk flagging, and regulatory filing support. Designed for SOX, GDPR, HIPAA, PCI-DSS, and industry-specific frameworks.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Enterprise reporting dashboards</div>
+          <div class="enterprise-solution-desc">Unified analytics and reporting dashboards that consolidate data from every department. Real-time KPIs, executive summaries, automated board reporting, and drill-down analytics. Role-based access for every stakeholder from C-suite to operations.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Vendor management automation</div>
+          <div class="enterprise-solution-desc">Automated vendor onboarding, performance monitoring, contract management, and compliance verification. AI-driven vendor risk scoring and relationship management. Reduces vendor management overhead by 50%+.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Employee onboarding automation</div>
+          <div class="enterprise-solution-desc">Automated employee onboarding workflows across IT, HR, facilities, and compliance. Provision accounts, assign training, schedule orientation, and track completion — all triggered from a single hire event. Cuts onboarding time by 70%.</div>
+        </div>
+        <div class="enterprise-solution-card">
+          <div class="enterprise-solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="enterprise-solution-name">Process optimization AI</div>
+          <div class="enterprise-solution-desc">AI-driven business process discovery, analysis, and optimization. Identifies inefficiencies across departments, recommends improvements, and automates repetitive workflows. Continuous monitoring ensures processes stay optimized as conditions change.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="automme-section enterprise-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we deliver enterprise AI transformation.</span></span></h2>
+        <p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From strategy to deployment in phases. Fixed-price engagements, clear milestones, enterprise-grade delivery.</p>
+      </div>
+      <div class="enterprise-process-steps">
+        <div class="enterprise-process-step">
+          <div class="enterprise-process-step-num">Step 01</div>
+          <h3>Enterprise AI assessment</h3>
+          <p>Free 60-minute executive session where we audit your current technology stack, data infrastructure, compliance requirements, and automation opportunities. We deliver an enterprise AI maturity assessment with prioritized recommendations.</p>
+        </div>
+        <div class="enterprise-process-step">
+          <div class="enterprise-process-step-num">Step 02</div>
+          <h3>Strategic roadmap</h3>
+          <p>You receive a comprehensive AI transformation roadmap with phased implementation plan, ROI projections, and risk assessment. Fixed-price for each phase, clear milestones, and defined governance framework. No scope creep, no surprises.</p>
+        </div>
+        <div class="enterprise-process-step">
+          <div class="enterprise-process-step-num">Step 03</div>
+          <h3>Phased implementation</h3>
+          <p>Our team deploys AI systems in phases, starting with highest-impact, lowest-risk use cases. Each phase includes integration, testing, employee training, and change management support. Working deliverables at every stage.</p>
+        </div>
+        <div class="enterprise-process-step">
+          <div class="enterprise-process-step-num">Step 04</div>
+          <h3>Managed optimization</h3>
+          <p>Ongoing enterprise support including model monitoring, performance reporting, compliance updates, and continuous improvement. Dedicated account team with regular executive reviews and quarterly business reviews.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="automme-section enterprise-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered">
+        <h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2>
+      </div>
+      <div class="enterprise-faq-grid">
+        <div class="enterprise-faq-item">
+          <h3>How do you handle data security and compliance?</h3>
+          <p>Security is built into every system from day one. We support on-premise, private cloud, and hybrid deployments. All data is encrypted at rest and in transit. Our systems comply with SOC 2, GDPR, HIPAA, SOX, and PCI-DSS requirements. Enterprise-grade access controls and audit logging included.</p>
+        </div>
+        <div class="enterprise-faq-item">
+          <h3>Can you work with our existing legacy systems?</h3>
+          <p>Yes. Our integration layer is built specifically for connecting modern AI with legacy enterprise systems — mainframes, custom databases, on-premise ERP, and proprietary software. We extend your current infrastructure rather than replacing it.</p>
+        </div>
+        <div class="enterprise-faq-item">
+          <h3>How long does enterprise deployment take?</h3>
+          <p>Phased deployments typically begin showing results within 60 days. Phase 1 (high-impact, low-risk) can deploy in 30-45 days. Full enterprise transformation is delivered in phases over 6-18 months depending on scope and complexity.</p>
+        </div>
+        <div class="enterprise-faq-item">
+          <h3>What does enterprise AI transformation cost?</h3>
+          <p>Every engagement starts with a free assessment. Enterprise projects are priced per phase with clear scope and fixed pricing. Typical phase 1 investments range from $25K-$100K. Full transformation programs are scoped based on your specific needs and priorities.</p>
+        </div>
+        <div class="enterprise-faq-item">
+          <h3>How do you ensure employee adoption?</h3>
+          <p>Change management is built into every engagement. We provide employee training, documentation, and ongoing support. Our systems are designed to augment teams, not replace them — making adoption natural and reducing resistance.</p>
+        </div>
+        <div class="enterprise-faq-item">
+          <h3>What results have you delivered for enterprise clients?</h3>
+          <p>We've helped enterprises reduce process cycle times by 60%, automate 70% of compliance reporting, cut onboarding time by 75%, and deliver measurable ROI from AI implementations within the first quarter of deployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to transform your enterprise with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 60-minute enterprise AI assessment. We'll review your current technology stack, data infrastructure, and automation opportunities — then deliver an enterprise AI maturity assessment with prioritized recommendations.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Enterprise engagements begin with a free assessment. Phase 1 projects typically range $25K-$100K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Book a free growth mapping call</div>
+            </div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                </div>
+                <div class="btn-icon-box">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Meheraz Maruf</p>
+              <a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a>
+              <a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a>
+              <a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a>
+              <a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Automme</p>
+              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-link">Instagram</a>
+              <a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class="footer-link" href="about.html">About</a>
+              <a href="#case-studies" class="footer-link">Case Studies</a>
+              <a class="footer-link" href="services.html">Services</a>
+              <a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+              <img src="images/logo.png" alt="AUTOMME" style="height:32px;">
+              <span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class="footer-nav-link" href="privacy.html">Privacy Policy</a>
+              <a class="footer-nav-link" href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => {
+      typewriterObserver.observe(el);
+    });
+    function initTextGenerate() {
+      const elements = document.querySelectorAll('.text-generate');
+      elements.forEach(el => {
+        const text = el.textContent.trim();
+        const words = text.split(/\s+/);
+        el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const words = el.querySelectorAll('.word');
+              words.forEach((word, i) => {
+                setTimeout(() => {
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0)';
+                }, i * 40);
+              });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

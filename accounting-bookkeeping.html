@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Accounting & Bookkeeping Firms | Practice Automation — Automme</title>
+  <meta name="description" content="AI-driven automation for accounting and bookkeeping firms: client onboarding AI, automated data entry, tax prep workflows, financial reporting automation, and practice management dashboards. Book a free growth mapping call.">
+  <meta name="keywords" content="AI for accounting, bookkeeping automation, CPA firm automation, client onboarding AI, tax prep automation, financial reporting, practice management AI, accounting firm growth">
+  <link rel="canonical" href="https://automme.ai/accounting-bookkeeping">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ab-hero { justify-content: center; min-height: calc(70vh); padding-top: 10em; padding-bottom: 4em; position: relative; overflow: hidden; background-color: var(--bg-primary); }
+    .ab-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5em; max-width: 52em; margin: 0 auto; }
+    .ab-hero-inner h1 { line-height: 105%; }
+    .ab-hero-sub { font-size: 1.05em; line-height: 155%; color: rgba(255, 255, 255, 0.5); max-width: 30em; }
+    .ab-problem-section { padding: 5em 0; background: #0a0a0c; }
+    .ab-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5em; margin-top: 3em; }
+    .ab-problem-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 0.75em; }
+    .ab-problem-card h3 { font-size: 1.15em; font-weight: 500; color: #f0f0f2; }
+    .ab-problem-card p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .ab-solutions-section { padding: 5em 0; background: #111113; }
+    .ab-solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25em; margin-top: 3em; }
+    .ab-solution-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 2em; display: flex; flex-direction: column; gap: 1em; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .ab-solution-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+    .ab-solution-icon { width: 2.75em; height: 2.75em; background: rgba(255, 255, 255, 0.1); border-radius: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ab-solution-icon svg { width: 1.35em; height: 1.35em; stroke: #f0f0f2; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .ab-solution-name { font-size: 1.2em; font-weight: 500; letter-spacing: -0.01em; line-height: 120%; color: #f0f0f2; }
+    .ab-solution-desc { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .ab-process-section { padding: 5em 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .ab-process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5em; margin-top: 3em; }
+    .ab-process-step { background: rgba(255, 255, 255, 0.06); border: none; border-radius: 1em; padding: 1.5em; }
+    .ab-process-step-num { font-size: 0.7em; font-weight: 500; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.35); margin-bottom: 1em; text-transform: uppercase; }
+    .ab-process-step h3 { font-size: 1.15em; font-weight: 500; margin-bottom: 0.75em; color: #f0f0f2; }
+    .ab-process-step p { font-size: 0.9em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    .ab-faq-section { padding: 5em 0; background: #0a0a0c; }
+    .ab-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 3em; }
+    .ab-faq-item { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 1em; padding: 1.5em; }
+    .ab-faq-item h3 { font-size: 1em; font-weight: 500; color: #f0f0f2; margin-bottom: 0.5em; }
+    .ab-faq-item p { font-size: 0.85em; line-height: 155%; color: rgba(255, 255, 255, 0.5); }
+    @media (max-width: 991px) { .ab-problem-grid { grid-template-columns: 1fr; } .ab-solutions-grid { grid-template-columns: 1fr; } .ab-process-steps { grid-template-columns: 1fr; } .ab-faq-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="automme-body dark-mode">
+
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;"><img src="images/logo.png" alt="AUTOMME" style="height:40px;"><span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span></a>
+        <nav class="nav-wrap"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="services.html" style="opacity:1;">Services</a><a class="nav-link" href="about.html">About</a><a class="nav-link" href="blog.html">Blog</a></nav>
+        <div class="header-btn"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn"><div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div><div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a></div>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <section class="automme-section ab-hero">
+    <div class="aurora-container"><div class="aurora-bg"></div></div>
+    <div class="common-wrap">
+      <div class="ab-hero-inner">
+        <h1 class="h1"><span class="typewriter"><span class="typewriter-inner">AI automation for accounting & bookkeeping firms.</span></span></h1>
+        <p class="ab-hero-sub text-generate">Client onboarding AI, automated data entry, tax preparation workflows, financial reporting automation, and practice management dashboards — built for CPAs, accountants, and bookkeepers.</p>
+        <div class="hero-btn" style="margin-top:0.5em"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn"><div class="btn-text-wrap"><div class="btn-text">Book a free practice growth call</div></div><div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section ab-problem-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered"><h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Why accounting firms are stuck in low-value work.</span></span></h2><p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">Most accounting firms lose revenue to manual data entry, inefficient client onboarding, and lack of scalable systems. Here are the most common breakdowns we fix.</p></div>
+      <div class="ab-problem-grid">
+        <div class="ab-problem-card"><h3>Manual data entry overload</h3><p>Staff spends 40-60% of billable hours on manual data entry — bank reconciliations, invoice coding, and transaction categorization. Without AI-powered data extraction and classification, your team is buried in busywork instead of high-value advisory services.</p></div>
+        <div class="ab-problem-card"><h3>Inefficient client onboarding</h3><p>New clients require endless back-and-forth to gather documents, set up systems, and understand their financial landscape. Without automated onboarding workflows, client acquisition is slow and your team is overwhelmed during every onboarding cycle.</p></div>
+        <div class="ab-problem-card"><h3>Tax season bottlenecks</h3><p>Tax preparation is a manual, error-prone process that creates massive seasonal stress. Without AI-powered tax workflow automation, your firm hits capacity limits every tax season and turns away revenue.</p></div>
+        <div class="ab-problem-card"><h3>Weak client advisory services</h3><p>Clients want strategic financial advice, not just compliance work. But without automated reporting and analysis systems, your firm can't scale advisory services profitably. You're stuck trading time for money instead of building recurring high-value revenue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section ab-solutions-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered"><h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Everything your accounting firm needs.</span></span></h2><p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">A complete AI-powered operations and growth stack for accounting firms. From automated bookkeeping to advisory dashboards, every system is designed to maximize efficiency and revenue per client.</p></div>
+      <div class="ab-solutions-grid">
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="ab-solution-name">Automated data entry & categorization</div><div class="ab-solution-desc">AI that connects to bank feeds, extracts transaction data, categorizes expenses, and reconciles accounts automatically. Handles 95%+ of routine bookkeeping entries. Your team reviews exceptions instead of doing data entry.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="ab-solution-name">Client onboarding automation</div><div class="ab-solution-desc">Automated client onboarding portal — document collection, KYC verification, system setup, and welcome sequences. AI guides clients through data sharing, connects their accounts, and sets expectations. New clients onboard in days instead of weeks.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="ab-solution-name">Tax preparation workflow AI</div><div class="ab-solution-desc">AI-powered tax workflow that organizes documents, extracts data, flags potential deductions, and prepopulates returns. Automated review checklists, deadline tracking, and e-file management. Reduce tax prep time by 40%.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="ab-solution-name">Financial reporting automation</div><div class="ab-solution-desc">AI that generates P&L statements, balance sheets, cash flow reports, and custom financial dashboards — automatically, on any schedule. Client-ready reports with variance analysis and narrative explanations.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg></div><div class="ab-solution-name">Advisory dashboard</div><div class="ab-solution-desc">AI-powered client advisory dashboards that surface actionable insights — cash flow trends, profitability analysis, benchmarking, and growth opportunities. Deliver advisory value without manual analysis. Increase revenue per client by 50%.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="12" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg></div><div class="ab-solution-name">Client communication hub</div><div class="ab-solution-desc">Centralized AI-powered client communication — secure document sharing, automated status updates, deadline reminders, and tax season check-ins. Client portal with real-time access to their financial data.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ab-solution-name">Payroll processing automation</div><div class="ab-solution-desc">AI-powered payroll processing — time tracking integration, automated calculations, tax withholding, and compliance reporting. Reduce payroll processing time by 70% with AI-validated accuracy.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="ab-solution-name">Compliance & audit AI</div><div class="ab-solution-desc">AI that monitors financial transactions for compliance issues, flags anomalies, and maintains audit-ready records. Automated GAAP/IFRS compliance checks, risk scoring, and auditor-ready documentation.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="ab-solution-name">Practice management dashboard</div><div class="ab-solution-desc">Real-time practice dashboard showing client profitability, staff utilization, WIP aging, collection rates, and pipeline. AI generates weekly reports with recommendations for improving efficiency and profitability.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="ab-solution-name">AI-powered client acquisition</div><div class="ab-solution-desc">Automated outbound campaigns targeting ideal client profiles — businesses needing bookkeeping, tax preparation, or advisory services. LinkedIn and email outreach sequences with AI personalization. Fill your pipeline with qualified leads.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="ab-solution-name">Document management AI</div><div class="ab-solution-desc">AI-powered document management — automatic OCR, intelligent filing, version control, and secure sharing. Receipts, invoices, contracts, and tax documents are organized and searchable instantly.</div></div>
+        <div class="ab-solution-card"><div class="ab-solution-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="ab-solution-name">Client portal & self-serve</div><div class="ab-solution-desc">White-label client portal where clients upload documents, view reports, track tax filing status, and communicate securely. AI assistant answers common client questions. Reduce admin requests by 60%.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section ab-process-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered"><h2 class="h2"><span class="typewriter"><span class="typewriter-inner">How we build your firm's automation system.</span></span></h2><p class="lead-text text-generate" style="max-width:36em;margin-top:0.5em">From audit to live deployment in weeks — not months. Fixed price, clear timeline, no surprises.</p></div>
+      <div class="ab-process-steps">
+        <div class="ab-process-step"><div class="ab-process-step-num">Step 01</div><h3>Firm audit</h3><p>Free 30-minute session where we audit your current workflow — client onboarding, data entry, tax preparation, reporting, and client communication. We identify every efficiency leak and map out exactly where AI can move the needle.</p></div>
+        <div class="ab-process-step"><div class="ab-process-step-num">Step 02</div><h3>Custom proposal</h3><p>You receive a clear scope of work, fixed price, and timeline. No hourly billing, no scope creep. Every deliverable is defined upfront — including expected KPIs for hours saved, client satisfaction, and revenue per client.</p></div>
+        <div class="ab-process-step"><div class="ab-process-step-num">Step 03</div><h3>Build & deploy</h3><p>Our team builds, tests, and deploys your AI systems. We integrate with QuickBooks, Xero, Karbon, TaxDome, and your existing stack. Weekly progress updates, working systems at every stage.</p></div>
+        <div class="ab-process-step"><div class="ab-process-step-num">Step 04</div><h3>Ongoing management</h3><p>Optional retainer for continuous monitoring, optimization, and iteration. Workflow tuning, system optimization, and team training. Most firms see compounding improvements in efficiency and revenue over time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section ab-faq-section">
+    <div class="common-wrap">
+      <div class="titile-wrap centered"><h2 class="h2"><span class="typewriter"><span class="typewriter-inner">Frequently asked questions.</span></span></h2></div>
+      <div class="ab-faq-grid">
+        <div class="ab-faq-item"><h3>How is this different from QuickBooks or Xero AI features?</h3><p>QuickBooks and Xero offer basic automation within their platforms. We build AI that connects across your entire stack — from client onboarding through tax prep, advisory reporting, and client portal. Our systems orchestrate data across multiple tools and add automation layers your current software doesn't offer.</p></div>
+        <div class="ab-faq-item"><h3>Do I need to change my current software?</h3><p>No. We integrate with QuickBooks, Xero, Karbon, TaxDome, Practice Ignition, CCH, UltraTax, and most major accounting platforms. Our AI connects to your existing stack and adds automation on top.</p></div>
+        <div class="ab-faq-item"><h3>How long until we see results?</h3><p>Most firms see measurable improvements within 30-60 days — typically in data entry hours saved, client onboarding speed, and reporting turnaround. Full system optimization compounds over 3-6 months with measurable efficiency gains.</p></div>
+        <div class="ab-faq-item"><h3>What does it cost?</h3><p>Every engagement is fixed price with a clear scope. Typical accounting firm projects range from $15K to $40K depending on firm size and complexity. We also offer ongoing management retainers starting at $3K/mo. No hourly billing, ever.</p></div>
+        <div class="ab-faq-item"><h3>Do you work with solo practitioners?</h3><p>Yes. We work with solo bookkeepers, small CPA firms, and large regional accounting firms. Our systems are modular — you can start with automated data entry or client onboarding and expand from there.</p></div>
+        <div class="ab-faq-item"><h3>What results have you generated for accounting clients?</h3><p>We've helped accounting firms reduce manual data entry by 80%, cut tax prep time by 40%, increase advisory revenue per client by 50%, and improve client satisfaction scores by 35%. Typical clients see 4-6x ROI within the first year.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section cta-section" id="cta">
+    <div class="cta-glow"></div>
+    <div class="common-wrap">
+      <div class="cta-inner">
+        <h2 class="h2 cta-heading"><span class="typewriter"><span class="typewriter-inner">Ready to transform your accounting firm with AI?</span></span></h2>
+        <p class="lead-text cta-sub text-generate">Book a free 30-minute firm growth mapping call. We'll audit your workflow, data entry, tax prep, client communication, and advisory services — find the leaks — and show you exactly where AI drives the biggest ROI.</p>
+        <p style="color:rgba(255,255,255,0.35);font-size:0.85em;margin-top:0.25em">Accounting firm engagements typically start at $15K. Most projects range $15K-$40K.</p>
+        <div class="cta-btn-wrap"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn"><div class="btn-text-wrap"><div class="btn-text">Book a free firm growth call</div></div><div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automme-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap"><p class="footer-h6">Work with us</p><p class="lead-text">Start with a free, thirty minute growth mapping call.</p><div class="footer-btn"><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="btn"><div class="btn-text-wrap"><div class="btn-text">Let's talk</div></div><div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a></div></div>
+          <div class="footer-columns"><div class="footer-col"><p class="footer-col-heading">Meheraz Maruf</p><a href="https://www.youtube.com/@meherazmarufai" target="_blank" class="footer-link">YouTube</a><a href="https://www.instagram.com/meherazmarufai/" target="_blank" class="footer-link">Instagram</a><a href="https://www.linkedin.com/in/meherazmaruf/" target="_blank" class="footer-link">LinkedIn</a><a href="https://x.com/meheraz_maruf" target="_blank" class="footer-link">X / Twitter</a></div><div class="footer-col"><p class="footer-col-heading">Automme</p><a href="#" class="footer-link">Facebook</a><a href="#" class="footer-link">Instagram</a><a href="https://linkedin.com/company/automme/" target="_blank" class="footer-link">LinkedIn</a></div><div class="footer-col"><p class="footer-col-heading">Company</p><a class="footer-link" href="about.html">About</a><a href="#case-studies" class="footer-link">Case Studies</a><a class="footer-link" href="services.html">Services</a><a data-cal-link="meherazmaruf/ai-discovery-call" data-cal-namespace="ai-discovery-call" class="footer-link">Book a Call</a></div></div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom"><div class="footer-bottom-left"><a href="index.html" class="footer-logo" style="display:flex;align-items:center;gap:10px;"><img src="images/logo.png" alt="AUTOMME" style="height:32px;"><span style="font-size:1.2rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span></a></div><div class="footer-bottom-center"><div class="footer-bottom-link-wrap"><a class="footer-nav-link" href="privacy.html">Privacy Policy</a><a class="footer-nav-link" href="terms.html">Terms of Service</a></div></div><div class="footer-bottom-right"><div class="copyright-text">&copy; 2026 Automme. All rights reserved.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn'); menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+    const typewriterObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } }); }, { threshold: 0.5 });
+    document.querySelectorAll('.typewriter').forEach(el => { typewriterObserver.observe(el); });
+    function initTextGenerate() { const elements = document.querySelectorAll('.text-generate'); elements.forEach(el => { const text = el.textContent.trim(); const words = text.split(/\s+/); el.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' '); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const words = el.querySelectorAll('.word'); words.forEach((word, i) => { setTimeout(() => { word.style.opacity = '1'; word.style.filter = 'blur(0)'; }, i * 40); }); observer.unobserve(el); } }); }, { threshold: 0.2 }); observer.observe(el); }); }
+    initTextGenerate();
+  </script>
+
+</body>
+</html>

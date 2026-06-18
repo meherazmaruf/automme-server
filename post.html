@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post — Automme</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .post-hero-section {
+      padding: 120px 24px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .post-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.9em;
+    }
+
+    .post-hero-meta a {
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s;
+    }
+
+    .post-hero-meta a:hover {
+      color: #fff;
+    }
+
+    .post-hero-meta span {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .post-hero-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 30px;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .post-hero-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .post-hero-author img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .post-hero-author a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 0.95em;
+      transition: opacity 0.2s;
+    }
+
+    .post-hero-author a:hover {
+      opacity: 0.8;
+    }
+
+    .post-featured-image {
+      max-width: 850px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+
+    .post-featured-image img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .post-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .post-content h1,
+    .post-content h2,
+    .post-content h3 {
+      color: #fff;
+      font-weight: 600;
+      margin-top: 2em;
+      margin-bottom: 0.75em;
+      letter-spacing: -0.01em;
+    }
+
+    .post-content h1 { font-size: 1.75rem; }
+    .post-content h2 { font-size: 1.4rem; }
+    .post-content h3 { font-size: 1.15rem; }
+
+    .post-content p {
+      margin-bottom: 1.5em;
+    }
+
+    .post-content ul,
+    .post-content ol {
+      margin-bottom: 1.5em;
+      padding-left: 1.5em;
+    }
+
+    .post-content li {
+      margin-bottom: 0.5em;
+      list-style-position: inside;
+    }
+
+    .post-content ul li { list-style-type: disc; }
+    .post-content ol li { list-style-type: decimal; }
+
+    .post-content blockquote {
+      border-left: 3px solid rgba(255, 255, 255, 0.3);
+      padding-left: 1.25em;
+      margin: 2em 0;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .post-content strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .post-content em {
+      font-style: italic;
+    }
+
+    .post-content hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 3em 0;
+    }
+
+    .post-content img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 2em 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .post-content a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-content a:hover {
+      opacity: 0.8;
+    }
+
+    /* Share section */
+    .share-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .share-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.85em;
+      transition: all 0.2s;
+      cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+    }
+
+    .share-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .share-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Read next */
+    .read-next-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .read-next-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .read-next-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .read-next-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .read-next-card-image {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .read-next-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .read-next-card:hover .read-next-card-image img {
+      transform: scale(1.05);
+    }
+
+    .read-next-card-meta {
+      font-size: 0.8em;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .read-next-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    /* CTA Section */
+    .blog-cta {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 50px 40px;
+      margin: 60px 24px;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .blog-cta h3 { 
+      font-size: 1.5rem; 
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .blog-cta p { 
+      color: rgba(255, 255, 255, 0.6); 
+      margin-bottom: 28px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 30px;
+      padding: 10px 0;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .back-btn:hover {
+      opacity: 1;
+      transform: translateX(-5px);
+    }
+
+    @media (max-width: 900px) {
+      .read-next-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .read-next-grid {
+        grid-template-columns: 1fr;
+      }
+      .post-hero-section {
+        padding: 100px 20px 40px;
+      }
+      .post-content {
+        padding: 0 20px 60px;
+      }
+      .blog-cta {
+        margin: 40px 20px;
+        padding: 35px 25px;
+      }
+    }
+  </style>
+
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "ai-discovery-call", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns["ai-discovery-call"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "logo": "https://automme.ai/images/logo.png",
+        "description": "AI growth systems for B2B companies. We design, deploy, and maintain AI infrastructure that runs mission-critical operations.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "maruf@automme.com",
+          "contactType": "sales"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@meherazmarufai",
+          "https://www.linkedin.com/in/meherazmaruf/",
+          "https://x.com/meheraz_maruf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Automme",
+        "url": "https://automme.ai",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://automme.ai/blog.html?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="automme-body dark-mode">
+
+  <!-- HEADER -->
+  <div class="automme-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo" style="display:flex;align-items:center;gap:10px;">
+          <img src="images/logo.png" alt="AUTOMME" style="height:40px;">
+          <span style="font-size:1.6rem;font-weight:700;letter-spacing:-0.03em;color:#f0f0f2;">AUTOMME</span>
+        </a>
+        <nav class="nav-wrap">
+          <a class="nav-link" href="services.html">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="blog.html" style="opacity:1;">Blog</a>
+        </nav>
+        <button class="menu-btn"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="post-data">
+    <div class="no-blogs" style="text-align:center;padding:100px;color:rgba(255,255,255,0.5);">Loading post...</div>
+  </div>
+
+  <!-- Supabase & Markdown Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://rqjkmitbhfddjzcermud.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxamttaXRiaGZkZGp6Y2VybXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0OTk5MjksImV4cCI6MjA5NzA3NTkyOX0.7Mk1pIL8c3Lloz-s3cgluToiPuzWiG26gBDCowEPtDg';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadPost() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get('id');
+      const container = document.getElementById('post-data');
+
+      if (!postId) {
+        window.location.href = 'blog.html';
+        return;
+      }
+
+      // Load post from Supabase
+      const { data: post, error } = await supabaseClient
+        .from('posts')
+        .select('*')
+        .eq('id', postId)
+        .single();
+
+      if (error || !post) {
+        container.innerHTML = '<div class="no-blogs">Post not found.</div>';
+        return;
+      }
+
+      renderPost(post);
+    }
+
+    function autoLink(text) {
+      const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+      return text.replace(urlPattern, function(match) {
+        if (match.includes('href=') || match.includes('src=')) return match;
+        return '<a href="' + match + '" target="_blank" rel="noopener">' + match + '</a>';
+      });
+    }
+
+    function renderPost(post) {
+      const container = document.getElementById('post-data');
+      
+      container.innerHTML = `
+        <div class="post-hero-section">
+          <a href="blog.html" class="back-btn">← Back to Blog</a>
+          <div class="post-hero-meta">
+            <a href="blog.html">${post.category || 'Blog'}</a>
+            <span>·</span>
+            <span>${new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            <span>·</span>
+            <span>${post.read_time || '5 min read'}</span>
+          </div>
+          
+          <h1 class="post-hero-title">${post.title}</h1>
+          
+          <div class="post-hero-author">
+            <a href="#">
+              <img src="${post.author_image || 'images/meheraz.png'}" alt="${post.author || 'Maruf'}">
+              <span>${post.author || 'Maruf'}</span>
+            </a>
+          </div>
+        </div>
+        
+        ${post.image_url ? `
+        <div class="post-featured-image">
+          <img src="${post.image_url}" alt="${post.title}">
+        </div>
+        ` : ''}
+        
+        <div class="post-content">
+          ${autoLink(post.content || '')}
+        </div>
+        
+        <!-- Share Section -->
+        <div class="share-section">
+          <div class="share-title">Share this article</div>
+          <div class="share-buttons">
+            <button class="share-btn" onclick="share('twitter')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+              Twitter
+            </button>
+            <button class="share-btn" onclick="share('facebook')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg>
+              Facebook
+            </button>
+            <button class="share-btn" onclick="share('linkedin')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </button>
+            <button class="share-btn" onclick="copyLink()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="blog-cta">
+          <h3>Ready to implement this with AI?</h3>
+          <p>Book a free 30-minute growth mapping call with Maruf to see how these strategies can work for your business.</p>
+          <a href="index.html#cta" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Book a free call</div></div>
+            <div class="btn-icon-box"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </a>
+        </div>
+        
+        <!-- Read Next Section -->
+        <div class="read-next-section">
+          <h3 class="read-next-title">Read next</h3>
+          <div class="read-next-grid" id="related-posts"></div>
+        </div>
+      `;
+      
+      document.title = `${post.title} — Automme`;
+      loadRelatedPosts(post.category, post.id);
+    }
+
+    async function loadRelatedPosts(category, currentId) {
+      const container = document.getElementById('related-posts');
+      
+      const { data: posts } = await supabaseClient
+        .from('posts')
+        .select('*')
+        .eq('status', 'published')
+        .eq('category', category)
+        .neq('id', currentId)
+        .limit(3);
+
+      if (posts && posts.length > 0) {
+        container.innerHTML = posts.map(p => `
+          <a href="post.html?id=${p.id}" class="read-next-card">
+            <div class="read-next-card-image">
+              <img src="${p.image_url || 'images/meheraz.png'}" alt="${p.title}" loading="lazy">
+            </div>
+            <div class="read-next-card-meta">${p.category || 'Blog'} · ${new Date(p.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div>
+            <div class="read-next-card-title">${p.title}</div>
+          </a>
+        `).join('');
+      } else {
+        container.innerHTML = '';
+      }
+    }
+
+    function share(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      let shareUrl = '';
+      if (platform === 'twitter') shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+      if (platform === 'facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      if (platform === 'linkedin') shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+      window.open(shareUrl, '_blank');
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+
+    const menuBtn = document.querySelector('.menu-btn');
+    menuBtn.addEventListener('click', () => { menuBtn.classList.toggle('active'); });
+
+    loadPost();
+  </script>
+</body>
+</html>
